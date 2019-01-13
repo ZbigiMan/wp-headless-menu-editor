@@ -1,0 +1,23 @@
+._headless_dashboard_menu_editor {
+
+    div {
+        box-sizing: border-box;
+    }
+
+    .button {
+        height: auto;
+    }
+
+    label {
+        box-sizing: border-box;
+
+        &:before {
+            box-sizing: border-box;
+        }
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+}

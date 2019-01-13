@@ -1,0 +1,21 @@
+._headless_dashboard_menu_editor {
+
+    .ui {
+
+        &.label {
+            background: transparent;
+        }
+
+        &.grid {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+
+            .column:not(.row) {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+        }
+
+    }
+
+}

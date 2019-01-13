@@ -1,0 +1,17 @@
+.display-none {
+    display: none;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.flex {
+    display: flex;
+
+    .span {
+        display: block;
+        padding: 0.5rem;
+    }
+}

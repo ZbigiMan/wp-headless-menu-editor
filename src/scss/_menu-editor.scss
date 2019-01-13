@@ -1,0 +1,80 @@
+._headless_dashboard_menu_editor {
+
+    .menu-editor {
+
+        min-height: 200px;
+
+        #menu-editor-ul {
+            padding-left: $ul-margin-left;
+        }
+
+        ul {
+
+            ul {
+                margin-left: $ul-margin-left;
+            }
+        }
+
+        li {
+
+            &.menu-item {
+
+                cursor: move;
+
+                .menu-item--insert {
+                    display: block;
+                    max-width: 200px;
+                    min-width: 200px;
+                    font-size: 12px;
+                    line-height: 100%;
+                    height: 5px;
+                    margin: 3px 0;
+                    padding: 0;
+                    border-top: 0 none;
+                    opacity: 1;
+                    border-radius: 0.2rem;
+                    pointer-events: auto;
+                    opacity: 0;
+                    background: gray;
+
+                    &.hover {
+                        opacity: 1;
+                        background: green;
+                        transition: all 0.3s ease;
+                    }
+
+                    &.menu-item--insert-child {
+                        margin-left: $ul-margin-left;
+                    }
+
+                    &.menu-item--insert-after {
+                        margin-top: -8px;
+                    }
+                }
+
+                &.drag {
+                    position: absolute;
+                    z-index: 999;
+                    opacity: 0.85;
+
+                    .menu-item--insert {
+                        @extend .hidden;
+                    }
+                }
+
+                &.freeze {
+                    opacity: 0.5;
+
+                    .menu-item--insert {
+                        @extend .hidden;
+                    }
+                }
+            }
+        }
+    }
+
+    &.drag {
+        user-select: none;
+        cursor: move;
+    }
+}

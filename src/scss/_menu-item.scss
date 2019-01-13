@@ -1,0 +1,53 @@
+._headless_dashboard_menu_editor {
+
+    .menu-item {
+
+        margin: 0;
+        opacity: 1;
+
+        .menu-item-segment {
+
+            margin: 1px 0 0 0;
+            padding: 0;
+            z-index: 2;
+            display: table;
+
+            .menu-item-segment-content {
+
+                display: flex;
+
+                .menu-item-bar {
+                    max-width: 250px;
+                    min-width: 250px;
+                    margin: 0;
+                    display: block;
+                    padding: 0.4rem 0.4rem 0.4rem 0.8rem;
+                    font-weight: bold;
+
+                    &:hover {
+                        border-color: black;
+                    }
+                }
+
+                .label {
+                    height: auto;
+                    max-height: 1.5rem;
+                    min-width: 90px;
+                    border: 0 none;
+                    text-align: right;
+                    margin-right: 1rem;
+                }
+
+                .menu-item-toolbox {
+
+                    .ui.button {
+                        margin: 0;
+                        padding: 0.6rem 0.8rem;
+                        border-radius: 0;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
