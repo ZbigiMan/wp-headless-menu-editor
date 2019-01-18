@@ -1,8 +1,8 @@
 <?php
 namespace _MENU_EDITOR;
 
-require dirname(__FILE__) . '\..\models\menu-item.model.php';
-require dirname(__FILE__) . '\..\models\post-menu-item.model.php';
+require PLUGIN_DIR_PATH . '/includes/models/menu-item.model.php';
+require PLUGIN_DIR_PATH  . '/includes/models/post-menu-item.model.php';
 
 use _MODELS as _models;
 
@@ -29,25 +29,27 @@ class MenuEditor
 
     }
 
-    // Init menus data
-    public function init_menus_data()
-    {
-        $data = $this->get_initial_data();
-        $menus = $this->get_menus();
-
-        if (count($menus) === 0) {
-            $this->create_menu('Main Menu');
-        }
-
-        return true;
-    }
+   
 
     // Get initial data
     public function get_initial_data()
     {
+
+        $menus = $this->get_menus();
+
+        if (count($menus) === 0) {
+            $types = $this->get_posts_types();
+            $types = json_decode(json_encode($types), True);
+            $posts = $this->get_posts(['Page']);
+            $this->create_menu('Main Menu', $posts);
+            $menus = $this->get_menus();
+        }
+
+        print_r($menus);
+
         return (object) array(
             "wpajax" => array("url" => $this->get_ajaxurl()),
-            "menus" => $this->get_menus(),
+            "menus" => $menus,
             "posts_types" => $this->get_posts_types(),
         );
     }
@@ -58,19 +60,13 @@ class MenuEditor
     }
 
     // Create new menu
-    public function create_menu($menu_name)
+    public function create_menu($menu_name, $menu_data)
     {
 
         $menu_id = wp_create_nav_menu($menu_name);
+        $this->save_menu($menu_id, $menu_data);
 
-        wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-bar' => 'Site Menu',
-            'menu-item-type' => 'post_type',
-            'menu-item-object' => 'page',
-            'menu-item-object-id' => $page_id,
-            'menu-item-position' => 1,
-            'menu-item-status' => 'publish')
-        );
+        
     }
 
     // Get menus
@@ -131,33 +127,42 @@ class MenuEditor
             $types = $_POST["types"];
             $types = stripslashes($types);
             $types = json_decode($types, true);
-            $res = [];
+            
+            $posts = $this->get_posts($types);
+            
+            echo json_encode($posts);
+            wp_die();
+        }
+    }
 
-            if (sizeof($types) === 0) {
-                echo json_encode($res);
-                wp_die();
-            }
+    private function get_posts($types) 
+    {
+        $res = [];
 
-            $posts = get_posts([
-                'post_type' => $types,
-                'post_status' => 'publish',
-                'numberposts' => -1,
-                'order'    => 'ASC'
-              ]);
-
-              foreach ($posts as $post) {
-                $post->url = get_permalink($post);
-                $post_object = get_post_type_object($post->post_type);
-                $post->post_type_label = $post_object->labels->singular_name;
-                $post->description = $post_object->description;
-
-                $post_menu_item = new _models\PostMenuItem($post);
-                array_push($res, $post_menu_item->$model);
-              }
-
+        if (sizeof($types) === 0) {
             echo json_encode($res);
             wp_die();
         }
+
+        $posts = get_posts([
+            'post_type' => $types,
+            'post_status' => 'publish',
+            'numberposts' => -1,
+            'order'    => 'ASC'
+          ]);
+
+          foreach ($posts as $post) {
+            $post->url = get_permalink($post);
+            $post_object = get_post_type_object($post->post_type);
+            $post->post_type_label = $post_object->labels->singular_name;
+            $post->description = $post_object->description;
+
+            $post_menu_item = new _models\PostMenuItem($post);
+            array_push($res, $post_menu_item->$model);
+          }
+
+        return $res;
+
     }
 
     // Ajax save menu
@@ -170,22 +175,29 @@ class MenuEditor
             $menu_data = stripslashes($menu_data);
             $menu_data = json_decode($menu_data, true);
 
-            try {
-                foreach ($menu_data as $data) {
-                    $menu_item = new _models\MenuItem($data);
-                    wp_update_nav_menu_item(
-                        $menu_id,
-                        $data["db_id"],
-                        $menu_item->$model
-                    );
-                };
-                echo json_encode(wp_get_nav_menu_items($menu_id));
-                wp_die();
+            print_r($menu_data);
 
-            } catch (Exception $e) {
-                echo $e->getMessage();
-                wp_die();
-            }
+           $this->save_menu($menu_id, $menu_data);
+           wp_die();
         };
+    }
+
+    private function save_menu($menu_id, $menu_data)
+    {
+        try {
+            foreach ($menu_data as $data) {
+                $menu_item = new _models\MenuItem($data);
+                wp_update_nav_menu_item(
+                    $menu_id,
+                    $data["db_id"],
+                    $menu_item->$model
+                );
+            };
+            // echo json_encode(wp_get_nav_menu_items($menu_id));
+           
+
+        } catch (Exception $e) {
+            echo $e->getMessage();            
+        }
     }
 }

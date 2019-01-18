@@ -14,8 +14,9 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+define( 'PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ ) );
 
-require_once dirname(__FILE__) . '/includes/classes/menu_editor.class.php';
+require_once PLUGIN_DIR_PATH . '/includes/classes/menu_editor.class.php';
 
 use _MENU_EDITOR as _menu_editor;
 
@@ -81,12 +82,10 @@ class HeadlesDashboard
     }
 
     public function init_plugin()
-    {
-        if ($this->$menuEditor->init_menus_data()) {
-            $this->init_assets();
-        }
+    {        
+        $this->init_assets();        
 
-        require_once dirname(__FILE__) . '/includes/templates/menu_editor.template.php';
+        require_once PLUGIN_DIR_PATH. '/includes/templates/menu_editor.template.php';
     }
 }
 
