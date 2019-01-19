@@ -82,8 +82,8 @@ class HeadlesDashboard
     }
 
     public function init_plugin()
-    {        
-        $this->init_assets();        
+    {
+        $this->init_assets();
 
         require_once PLUGIN_DIR_PATH. '/includes/templates/menu_editor.template.php';
     }

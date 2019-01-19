@@ -2,7 +2,7 @@
 namespace _MENU_EDITOR;
 
 require PLUGIN_DIR_PATH . '/includes/models/menu-item.model.php';
-require PLUGIN_DIR_PATH  . '/includes/models/post-menu-item.model.php';
+require PLUGIN_DIR_PATH . '/includes/models/post-menu-item.model.php';
 
 use _MODELS as _models;
 
@@ -29,8 +29,6 @@ class MenuEditor
 
     }
 
-   
-
     // Get initial data
     public function get_initial_data()
     {
@@ -39,13 +37,11 @@ class MenuEditor
 
         if (count($menus) === 0) {
             $types = $this->get_posts_types();
-            $types = json_decode(json_encode($types), True);
+            $types = json_decode(json_encode($types), true);
             $posts = $this->get_posts(['Page']);
             $this->create_menu('Main Menu', $posts);
             $menus = $this->get_menus();
         }
-
-        print_r($menus);
 
         return (object) array(
             "wpajax" => array("url" => $this->get_ajaxurl()),
@@ -66,7 +62,6 @@ class MenuEditor
         $menu_id = wp_create_nav_menu($menu_name);
         $this->save_menu($menu_id, $menu_data);
 
-        
     }
 
     // Get menus
@@ -111,7 +106,7 @@ class MenuEditor
             $post_object = get_post_type_object($type);
             array_push($post_types_array, (object) [
                 'value' => $type,
-                'text' => $post_object->labels->singular_name
+                'text' => $post_object->labels->singular_name,
             ]);
         }
 
@@ -127,15 +122,14 @@ class MenuEditor
             $types = $_POST["types"];
             $types = stripslashes($types);
             $types = json_decode($types, true);
-            
             $posts = $this->get_posts($types);
-            
+
             echo json_encode($posts);
             wp_die();
         }
     }
 
-    private function get_posts($types) 
+    private function get_posts($types)
     {
         $res = [];
 
@@ -148,10 +142,10 @@ class MenuEditor
             'post_type' => $types,
             'post_status' => 'publish',
             'numberposts' => -1,
-            'order'    => 'ASC'
-          ]);
+            'order' => 'ASC',
+        ]);
 
-          foreach ($posts as $post) {
+        foreach ($posts as $post) {
             $post->url = get_permalink($post);
             $post_object = get_post_type_object($post->post_type);
             $post->post_type_label = $post_object->labels->singular_name;
@@ -159,7 +153,7 @@ class MenuEditor
 
             $post_menu_item = new _models\PostMenuItem($post);
             array_push($res, $post_menu_item->$model);
-          }
+        }
 
         return $res;
 
@@ -175,10 +169,8 @@ class MenuEditor
             $menu_data = stripslashes($menu_data);
             $menu_data = json_decode($menu_data, true);
 
-            print_r($menu_data);
-
-           $this->save_menu($menu_id, $menu_data);
-           wp_die();
+            $this->save_menu($menu_id, $menu_data);
+            wp_die();
         };
     }
 
@@ -193,11 +185,10 @@ class MenuEditor
                     $menu_item->$model
                 );
             };
-            // echo json_encode(wp_get_nav_menu_items($menu_id));
-           
+            echo json_encode(wp_get_nav_menu_items($menu_id));
 
         } catch (Exception $e) {
-            echo $e->getMessage();            
+            echo $e->getMessage();
         }
     }
 }
