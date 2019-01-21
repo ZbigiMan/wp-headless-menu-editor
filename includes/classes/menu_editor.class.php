@@ -38,7 +38,7 @@ class MenuEditor
         if (count($menus) === 0) {
             $types = $this->get_posts_types();
             $types = json_decode(json_encode($types), true);
-            $posts = $this->get_posts(['Page']);
+            $posts = $this->get_posts(['Page', 'Post']);
             $this->create_menu('Main Menu', $posts);
             $menus = $this->get_menus();
         }
