@@ -25,7 +25,7 @@ const getPostsLoadded = (data) => {
     }
 }
 
-const filterPosts = () => {
+export function filterPosts() {
     let posts = hidePostsFromCurrentMenu();
     posts = orderPosts(posts);
     return dispatch => {

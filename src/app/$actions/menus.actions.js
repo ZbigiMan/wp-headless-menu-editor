@@ -1,4 +1,5 @@
 import menusService from '../$services/menus.service';
+import { filterPosts } from './posts.actions';
 import * as types from '../$constants/menus-action-types';
 
 export function setMenus(data) {
@@ -35,7 +36,7 @@ const getMenuData = (menuId) => {
     return dispatch => {
         dispatch(getMenuDataStarted());
         menusService.getMenuData(menuId).then((res) => {
-            dispatch(getMenuDataSuccess(res));
+            dispatch(getMenuDataLoaded(res));
         });
     }
 }
@@ -43,6 +44,13 @@ const getMenuData = (menuId) => {
 const getMenuDataStarted = () => {
     return {
         type: types.GET_MENU_DATA_STARTED,
+    }
+}
+
+const getMenuDataLoaded = (data) => {
+    return dispatch => {
+        dispatch(getMenuDataSuccess(data));
+        dispatch(filterPosts());
     }
 }
 
