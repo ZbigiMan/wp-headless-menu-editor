@@ -33,7 +33,12 @@ export default function reducer(state = initialState, action) {
         case types.GET_POSTS_SUCCESS: {
             return { ...state,
                 postsLoading: false,
-                allPosts: action.playload,
+                allPosts: action.playload
+            }
+        }
+
+        case types.SET_CURRENT_POSTS: {
+            return { ...state,
                 currentPosts: action.playload
             }
         }
@@ -50,21 +55,21 @@ export default function reducer(state = initialState, action) {
                     currentPostsTypes: action.playload
                 };
             }
-        case types.SELECT_CURRENT_POSTS_ORDER:
+        case types.SET_CURRENT_POSTS_ORDER:
             {
                 return { ...state,
                     currentPostsOrder: action.playload
                 }
             }
 
-        case types.SWITCH_HIDE_POSTS_FROM_CURRENT_MENU:
+        case types.SET_HIDE_POSTS_FROM_CURRENT_MENU:
             {
                 return { ...state,
                     hidePostsFromCurrentMenu: !state.hidePostsFromCurrentMenu
                 }
             }
 
-        case types.SWITCH_POSTS_SORT:
+        case types.SET_POSTS_SORT:
             {
                 return { ...state,
                     postsSortUp: !state.postsSortUp

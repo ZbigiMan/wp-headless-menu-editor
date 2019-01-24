@@ -11,7 +11,7 @@ import { Segment, Dimmer, Loader, Label, Message } from 'semantic-ui-react'
 class PostsList extends React.Component {
 
     render () {
-        
+
         return (
             <Segment className='posts-list'>
                 {this.props.postsLoading &&

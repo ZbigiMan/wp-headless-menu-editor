@@ -28,9 +28,7 @@ export default class App extends React.Component {
   componentDidMount() {
     this.props.dispatch(setMenus(data.menus));
     this.props.dispatch(selectMenu(data.menus[0].term_id));
-    this.props.dispatch(setPostsTypes(data.posts_types));  
-    console.log('currentPostsTypes', this.props.currentPostsTypes)  
-    
+    this.props.dispatch(setPostsTypes(data.posts_types));
   }
 
   render() {
