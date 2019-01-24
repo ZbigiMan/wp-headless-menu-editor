@@ -3,7 +3,7 @@ import { Grid } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 
 import { setMenus, selectMenu } from './$actions/menus.actions';
-import { setPostsTypes, setCurrentPostsTypes } from './$actions/posts.actions';
+import { getPosts, setPostsTypes } from './$actions/posts.actions';
 
 import store from './$store/store';
 import config from './config';
@@ -15,7 +15,7 @@ import PostsList from './components/posts-list.component';
 
 @connect((store) => {
   return {
-    menus: store.menus.menus
+    currentPostsTypes: store.posts.currentPostsTypes
   }
 })
 export default class App extends React.Component {
@@ -23,28 +23,14 @@ export default class App extends React.Component {
   constructor() {
     super();
     config.apiUrl = data.wpajax.url;
-
-
-
-  //   store.setInitialState({
-  //     config: {
-  //       apiUrl: data.wpajax.url
-  //     },
-  //     data: {
-  //       menus: data.menus.map(menu => {
-  //         return new Menu(menu)
-  //     }),
-  //       currentMenuId: data.menus[0].term_id,
-  //       postsTypes: data.posts_types
-  //     }
-  //   });
   }
 
   componentDidMount() {
     this.props.dispatch(setMenus(data.menus));
     this.props.dispatch(selectMenu(data.menus[0].term_id));
-    this.props.dispatch(setPostsTypes(data.posts_types));
-    this.props.dispatch(setCurrentPostsTypes(data.posts_types));
+    this.props.dispatch(setPostsTypes(data.posts_types));  
+    console.log('currentPostsTypes', this.props.currentPostsTypes)  
+    
   }
 
   render() {
@@ -58,7 +44,7 @@ export default class App extends React.Component {
           </Grid.Column>
           <Grid.Column width={8}>
             <PostsSelect />
-            {/* <PostsList /> */}
+            <PostsList />
           </Grid.Column>
         </Grid>
       </div>

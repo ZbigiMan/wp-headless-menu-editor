@@ -1,9 +1,10 @@
 import * as types from '../$constants/posts-action-types';
+import store from '../store';
 
 const initialState = {
     postsTypes: [],
     currentPostsTypes: [],
-    postsFilters: [{
+    postsOrder: [{
             value: 'post_date',
             text: 'Date',
         },
@@ -12,38 +13,47 @@ const initialState = {
             text: 'Title',
         }
     ],
-    currentPostsFilter: 'post_date',
+    currentPostsOrder: 'post_date',
     postsSortUp: false,
     hidePostsFromCurrentMenu: false,
     allPosts: [],
     currentPosts: [],
-    currentPostsLoading: false
+    postsLoading: false
 }
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case types.SET_POSTS_TYPES:
+
+        case types.GET_POSTS_STARTED: {
+            return { ...state,
+                postsLoading: true
+            }
+        }
+
+        case types.GET_POSTS_SUCCESS: {
+            return { ...state,
+                postsLoading: false,
+                allPosts: action.playload,
+                currentPosts: action.playload
+            }
+        }
+
+        case types.SET_POSTS_TYPES_SUCCESS:
             {
                 return { ...state,
                     postsTypes: action.playload
                 };
             }
-        case types.SET_CURRENT_POSTS_TYPES:
+        case types.UPDATE_CURRENT_POSTS_TYPES_SUCCESS:
             {
                 return { ...state,
                     currentPostsTypes: action.playload
                 };
             }
-        case types.UPDATE_CURRENT_POSTS_TYPES:
+        case types.SELECT_CURRENT_POSTS_ORDER:
             {
                 return { ...state,
-                    currentPostsTypes: action.playload
-                };
-            }
-        case types.SELECT_CURRENTS_POSTS_FILTER:
-            {
-                return { ...state,
-                    currentPostsFilter: action.playload
+                    currentPostsOrder: action.playload
                 }
             }
 

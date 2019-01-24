@@ -1,54 +1,33 @@
 import React from 'react';
-import { reaction } from 'mobx';
+import { connect } from 'react-redux';
 import { Segment, Dimmer, Loader, Label, Message } from 'semantic-ui-react'
-import store from '../$store/store';
 
+@connect((store) => {
+    return {
+        postsLoading: store.posts.postsLoading,
+        currentPosts: store.posts.currentPosts
+    };
+})
 class PostsList extends React.Component {
 
-    constructor() {
-        super();
-        this.state = store.getState();
-        this.init();
-    }
-
-    init() {
-        store.getPosts(this.state.data.currentPostsTypes);
-
-        reaction(
-            () => store.state.data.currentPostsLoading,
-            () => {
-                this.setState(store.getState());
-                this.forceUpdate();
-            }
-        );
-
-        reaction(
-            () => store.state.data.currentPosts,
-            () => {
-                this.setState(store.getState());
-                this.forceUpdate();
-            }
-        );
-    }
-
-
     render () {
+        
         return (
             <Segment className='posts-list'>
-                {this.state.data.currentPostsLoading &&
+                {this.props.postsLoading &&
                     <ul className='postsList'>
                         <Dimmer active inverted>
                             <Loader inverted></Loader>
                         </Dimmer>
                     </ul>
                 }
-                {this.state.data.currentPosts && this.state.data.currentPosts.length === 0 &&
+                {this.props.currentPosts && this.props.currentPosts.length === 0 &&
                     <Message content='Nothing to show, please change the select criteria.'
                     />
                 }
-                {this.state.data.currentPosts && this.state.data.currentPosts.length > 0 && !this.state.data.currentPostsLoading &&
+                {this.props.currentPosts && this.props.currentPosts.length > 0 && !this.props.currentPostsLoading &&
                 <ul className='postsList'>
-                    {this.state.data.currentPosts.map(item =>
+                    {this.props.currentPosts.map(item =>
                         <li className="menu-item"
                             key={'li-menu-item-segment' + item.object_id}
                         >

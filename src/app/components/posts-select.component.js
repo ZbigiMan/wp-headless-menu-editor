@@ -4,7 +4,7 @@ import { reaction } from 'mobx';
 import { Grid, Segment, Divider, Dropdown, Label, Button, Icon, Checkbox } from 'semantic-ui-react'
 import {
     updateCurrentPostsTypes,
-    selectCurrentPostsFilter,
+    selectCurrentPostsOrder,
     switchHidePostsFromCurrentMenu,
     switchPostsSort
 } from '../$actions/posts.actions'
@@ -16,62 +16,20 @@ import store from '../$store/store';
         currentMenuId: store.menus.currentMenuId,
         postsTypes: store.posts.postsTypes,
         currentPostsTypes: store.posts.currentPostsTypes,
-        postsFilters: store.posts.postsFilters,
-        currentPostsFilter: store.posts.currentPostsFilter,
+        postsOrder: store.posts.postsOrder,
+        currentPostsOrder: store.posts.currentPostsOrder,
         hidePostsFromCurrentMenu: store.posts.hidePostsFromCurrentMenu,
         postsSortUp: store.posts.postsSortUp
     }
 })
 export default class PostsSelect extends React.Component {
 
-    // init() {
-    //     this.state = store.getState();
-    //     console.log(this.props.postsSortUp);
-
-    //     reaction(
-    //         () => store.state.data.currentPostsTypes,
-    //         () => {
-    //             this.setState(store.getState());
-    //             this.forceUpdate();
-    //         });
-
-    //     reaction(
-    //         () => store.state.data.currentPostsFilter,
-    //         () => {
-    //             this.setState(store.getState());
-    //             this.forceUpdate();
-    //         });
-
-    //     reaction(
-    //         () => store.state.data.postsSortUp,
-    //         () => {
-    //             this.setState(store.getState());
-    //             this.forceUpdate();
-    //         });
-
-    //     reaction(
-    //         () => store.state.data.currentMenuId,
-    //         () => {
-    //             this.setState(store.getState());
-    //             this.forceUpdate();
-    //         }
-    //     )
-
-    //     reaction(
-    //         () => store.state.data.hidePostsFromCurrentMenu,
-    //         () => {
-    //             this.setState(store.getState());
-    //             this.forceUpdate();
-    //         }
-    //     )
-    // }
-
     selectPostsType (e, data) {
         this.props.dispatch(updateCurrentPostsTypes(data.value));
     }
 
-    selectPostsFilter (e, data) {
-        this.props.dispatch(selectCurrentPostsFilter(data.value));
+    selectPostsOrder (e, data) {
+        this.props.dispatch(selectCurrentPostsOrder(data.value));
     }
 
     switchPostsSort(e, data) {
@@ -120,9 +78,9 @@ export default class PostsSelect extends React.Component {
                             <Label>Order by:</Label>
                             <Dropdown selection
                                       fluid
-                                      options={this.props.postsFilters}
-                                      value = {this.props.currentPostsFilter}
-                                      onChange={this.selectPostsFilter.bind(this)}
+                                      options={this.props.postsOrder}
+                                      value = {this.props.currentPostsOrder}
+                                      onChange={this.selectPostsOrder.bind(this)}
                                       placeholder="Order by:">
                             </Dropdown>
                         </Grid.Column>

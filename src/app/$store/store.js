@@ -26,7 +26,7 @@ class Store {
         this.state.data.currentPostsTypes = initialState.data.postsTypes.map((item) => {
             return item.value;
         });
-        this.state.data.postsFilters = [
+        this.state.data.postsOrder = [
             {
                 value: 'post_date',
                 text: 'Date',
@@ -40,7 +40,7 @@ class Store {
                 text: 'Title',
             }
         ];
-        this.state.data.currentPostsFilter = 'post_date';
+        this.state.data.currentPostsOrder = 'post_date';
         this.state.data.postsSortUp = false;
         this.state.data.hidePostsFromCurrentMenu = false;
         this.state.data.allPosts = [];
@@ -60,15 +60,15 @@ class Store {
     }
 
     @action
-    selectPostsFilter(data) {
-        this.state.data.currentPostsFilter = data;
+    selectPostsOrder(data) {
+        this.state.data.currentPostsOrder = data;
         this.state.data.currentPosts = this.sortPosts();
     }
 
     @action
     sortPosts() {
         const state = this.getState();
-        const posts = _.sortBy(state.data.currentPosts, ['post', state.data.currentPostsFilter]);
+        const posts = _.sortBy(state.data.currentPosts, ['post', state.data.currentPostsOrder]);
         if (!this.state.data.postsSortUp) {
             posts.reverse();
         }
