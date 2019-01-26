@@ -28,7 +28,8 @@ class Ajax {
             _parsedData.append(key, _data[key]);
         });
 
-        return new Promise(resolve => {fetch(_url, {
+        return new Promise(resolve => {
+            fetch(_url, {
                 method: 'POST',
                 body: _parsedData,
                 headers: _headers

@@ -9,16 +9,16 @@ class PostsService {
 
     getPosts(types) {
         return this.$ajax.post({
-                url: config.apiUrl,
-                data: {
-                    action: 'get_posts',
-                    types: JSON.stringify(types)
-                }
-            }).then(res => {
-                return res.map(item => {
-                    return new MenuItem(item);
-                })
+            url: config.apiUrl,
+            data: {
+                action: 'get_posts',
+                types: JSON.stringify(types)
+            }
+        }).then(res => {
+            return res.map(item => {
+                return new MenuItem(item);
             })
+        })
     }
 }
 

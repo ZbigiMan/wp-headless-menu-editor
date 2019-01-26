@@ -24,11 +24,11 @@ import store from '../$store/store';
 })
 export default class PostsSelect extends React.Component {
 
-    selectPostsType (e, data) {
+    selectPostsType(e, data) {
         this.props.dispatch(updateCurrentPostsTypes(data.value));
     }
 
-    selectPostsOrder (e, data) {
+    selectPostsOrder(e, data) {
         this.props.dispatch(selectCurrentPostsOrder(data.value));
     }
 
@@ -49,16 +49,16 @@ export default class PostsSelect extends React.Component {
                             <h5>Select posts</h5>
                         </Grid.Column>
                         <Grid.Column width={6} textAlign='right'>
-                        {this.props.menus.length > 0 &&
-                            < Checkbox
-                                checked={this.props.hidePostsFromCurrentMenu}
-                                onChange = {this.switchHidePostsFromCurrentManu.bind(this)}
-                                label = {'Not in "' + this.props.menus.find(menu => {
-                                            return menu.term_id === this.props.currentMenuId;
-                                        }).name + '"'
+                            {this.props.menus.length > 0 &&
+                                < Checkbox
+                                    checked={this.props.hidePostsFromCurrentMenu}
+                                    onChange={this.switchHidePostsFromCurrentManu.bind(this)}
+                                    label={'Not in "' + this.props.menus.find(menu => {
+                                        return menu.term_id === this.props.currentMenuId;
+                                    }).name + '"'
                                     }
-                            />
-                        }
+                                />
+                            }
                         </Grid.Column>
                     </Grid>
                     <Divider></Divider>
@@ -66,22 +66,22 @@ export default class PostsSelect extends React.Component {
                         <Grid.Column width={8}>
                             <Label>Select Type:</Label>
                             <Dropdown selection
-                                      fluid
-                                      multiple={true}
-                                      options={this.props.postsTypes}
-                                      onChange={this.selectPostsType.bind(this)}
-                                      value={this.props.currentPostsTypes}
-                                      placeholder="Select type">
+                                fluid
+                                multiple={true}
+                                options={this.props.postsTypes}
+                                onChange={this.selectPostsType.bind(this)}
+                                value={this.props.currentPostsTypes}
+                                placeholder="Select type">
                             </Dropdown>
                         </Grid.Column>
                         <Grid.Column width={6}>
                             <Label>Order by:</Label>
                             <Dropdown selection
-                                      fluid
-                                      options={this.props.postsOrder}
-                                      value = {this.props.currentPostsOrder}
-                                      onChange={this.selectPostsOrder.bind(this)}
-                                      placeholder="Order by:">
+                                fluid
+                                options={this.props.postsOrder}
+                                value={this.props.currentPostsOrder}
+                                onChange={this.selectPostsOrder.bind(this)}
+                                placeholder="Order by:">
                             </Dropdown>
                         </Grid.Column>
                         <Grid.Column width={2} textAlign='center'>

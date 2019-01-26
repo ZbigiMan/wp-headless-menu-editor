@@ -31,7 +31,7 @@ export default class MenuEditor extends React.Component {
     }
 
     setReferences() {
-        if(!this.props.currentMenuData) {
+        if (!this.props.currentMenuData) {
             return;
         }
         this._refs = [];
@@ -71,91 +71,91 @@ export default class MenuEditor extends React.Component {
     }
 
     render() {
-        this.stateV ++;
+        this.stateV++;
         this.setReferences();
         return (
             <Segment raised key={'v' + this.stateV} className="menu-editor">
-            {this.props.currentMenuId &&
-              <h5>Site Tree ({ this.props.menus.find(menu => {
-                  return menu.term_id === this.props.currentMenuId;
-              }).name})</h5>
-            }
-              <Divider />
-              {this.props.currentMenuDataLoading &&
-                <Dimmer active inverted>
-                    <Loader inverted></Loader>
-                </Dimmer>
+                {this.props.currentMenuId &&
+                    <h5>Site Tree ({this.props.menus.find(menu => {
+                        return menu.term_id === this.props.currentMenuId;
+                    }).name})</h5>
+                }
+                <Divider />
+                {this.props.currentMenuDataLoading &&
+                    <Dimmer active inverted>
+                        <Loader inverted></Loader>
+                    </Dimmer>
 
-              }
-              {!this.props.currentMenuDataLoading && this._refs &&
-              <ul id="menu-editor-ul" key="menu-editor-ul">
-                {this._refs.map((item, index) =>
-                    <React.Fragment key={'fragment' + item.item.ID}>
-                    { index===0 &&
-                        <li className="menu-item"
-                            ref={item['li-insert-before-' + item.item.ID].ref}
-                            id={'li-insert-before-' + item.item.ID}
-                            key={'li-insert-before-' + item.item.ID}
-                        >
-                            <span className="menu-item--insert menu-item--insert-before"
-                                ref={item['span-insert-before-' + item.item.ID].ref}
-                                id={'span-insert-before-' + item.item.ID}
-                                key={'span-insert-before-' + item.item.ID}
-                                data-el={'li-' + item.item.ID}
-                                data-id={item.item.ID}
-                            ></span>
-                        </li>
-                    }
-                        <li className="menu-item menu-item-main"
-                            ref={item['li-' + item.item.ID].ref}
-                            id={'li-' + item.item.ID}
-                            key={'li-' + item.item.ID}
-                            data-id={item.item.ID}
-                        >
-                            <Segment className="menu-item-segment"
-                                     secondary
-                                     id={'menu-item-segment' + item.item.ID}
-                                     key={'menu-item-segment' + item.item.ID}
+                }
+                {!this.props.currentMenuDataLoading && this._refs &&
+                    <ul id="menu-editor-ul" key="menu-editor-ul">
+                        {this._refs.map((item, index) =>
+                            <React.Fragment key={'fragment' + item.item.ID}>
+                                {index === 0 &&
+                                    <li className="menu-item"
+                                        ref={item['li-insert-before-' + item.item.ID].ref}
+                                        id={'li-insert-before-' + item.item.ID}
+                                        key={'li-insert-before-' + item.item.ID}
+                                    >
+                                        <span className="menu-item--insert menu-item--insert-before"
+                                            ref={item['span-insert-before-' + item.item.ID].ref}
+                                            id={'span-insert-before-' + item.item.ID}
+                                            key={'span-insert-before-' + item.item.ID}
+                                            data-el={'li-' + item.item.ID}
+                                            data-id={item.item.ID}
+                                        ></span>
+                                    </li>
+                                }
+                                <li className="menu-item menu-item-main"
+                                    ref={item['li-' + item.item.ID].ref}
+                                    id={'li-' + item.item.ID}
+                                    key={'li-' + item.item.ID}
+                                    data-id={item.item.ID}
                                 >
-                                <div className="menu-item-segment-content"
-                                    id={'menu-item-segment-content' + item.item.ID}
-                                    key={'menu-item-segment-content' + item.item.ID}
+                                    <Segment className="menu-item-segment"
+                                        secondary
+                                        id={'menu-item-segment' + item.item.ID}
+                                        key={'menu-item-segment' + item.item.ID}
+                                    >
+                                        <div className="menu-item-segment-content"
+                                            id={'menu-item-segment-content' + item.item.ID}
+                                            key={'menu-item-segment-content' + item.item.ID}
+                                        >
+                                            <span className="menu-item-bar">{item.item.title}</span>
+                                            <MenuItemToolBox
+                                                itemId={item.item.ID}
+                                                key={'MenuItemToolBox' + item.item.ID}
+                                            />
+                                        </div>
+                                    </Segment>
+                                    <span className="menu-item--insert menu-item--insert-child"
+                                        ref={item['span-insert-child-' + item.item.ID].ref}
+                                        id={'span-insert-child-' + item.item.ID}
+                                        key={'span-insert-child-' + item.item.ID}
+                                        data-el={'li-' + item.item.ID}
+                                    ></span>
+                                    <ul ref={item['ul-' + item.item.ID].ref}
+                                        id={'ul-' + item.item.ID}
+                                        key={'ul-' + item.item.ID}
+                                        data-id={item.item.ID}
+                                    >
+                                    </ul>
+                                </li>
+                                <li className="menu-item"
+                                    ref={item['li-insert-after-' + item.item.ID].ref}
+                                    id={'li-insert-after-' + item.item.ID}
+                                    key={'li-insert-after-' + item.item.ID}
                                 >
-                                    <span className="menu-item-bar">{item.item.title}</span>
-                                    <MenuItemToolBox
-                                        itemId={item.item.ID}
-                                        key={'MenuItemToolBox' + item.item.ID}
-                                    />
-                                </div>
-                            </Segment>
-                            <span className="menu-item--insert menu-item--insert-child"
-                                ref={item['span-insert-child-' + item.item.ID].ref}
-                                id={'span-insert-child-' + item.item.ID}
-                                key={'span-insert-child-' + item.item.ID}
-                                data-el={'li-' + item.item.ID}
-                            ></span>
-                            <ul ref={item['ul-' + item.item.ID].ref}
-                                id={'ul-' + item.item.ID}
-                                key={'ul-' + item.item.ID}
-                                data-id={item.item.ID}
-                            >
-                            </ul>
-                        </li>
-                        <li className="menu-item"
-                            ref={item['li-insert-after-' + item.item.ID].ref}
-                            id={'li-insert-after-' + item.item.ID}
-                            key={'li-insert-after-' + item.item.ID}
-                        >
-                            <span className="menu-item--insert menu-item--insert-after"
-                                ref={item['span-insert-after-' + item.item.ID].ref}
-                                id={'span-insert-after-' + item.item.ID}
-                                key={'span-insert-after-' + item.item.ID}
-                                data-el={'li-' + item.item.ID}
-                                data-id={item.item.ID}
-                            ></span>
-                        </li>
-                    </React.Fragment>)}
-                </ul>}
+                                    <span className="menu-item--insert menu-item--insert-after"
+                                        ref={item['span-insert-after-' + item.item.ID].ref}
+                                        id={'span-insert-after-' + item.item.ID}
+                                        key={'span-insert-after-' + item.item.ID}
+                                        data-el={'li-' + item.item.ID}
+                                        data-id={item.item.ID}
+                                    ></span>
+                                </li>
+                            </React.Fragment>)}
+                    </ul>}
                 <EventListener target={document} onMouseDownCapture={this.handleMouseDown.bind(this)} />
                 <EventListener target={document} onMouseMoveCapture={this.handleMouseMove.bind(this)} />
                 <EventListener target={document} onMouseUpCapture={this.handleMouseUp.bind(this)} />
@@ -220,11 +220,11 @@ export default class MenuEditor extends React.Component {
         let elRect = el.getBoundingClientRect();
 
         this.hitted = this.hitTest({
-                top: elRect.top,
-                left: elRect.left,
-                width: elRect.width,
-                height: 32
-            },
+            top: elRect.top,
+            left: elRect.left,
+            width: elRect.width,
+            height: 32
+        },
             this.getElementDOM('.menu-item--insert')
         );
 
@@ -426,7 +426,7 @@ export default class MenuEditor extends React.Component {
             elements = [elements];
         }
 
-        elements.forEach(function (el) {
+        elements.forEach(function(el) {
             if (el.classList)
                 el.classList.add(className)
             else if (!this.hasClass(el, className)) el.className += " " + className
@@ -438,7 +438,7 @@ export default class MenuEditor extends React.Component {
             elements = [elements];
         }
 
-        elements.forEach(function (el) {
+        elements.forEach(function(el) {
             if (el.classList)
                 el.classList.remove(className)
             else if (this.hasClass(el, className)) {

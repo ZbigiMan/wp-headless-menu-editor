@@ -1,4 +1,4 @@
-import { setMenus}  from './menus.actions';
+import { setMenus } from './menus.actions';
 import menusMocs from '../mocs/mocs';
 import * as types from '../$constants/menus-action-types';
 import Menu from '../$models/menu.model';

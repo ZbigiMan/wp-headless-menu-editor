@@ -52,10 +52,10 @@ const hidePostsFromCurrentMenu = () => {
 const orderPosts = (posts) => {
     const state = store.getState();
     posts = _.sortBy(posts, ['post', state.posts.currentPostsOrder]);
-        if (!state.posts.postsSortUp) {
-            posts.reverse();
-        }
-        return posts;
+    if (!state.posts.postsSortUp) {
+        posts.reverse();
+    }
+    return posts;
 }
 
 const getPostsSuccess = (data) => {

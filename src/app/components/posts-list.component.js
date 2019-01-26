@@ -10,7 +10,7 @@ import { Segment, Dimmer, Loader, Label, Message } from 'semantic-ui-react'
 })
 class PostsList extends React.Component {
 
-    render () {
+    render() {
 
         return (
             <Segment className='posts-list'>
@@ -26,29 +26,29 @@ class PostsList extends React.Component {
                     />
                 }
                 {this.props.currentPosts && this.props.currentPosts.length > 0 && !this.props.currentPostsLoading &&
-                <ul className='postsList'>
-                    {this.props.currentPosts.map(item =>
-                        <li className="menu-item"
-                            key={'li-menu-item-segment' + item.object_id}
-                        >
-                            <Segment className="menu-item-segment"
-                                        object_id={'menu-item-segment' + item.object_id}
-                                        key={'menu-item-segment' + item.object_id}
+                    <ul className='postsList'>
+                        {this.props.currentPosts.map(item =>
+                            <li className="menu-item"
+                                key={'li-menu-item-segment' + item.object_id}
+                            >
+                                <Segment className="menu-item-segment"
+                                    object_id={'menu-item-segment' + item.object_id}
+                                    key={'menu-item-segment' + item.object_id}
                                 >
-                                <div className="menu-item-segment-content"
+                                    <div className="menu-item-segment-content"
                                         object_id={'menu-item-segment-content' + item.object_id}
                                         key={'menu-item-segment-content' + item.object_id}
-                                >
-                                    <span className="menu-item-bar">{item.title}</span>
-                                    <Label basic size='tiny'>
-                                        {item.type_label}
-                                    </Label>
+                                    >
+                                        <span className="menu-item-bar">{item.title}</span>
+                                        <Label basic size='tiny'>
+                                            {item.type_label}
+                                        </Label>
 
-                                </div>
-                            </Segment>
-                        </li>
-                    )}
-                </ul>}
+                                    </div>
+                                </Segment>
+                            </li>
+                        )}
+                    </ul>}
             </Segment>
         );
     }

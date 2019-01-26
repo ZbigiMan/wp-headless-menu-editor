@@ -13,8 +13,8 @@ let documentReady = new Promise(
 documentReady.then(() => {
     const root = document.querySelector('#root_headless_dashboard_menu_editor');
     render(
-    <Provider store={store}>
-        < App/>
-    </Provider>,
-    root);
+        <Provider store={store}>
+            < App />
+        </Provider>,
+        root);
 });
