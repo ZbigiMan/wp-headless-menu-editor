@@ -3,6 +3,8 @@ import menusMocs from '../mocs/mocs'
 import * as types from '../$constants/menus-action-types'
 import Menu from '../$models/menu.model'
 
+/* global describe it expect */
+
 describe('Action: setMenus', () => {
   const data = menusMocs
   it('should return ' + types.SET_MENUS + ' action', () => {

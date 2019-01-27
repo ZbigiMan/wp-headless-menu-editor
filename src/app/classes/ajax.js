@@ -1,45 +1,44 @@
+/* global FormData fetch */
 class Ajax {
+  constructor () {
+    this.config = {
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      warnings: {
+        no_url_or_data: 'No url or data.'
+      }
+    }
+  }
 
-    constructor() {
+  post (options) {
+    let _url = options.url
+    let _data = options.data
 
-        this.config = {
-            headers: {
-                "X-Requested-With": "XMLHttpRequest"
-            },
-            warnings: {
-                no_url_or_data: 'No url or data.'
-            }
-        };
+    if (!_url || !_data) {
+      console.warn('Ajax.post:', this.config.warnings.no_url_or_data)
+      return
     }
 
-    post(options) {
-        let _url = options.url;
-        let _data = options.data;
+    let _parsedData = new FormData()
+    let _headers = options.headers || this.config.headers
 
-        if (!_url || !_data) {
-            console.warn('Ajax.post:', this.config.warnings.no_url_or_data);
-            return;
-        }
+    Object.keys(_data).forEach((key) => {
+      _parsedData.append(key, _data[key])
+    })
 
-        let _parsedData = new FormData();
-        let _headers = options.headers || this.config.headers;
-
-        Object.keys(_data).forEach((key) => {
-            _parsedData.append(key, _data[key]);
-        });
-
-        return new Promise(resolve => {
-            fetch(_url, {
-                method: 'POST',
-                body: _parsedData,
-                headers: _headers
-            })
-            .then(res => {
-                resolve(res.json());
-            })
-            .catch(error => console.error('Error:', error));
-        });
-    }
+    return new Promise(resolve => {
+      fetch(_url, {
+        method: 'POST',
+        body: _parsedData,
+        headers: _headers
+      })
+        .then(res => {
+          resolve(res.json())
+        })
+        .catch(error => console.error('Error:', error))
+    })
+  }
 }
 
-export default Ajax;
+export default Ajax
