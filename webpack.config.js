@@ -22,23 +22,8 @@ module.exports = [{
     rules: [
       {
         use: [
-          {
-            loader: 'standard-loader',
-            options: {
-              error: false,
-              snazzy: true,
-              parser: 'babel-eslint'
-            }
-          },
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                '@babel/react',
-                '@babel/env'
-              ]
-            }
-          }
+          'eslint-loader',
+          'babel-loader'
         ]
       }
     ]

@@ -235,7 +235,6 @@ class MenuEditor extends React.Component {
     },
     this.getElementDOM('.menu-item--insert')
     )
-
     this.removeClass(this.getElementDOM('.menu-item--insert'), 'hover')
     this.insertHere = null
 
@@ -461,7 +460,13 @@ class MenuEditor extends React.Component {
     dist.sort((a, b) => {
       return a - b
     })
-    const result = els.filter(el => { el.dist = dist[0] })
+
+    const result = els.filter(el => {
+      if (el.dist === dist[0]) {
+        return el
+      }
+    })
+
     if (result.length > 0) {
       return result[0].el
     }
@@ -517,7 +522,7 @@ class MenuEditor extends React.Component {
           const bWidth = Math.round(itemB.width)
 
           if ((bTop >= aTop && bTop <= aTop + aHeight) &&
-                        (aLeft >= bLeft && aLeft <= bLeft + bWidth)
+            (aLeft >= bLeft && aLeft <= bLeft + bWidth)
           ) {
             hitted.push(itemB)
           }
