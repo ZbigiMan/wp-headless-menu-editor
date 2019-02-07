@@ -28586,6 +28586,9 @@ body.pushable > .pusher {
         font-weight: bold; }
         ._headless_dashboard_menu_editor .menu-item .menu-item-segment .menu-item-segment-content .menu-item-bar:hover {
           border-color: black; }
+        ._headless_dashboard_menu_editor .menu-item .menu-item-segment .menu-item-segment-content .menu-item-bar div.label {
+          float: right;
+          margin-right: 0; }
       ._headless_dashboard_menu_editor .menu-item .menu-item-segment .menu-item-segment-content .label {
         height: auto;
         max-height: 1.5rem;

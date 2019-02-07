@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import EventListener from 'react-event-listener'
-import { Segment, Divider, Dimmer, Loader } from 'semantic-ui-react'
+import { Segment, Label, Divider, Dimmer, Loader } from 'semantic-ui-react'
 import MenuItemToolBox from './menu-item-toolbox.component'
 import { saveMenuData } from '../$actions/menus.actions'
 
@@ -127,7 +127,13 @@ class MenuEditor extends React.Component {
                       id={'menu-item-segment-content' + item.item.ID}
                       key={'menu-item-segment-content' + item.item.ID}
                     >
-                      <span className='menu-item-bar'>{item.item.title}</span>
+                      <span className='menu-item-bar'>
+                        {item.item.title}
+                        <Label basic size='tiny'>
+                          {item.item.type_label}
+                        </Label>
+                      </span>
+
                       <MenuItemToolBox
                         itemId={item.item.ID}
                         key={'MenuItemToolBox' + item.item.ID}
