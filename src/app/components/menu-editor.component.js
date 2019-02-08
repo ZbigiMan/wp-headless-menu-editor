@@ -13,7 +13,8 @@ import { saveMenuData } from '../$actions/menus.actions'
     menus: store.menus.menus,
     currentMenuId: store.menus.currentMenuId,
     currentMenuDataLoading: store.menus.currentMenuDataLoading,
-    currentMenuData: store.menus.currentMenuData
+    currentMenuData: store.menus.currentMenuData,
+    postTypes: store.posts.postsTypes
   }
 })
 class MenuEditor extends React.Component {
@@ -73,6 +74,7 @@ class MenuEditor extends React.Component {
   render () {
     this.stateV++
     this.setReferences()
+
     return (
       <Segment raised key={'v' + this.stateV} className='menu-editor'>
         {this.props.currentMenuId &&
@@ -130,7 +132,9 @@ class MenuEditor extends React.Component {
                       <span className='menu-item-bar'>
                         {item.item.title}
                         <Label basic size='tiny'>
-                          {item.item.type_label}
+                          {this.props.postTypes.find(type => {
+                            return type.value === item.item.object
+                          }).text}
                         </Label>
                       </span>
 
