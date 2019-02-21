@@ -1,25 +1,17 @@
 ._headless_dashboard_menu_editor {
 
     .posts-list {
+        display: flex;
+        justify-content: center;
         min-height: 200px;
-
+ 
         .menu-item {
+            display: flex;
             margin-bottom: 0.375rem;
 
             .menu-item-segment {
-
-                .menu-item-segment-content {
-
-                    .menu-item-bar {
-                        min-width: 180px;
-                    }
-                }
-
+                margin-right: 0.2rem;  
             }
-
-
         }
-
     }
-
 }

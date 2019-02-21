@@ -131,13 +131,12 @@ class MenuEditor extends React.Component {
                     >
                       <span className='menu-item-bar'>
                         {item.item.title}
-                        <Label basic size='tiny'>
-                          {this.props.postTypes.find(type => {
-                            return type.value === item.item.object
-                          }).text}
-                        </Label>
                       </span>
-
+                      <Label basic size='tiny'>
+                        {this.props.postTypes.find(type => {
+                          return type.value === item.item.object
+                        }).text}
+                      </Label>
                       <MenuItemToolBox
                         itemId={item.item.ID}
                         key={'MenuItemToolBox' + item.item.ID}

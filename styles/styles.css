@@ -28578,8 +28578,8 @@ body.pushable > .pusher {
     ._headless_dashboard_menu_editor .menu-item .menu-item-segment .menu-item-segment-content {
       display: flex; }
       ._headless_dashboard_menu_editor .menu-item .menu-item-segment .menu-item-segment-content .menu-item-bar {
-        max-width: 250px;
-        min-width: 250px;
+        max-width: 170px;
+        min-width: 170px;
         margin: 0;
         display: block;
         padding: 0.4rem 0.4rem 0.4rem 0.8rem;
@@ -28649,8 +28649,11 @@ body.pushable > .pusher {
   cursor: move; }
 
 ._headless_dashboard_menu_editor .posts-list {
+  display: flex;
+  justify-content: center;
   min-height: 200px; }
   ._headless_dashboard_menu_editor .posts-list .menu-item {
+    display: flex;
     margin-bottom: 0.375rem; }
-    ._headless_dashboard_menu_editor .posts-list .menu-item .menu-item-segment .menu-item-segment-content .menu-item-bar {
-      min-width: 180px; }
+    ._headless_dashboard_menu_editor .posts-list .menu-item .menu-item-segment {
+      margin-right: 0.2rem; }

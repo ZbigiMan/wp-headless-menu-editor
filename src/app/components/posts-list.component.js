@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Segment, Dimmer, Loader, Label, Message } from 'semantic-ui-react'
+import { Segment, Dimmer, Loader, Label, Message, Button } from 'semantic-ui-react'
 
 @connect((store) => {
   return {
@@ -13,7 +13,7 @@ class PostsList extends React.Component {
     return (
       <Segment className='posts-list'>
         {this.props.postsLoading &&
-        <ul className='postsList'>
+        <ul>
           <Dimmer active inverted>
             <Loader inverted />
           </Dimmer>
@@ -24,16 +24,18 @@ class PostsList extends React.Component {
         />
         }
         {this.props.currentPosts && this.props.currentPosts.length > 0 && !this.props.currentPostsLoading &&
-        <ul className='postsList'>
+        <ul>
           {this.props.currentPosts.map(item =>
             <li className='menu-item'
               key={'li-menu-item-segment' + item.object_id}
             >
-              <Segment className='menu-item-segment'
+              <Segment
+                className='menu-item-segment'
                 object_id={'menu-item-segment' + item.object_id}
                 key={'menu-item-segment' + item.object_id}
               >
-                <div className='menu-item-segment-content'
+                <div
+                  className='menu-item-segment-content'
                   object_id={'menu-item-segment-content' + item.object_id}
                   key={'menu-item-segment-content' + item.object_id}
                 >
@@ -41,9 +43,9 @@ class PostsList extends React.Component {
                   <Label basic size='tiny'>
                     {item.type_label}
                   </Label>
-
                 </div>
               </Segment>
+              <Button size='mini'>Add to tree</Button>
             </li>
           )}
         </ul>}
