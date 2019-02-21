@@ -28567,6 +28567,13 @@ body.pushable > .pusher {
   ._headless_dashboard_menu_editor h4, ._headless_dashboard_menu_editor h5 {
     text-transform: uppercase; }
 
+.tip {
+  text-transform: none;
+  margin-left: 0.3rem;
+  opacity: 0.5; }
+  .tip:hover {
+    opacity: 1; }
+
 ._headless_dashboard_menu_editor .menu-item {
   margin: 0;
   opacity: 1; }

@@ -12,6 +12,7 @@ $flags-image-path: '../../node_modules/semantic-ui-sass/images' !default;
 @import 'semantic-ui-custom';
 @import 'global-modifiers';
 @import 'main';
+@import 'elements';
 @import 'menu-item';
 @import 'menu-select';
 @import 'menu-editor';

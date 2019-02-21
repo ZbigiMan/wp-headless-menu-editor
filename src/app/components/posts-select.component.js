@@ -43,7 +43,9 @@ class PostsSelect extends React.Component {
         <Segment secondary>
           <Grid>
             <Grid.Column width={10}>
-              <h5>Select posts</h5>
+              <h5>Select posts
+                <small className='tip'><Icon name='hand point left outline' />choose criteria</small>
+              </h5>
             </Grid.Column>
             <Grid.Column width={6} textAlign='right'>
               {this.props.menus.length > 0 &&

@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import EventListener from 'react-event-listener'
-import { Segment, Label, Divider, Dimmer, Loader } from 'semantic-ui-react'
+import { Segment, Label, Divider, Dimmer, Loader, Icon } from 'semantic-ui-react'
 import MenuItemToolBox from './menu-item-toolbox.component'
 import { saveMenuData } from '../$actions/menus.actions'
 
@@ -82,6 +82,7 @@ class MenuEditor extends React.Component {
             Site Tree ({this.props.menus.find(menu => {
               return menu.term_id === this.props.currentMenuId
             }).name})
+            <small className='tip'><Icon name='hand point left outline' />drag and drop items</small>
           </h5>
         }
         <Divider />
