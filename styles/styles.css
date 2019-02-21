@@ -28607,6 +28607,7 @@ body.pushable > .pusher {
   min-width: 200px; }
 
 ._headless_dashboard_menu_editor .menu-editor {
+  user-select: none;
   min-height: 200px; }
   ._headless_dashboard_menu_editor .menu-editor #menu-editor-ul {
     padding-left: 15px; }
@@ -28645,7 +28646,6 @@ body.pushable > .pusher {
       opacity: 0.5; }
 
 ._headless_dashboard_menu_editor.drag {
-  user-select: none;
   cursor: move; }
 
 ._headless_dashboard_menu_editor .posts-list {

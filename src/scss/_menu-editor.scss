@@ -2,6 +2,7 @@
 
     .menu-editor {
 
+        user-select: none;
         min-height: 200px;
 
         #menu-editor-ul {
@@ -73,8 +74,7 @@
         }
     }
 
-    &.drag {
-        user-select: none;
+    &.drag {        
         cursor: move;
     }
 }
