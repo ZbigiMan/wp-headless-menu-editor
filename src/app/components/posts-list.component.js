@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Segment, Dimmer, Loader, Label, Message, Button } from 'semantic-ui-react'
+import MenuItemToolBox from './menu-item-toolbox.component'
 
 @connect((store) => {
   return {
@@ -43,6 +44,10 @@ class PostsList extends React.Component {
                   <Label basic size='tiny'>
                     {item.type_label}
                   </Label>
+                  <MenuItemToolBox
+                    item={item}
+                    key={'MenuItemToolBox' + item.object_id}
+                  />
                 </div>
               </Segment>
               <Button size='mini'>Add to tree</Button>

@@ -28585,8 +28585,8 @@ body.pushable > .pusher {
     ._headless_dashboard_menu_editor .menu-item .menu-item-segment .menu-item-segment-content {
       display: flex; }
       ._headless_dashboard_menu_editor .menu-item .menu-item-segment .menu-item-segment-content .menu-item-bar {
-        max-width: 170px;
-        min-width: 170px;
+        max-width: 150px;
+        min-width: 150px;
         margin: 0;
         display: block;
         padding: 0.4rem 0.4rem 0.4rem 0.8rem;

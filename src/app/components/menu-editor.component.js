@@ -139,7 +139,7 @@ class MenuEditor extends React.Component {
                         }).text}
                       </Label>
                       <MenuItemToolBox
-                        itemId={item.item.ID}
+                        item={item}
                         key={'MenuItemToolBox' + item.item.ID}
                       />
                     </div>
