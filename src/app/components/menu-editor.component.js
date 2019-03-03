@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import EventListener from 'react-event-listener'
-import { Segment, Label, Divider, Dimmer, Loader, Icon } from 'semantic-ui-react'
-import MenuItemToolBox from './menu-item-toolbox.component'
+import { Segment, Divider, Dimmer, Loader, Icon } from 'semantic-ui-react'
+import MenuItem from './menu-item.component'
 import { saveMenuData } from '../$actions/menus.actions'
 
 /* global getComputedStyle */
@@ -119,31 +119,7 @@ class MenuEditor extends React.Component {
                   key={'li-' + item.item.ID}
                   data-id={item.item.ID}
                 >
-                  <Segment
-                    className='menu-item-segment'
-                    secondary
-                    id={'menu-item-segment' + item.item.ID}
-                    key={'menu-item-segment' + item.item.ID}
-                  >
-                    <div
-                      className='menu-item-segment-content'
-                      id={'menu-item-segment-content' + item.item.ID}
-                      key={'menu-item-segment-content' + item.item.ID}
-                    >
-                      <span className='menu-item-bar'>
-                        {item.item.title}
-                      </span>
-                      <Label basic size='tiny'>
-                        {this.props.postTypes.find(type => {
-                          return type.value === item.item.object
-                        }).text}
-                      </Label>
-                      <MenuItemToolBox
-                        item={item}
-                        key={'MenuItemToolBox' + item.item.ID}
-                      />
-                    </div>
-                  </Segment>
+                  <MenuItem item={item.item} secondary prefix='menuEditor' />
                   <span
                     className='menu-item--insert menu-item--insert-child'
                     ref={item['span-insert-child-' + item.item.ID].ref}
@@ -202,7 +178,7 @@ class MenuEditor extends React.Component {
   }
 
   handleMouseDown (e) {
-    if (e.target.className === 'menu-item-bar') {
+    if (e.target.className === 'menu-item-bar' && e.target.id.indexOf('menuEditor') !== -1) {
       this.onDragStart(e)
     }
   }
