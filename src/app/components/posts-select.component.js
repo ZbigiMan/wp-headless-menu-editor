@@ -21,19 +21,19 @@ import {
   }
 })
 class PostsSelect extends React.Component {
-  selectPostsType (e, data) {
+  selectPostsType = (e, data) => {
     this.props.dispatch(updateCurrentPostsTypes(data.value))
   }
 
-  selectPostsOrder (e, data) {
+  selectPostsOrder = (e, data) => {
     this.props.dispatch(selectCurrentPostsOrder(data.value))
   }
 
-  switchPostsSort (e, data) {
+  switchPostsSort = (e, data) => {
     this.props.dispatch(switchPostsSort())
   }
 
-  switchHidePostsFromCurrentManu (e, data) {
+  switchHidePostsFromCurrentManu = (e, data) => {
     this.props.dispatch(switchHidePostsFromCurrentMenu())
   }
 
@@ -51,7 +51,7 @@ class PostsSelect extends React.Component {
               {this.props.menus.length > 0 &&
               <Checkbox
                 checked={this.props.hidePostsFromCurrentMenu}
-                onChange={this.switchHidePostsFromCurrentManu.bind(this)}
+                onChange={this.switchHidePostsFromCurrentManu}
                 label={'Not in "' + this.props.menus.find(menu => {
                   return menu.term_id === this.props.currentMenuId
                 }).name + '"'
@@ -68,7 +68,7 @@ class PostsSelect extends React.Component {
                 fluid
                 multiple
                 options={this.props.postsTypes}
-                onChange={this.selectPostsType.bind(this)}
+                onChange={this.selectPostsType}
                 value={this.props.currentPostsTypes}
                 placeholder='Select type' />
             </Grid.Column>
@@ -78,12 +78,12 @@ class PostsSelect extends React.Component {
                 fluid
                 options={this.props.postsOrder}
                 value={this.props.currentPostsOrder}
-                onChange={this.selectPostsOrder.bind(this)}
+                onChange={this.selectPostsOrder}
                 placeholder='Order by:' />
             </Grid.Column>
             <Grid.Column width={2} textAlign='center'>
               <Label>Sort:</Label>
-              <Button basic icon onClick={this.switchPostsSort.bind(this)}>
+              <Button basic icon onClick={this.switchPostsSort}>
                 {this.props.postsSortUp
                   ? (<Icon name='sort up' />) : (<Icon name='sort down' />)
                 }
