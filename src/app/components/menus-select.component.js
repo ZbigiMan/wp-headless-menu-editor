@@ -11,7 +11,7 @@ import { selectMenu } from '../$actions/menus.actions'
   }
 })
 class MenusSelect extends React.Component {
-  selectMenu (e, data) {
+  selectMenu = (e, data) => {
     const menuId = parseInt(data.value)
     this.props.dispatch(selectMenu(menuId))
   }
@@ -35,7 +35,7 @@ class MenusSelect extends React.Component {
                 })}
                 name='current-menu-select'
                 id='current-menu-select'
-                onChange={this.selectMenu.bind(this)}
+                onChange={this.selectMenu}
                 disabled={this.props.currentMenuDataLoading}
                 value={this.props.currentMenuId}
               />

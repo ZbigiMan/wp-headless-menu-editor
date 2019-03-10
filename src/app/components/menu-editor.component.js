@@ -151,9 +151,9 @@ class MenuEditor extends React.Component {
                 </li>
               </React.Fragment>)}
           </ul>}
-        <EventListener target={document} onMouseDownCapture={this.handleMouseDown.bind(this)} />
-        <EventListener target={document} onMouseMoveCapture={this.handleMouseMove.bind(this)} />
-        <EventListener target={document} onMouseUpCapture={this.handleMouseUp.bind(this)} />
+        <EventListener target={document} onMouseDownCapture={this.handleMouseDown} />
+        <EventListener target={document} onMouseMoveCapture={this.handleMouseMove} />
+        <EventListener target={document} onMouseUpCapture={this.handleMouseUp} />
       </Segment>
     )
   }
@@ -177,19 +177,19 @@ class MenuEditor extends React.Component {
     this.props.dispatch(saveMenuData(menuId, data))
   }
 
-  handleMouseDown (e) {
+  handleMouseDown = (e) => {
     if (e.target.className === 'menu-item-bar' && e.target.id.indexOf('menuEditor') !== -1) {
       this.onDragStart(e)
     }
   }
 
-  handleMouseMove (e) {
+  handleMouseMove = (e) => {
     if (this.dragStart && this.draggedClone) {
       this.onDragging(e, this.draggedClone)
     }
   }
 
-  handleMouseUp (e) {
+  handleMouseUp = (e) => {
     this.onDragEnd()
   }
 
