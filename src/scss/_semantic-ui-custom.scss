@@ -2,6 +2,10 @@
 
     .ui {
 
+        &.button {
+            text-transform: uppercase;
+        }
+
         &.label {
             background: transparent;
         }

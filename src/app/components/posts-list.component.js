@@ -6,10 +6,27 @@ import MenuItem from './menu-item.component'
 @connect((store) => {
   return {
     postsLoading: store.posts.postsLoading,
-    currentPosts: store.posts.currentPosts
+    currentPosts: store.posts.currentPosts,
+    currentManuData: store.menus.currentMenuData
   }
 })
 class PostsList extends React.Component {
+  addRemoveButton = (post) => {
+    let menuItem = this.props.currentManuData.find(item => {
+      return item.object_id === post.object_id
+    })
+
+    if (menuItem) {
+      return (
+        <Button size='mini'>Remove from tree</Button>
+      )
+    }
+
+    return (
+      <Button size='mini'>Add to tree</Button>
+    )
+  }
+
   render () {
     return (
       <Segment className='posts-list'>
@@ -31,7 +48,7 @@ class PostsList extends React.Component {
               key={'li-menu-item-segment' + item.object_id}
             >
               <MenuItem item={item} prefix='postsList' />
-              <Button size='mini'>Add to tree</Button>
+              {this.addRemoveButton(item)}
             </li>
           )}
         </ul>}
