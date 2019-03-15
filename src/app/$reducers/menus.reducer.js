@@ -52,6 +52,24 @@ export default function reducer (state = initialState, action) {
         currentMenuDataSaving: false
       }
     }
+    case types.ADD_TO_MENU: {
+      let item = action.playload
+      let order = 1
+      if (!item.menu_order && state.currentMenuData.length > 0) {
+        order = state.currentMenuData.sort((a, b) => {
+          return b.menu_order - a.menu_order
+        })[0].menu_order + 1
+      }
+
+      item.menu_order = order
+      const newCurrentMenuData = state.currentMenuData
+      newCurrentMenuData.push(item)
+
+      return {
+        ...state,
+        currentMenuData: newCurrentMenuData
+      }
+    }
     default:
       return state
   }

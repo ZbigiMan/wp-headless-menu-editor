@@ -21,7 +21,15 @@ export function saveMenuData (menuId, menuData) {
     dispatch(saveMenuDataStarted(menuData))
     menusService.saveMenuData(menuId, menuData).then((res) => {
       dispatch(saveMenuDataSuccess(res))
+      dispatch(getMenuData(menuId))
     })
+  }
+}
+
+export function addToMenu (item) {
+  return {
+    type: types.ADD_TO_MENU,
+    playload: item
   }
 }
 

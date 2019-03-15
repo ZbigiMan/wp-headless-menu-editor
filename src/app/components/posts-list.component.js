@@ -2,18 +2,20 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Segment, Dimmer, Loader, Message, Button } from 'semantic-ui-react'
 import MenuItem from './menu-item.component'
+import { addToMenu, saveMenuData } from '../$actions/menus.actions'
 
 @connect((store) => {
   return {
     postsLoading: store.posts.postsLoading,
     currentPosts: store.posts.currentPosts,
+    currentMenuId: store.menus.currentMenuId,
     currentManuData: store.menus.currentMenuData
   }
 })
 class PostsList extends React.Component {
   addToMenu = (post) => {
-    console.log(post)
-    console.log(this.props.currentManuData)
+    this.props.dispatch(addToMenu(post))
+    this.props.dispatch(saveMenuData(this.props.currentMenuId, this.props.currentManuData))
   }
 
   addRemoveButton = (post) => {

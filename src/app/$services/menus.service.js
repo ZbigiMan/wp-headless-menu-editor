@@ -23,7 +23,6 @@ class MenusService {
       }
     }).then(res => {
       return res.map(item => {
-        console.warn(item)
         return new MenuItem(item)
       })
     })
