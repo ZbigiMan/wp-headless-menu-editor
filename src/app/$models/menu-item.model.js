@@ -19,5 +19,6 @@ export default class MenuItem {
     this._invalid = data._invalid
     this.post_date = data.post_date
     this.post_modified = data.post_modified
+    this.menu_order = data.menu_order
   }
 }

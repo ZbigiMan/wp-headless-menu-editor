@@ -11,6 +11,11 @@ import MenuItem from './menu-item.component'
   }
 })
 class PostsList extends React.Component {
+  addToMenu = (post) => {
+    console.log(post)
+    console.log(this.props.currentManuData)
+  }
+
   addRemoveButton = (post) => {
     let menuItem = this.props.currentManuData.find(item => {
       return item.object_id === post.object_id
@@ -23,7 +28,7 @@ class PostsList extends React.Component {
     }
 
     return (
-      <Button size='mini'>Add to tree</Button>
+      <Button size='mini' onClick={() => { this.addToMenu(post) }}>Add to tree</Button>
     )
   }
 
