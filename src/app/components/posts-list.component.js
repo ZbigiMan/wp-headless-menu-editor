@@ -2,20 +2,31 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Segment, Dimmer, Loader, Message, Button } from 'semantic-ui-react'
 import MenuItem from './menu-item.component'
-import { addToMenu, saveMenuData } from '../$actions/menus.actions'
+import { addToMenu, saveMenuData, confirmRemoveFromMenu } from '../$actions/menus.actions'
 
 @connect((store) => {
   return {
     postsLoading: store.posts.postsLoading,
     currentPosts: store.posts.currentPosts,
     currentMenuId: store.menus.currentMenuId,
-    currentManuData: store.menus.currentMenuData
+    currentManuData: store.menus.currentMenuData,
+    currentMenuDataLoading: store.menus.currentMenuDataLoading,
+    currentMenuDataSaving: store.menus.currentMenuDataSaving
   }
 })
 class PostsList extends React.Component {
   addToMenu = (post) => {
     this.props.dispatch(addToMenu(post))
-    this.props.dispatch(saveMenuData(this.props.currentMenuId, this.props.currentManuData))
+    this.props.dispatch(saveMenuData(this.props.currentMenuId, this.props.currentManuData, {
+      reload: true
+    }))
+  }
+
+  confirmRemoveFromMenu = (post) => {
+    this.props.dispatch(confirmRemoveFromMenu({
+      open: true,
+      item: post
+    }))
   }
 
   addRemoveButton = (post) => {
@@ -25,12 +36,20 @@ class PostsList extends React.Component {
 
     if (menuItem) {
       return (
-        <Button size='mini'>Remove from tree</Button>
+        <Button
+          size='mini'
+          loading={this.props.currentMenuDataLoading || this.props.currentMenuDataSaving}
+          onClick={() => { this.confirmRemoveFromMenu(post) }}>Remove from tree
+        </Button>
       )
     }
 
     return (
-      <Button size='mini' onClick={() => { this.addToMenu(post) }}>Add to tree</Button>
+      <Button
+        size='mini'
+        loading={this.props.currentMenuDataLoading || this.props.currentMenuDataSaving}
+        onClick={() => { this.addToMenu(post) }}>Add to tree
+      </Button>
     )
   }
 

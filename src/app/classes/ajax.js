@@ -11,7 +11,7 @@ class Ajax {
     }
   }
 
-  post (options) {
+  async post (options) {
     let _url = options.url
     let _data = options.data
 
@@ -27,17 +27,21 @@ class Ajax {
       _parsedData.append(key, _data[key])
     })
 
-    return new Promise(resolve => {
-      fetch(_url, {
-        method: 'POST',
-        body: _parsedData,
-        headers: _headers
-      })
-        .then(res => {
-          resolve(res.json())
-        })
-        .catch(error => console.error('Error:', error))
+    let response = await fetch(_url, {
+      method: 'POST',
+      body: _parsedData,
+      headers: _headers
     })
+      .catch(error => console.error('Error:', error))
+
+    try {
+      let responseText = await response.text()
+      let responseData = JSON.parse(responseText)
+      return responseData
+    } catch (error) {
+      console.error('error', error)
+      return []
+    }
   }
 }
 

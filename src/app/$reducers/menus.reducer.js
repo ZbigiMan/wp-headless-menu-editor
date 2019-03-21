@@ -5,7 +5,10 @@ const initialState = {
   currentMenuId: '',
   currentMenuData: [],
   currentMenuDataLoading: false,
-  currentMenuDataSaving: false
+  currentMenuDataSaving: false,
+  confirmRemoveMenuItem: {
+    open: false
+  }
 }
 
 export default function reducer (state = initialState, action) {
@@ -64,6 +67,23 @@ export default function reducer (state = initialState, action) {
       item.menu_order = order
       const newCurrentMenuData = state.currentMenuData
       newCurrentMenuData.push(item)
+
+      return {
+        ...state,
+        currentMenuData: newCurrentMenuData
+      }
+    }
+    case types.CONFIRM_REMOVE_FROM_MENU: {
+      return {
+        ...state,
+        confirmRemoveMenuItem: action.playload
+      }
+    }
+    case types.REMOVE_FROM_MENU: {
+      let newCurrentMenuData = state.currentMenuData
+      newCurrentMenuData.find(item => {
+        return item.object_id === action.playload.object_id
+      }).__delete = true
 
       return {
         ...state,

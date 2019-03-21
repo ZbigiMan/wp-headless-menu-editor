@@ -38,7 +38,7 @@ class MenuEditor
         if (count($menus) === 0) {
             $types = $this->get_posts_types();
             $types = json_decode(json_encode($types), true);
-            $posts = $this->get_posts(['Page', 'Post']);
+            $posts = $this->get_posts(['Page']);
             $this->create_menu('Main Menu', $posts);
             $menus = $this->get_menus();
         }
@@ -67,7 +67,9 @@ class MenuEditor
     // Get menus
     public function get_menus()
     {
-        return get_terms('nav_menu');
+        return get_terms('nav_menu', array(
+            'hide_empty' => false,
+        ));
     }
 
     // Ajax get menus
@@ -82,7 +84,8 @@ class MenuEditor
     {
         if (isset($_POST["menu_id"])) {
             $menu_id = $_POST["menu_id"];
-            echo json_encode(wp_get_nav_menu_items($menu_id));
+            $menu_items = wp_get_nav_menu_items($menu_id);
+            echo json_encode($menu_items);
             wp_die();
         };
     }
@@ -134,8 +137,7 @@ class MenuEditor
         $res = [];
 
         if (sizeof($types) === 0) {
-            echo json_encode($res);
-            wp_die();
+            return $res;
         }
 
         $posts = get_posts([
@@ -144,6 +146,10 @@ class MenuEditor
             'numberposts' => -1,
             'order' => 'ASC',
         ]);
+
+        if (sizeof($types) === 0) {
+            return $res;
+        }
 
         foreach ($posts as $post) {
             $post->url = get_permalink($post);
@@ -154,9 +160,7 @@ class MenuEditor
             $post_menu_item = new _models\PostMenuItem($post);
             array_push($res, $post_menu_item->$model);
         }
-
         return $res;
-
     }
 
     // Ajax save menu
@@ -184,8 +188,15 @@ class MenuEditor
                     $data["db_id"],
                     $menu_item->$model
                 );
+
+                if ($data["__delete"] === true) {
+                    wp_delete_post($data["db_id"]);
+                }
             };
-            echo json_encode(wp_get_nav_menu_items($menu_id));
+
+            $res = wp_get_nav_menu_items($menu_id);
+
+            echo json_encode($res);
 
         } catch (Exception $e) {
             echo $e->getMessage();
