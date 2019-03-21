@@ -359,7 +359,7 @@ class MenuEditor extends React.Component {
     const item = this._refs.find(item => {
       return item[selector]
     })
-    if (item[selector]) {
+    if (item && item[selector]) {
       return item[selector].ref.current
     }
   }
