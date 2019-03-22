@@ -30,7 +30,7 @@ class WPHeadlessMenuEditor
 
         add_action('admin_menu', array($this, 'init_admin_menu'));
         add_action('admin_init', array($this, 'init_assets'));
-        add_action('admin_init', array($this, 'remove_dashboard_widgets'));
+        // add_action('admin_init', array($this, 'remove_dashboard_widgets'));
 
         $this->$menuEditor->init_ajax();
     }
