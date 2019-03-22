@@ -1,1 +1,1 @@
-### WP Headless Dashboard
+### WP Headless Menu Editor
