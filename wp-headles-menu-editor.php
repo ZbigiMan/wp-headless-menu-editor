@@ -1,9 +1,9 @@
 <?php
 
 /*
- * Plugin Name: Headless Dashboard Redux
+ * Plugin Name: WP Headless Menu Editor
  * Plugin URI:  https://zbigiman.com/wp-plugins/decapitated_menu_editor
- * Description: Headless Dashboard
+ * Description: WP Headless Menu Editor
  * Version:     1.0.0.
  * Author:      Zbigi Man
  * Author URI:  https://zbigiman.com
@@ -20,7 +20,7 @@ require_once PLUGIN_DIR_PATH . '/includes/classes/menu_editor.class.php';
 
 use _MENU_EDITOR as _menu_editor;
 
-class HeadlesDashboard
+class WPHeadlessMenuEditor
 {
     private $menuEditor;
 
@@ -89,9 +89,9 @@ class HeadlesDashboard
     }
 }
 
-if (class_exists('HeadlesDashboard')) {
-    $HeadlesDashboard = new HeadlesDashboard();
+if (class_exists('WPHeadlessMenuEditor')) {
+    $WPHeadlessMenuEditor = new WPHeadlessMenuEditor();
 }
 
-register_activation_hook(__FILE__, array($HeadlesDashboard, 'activate'));
-register_activation_hook(__FILE__, array($HeadlesDashboard, 'deactivate'));
+register_activation_hook(__FILE__, array($WPHeadlessMenuEditor, 'activate'));
+register_activation_hook(__FILE__, array($WPHeadlessMenuEditor, 'deactivate'));

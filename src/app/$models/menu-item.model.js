@@ -7,7 +7,7 @@ export default class MenuItem {
     this.description = data.description
     this.menu_item_parent = data.menu_item_parent
     this.object = data.object
-    this.object_id = data.object_id
+    this.object_id = data.object_id.toString()
     this.post_parent = data.post_parent
     this.post_title = data.post_title
     this.target = data.target
@@ -19,5 +19,6 @@ export default class MenuItem {
     this._invalid = data._invalid
     this.post_date = data.post_date
     this.post_modified = data.post_modified
+    this.menu_order = data.menu_order
   }
 }

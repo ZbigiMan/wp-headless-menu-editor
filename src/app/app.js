@@ -11,6 +11,7 @@ import MenusSelect from './components/menus-select.component'
 import MenuEditor from './components/menu-editor.component'
 import PostsSelect from './components/posts-select.component'
 import PostsList from './components/posts-list.component'
+import ConfirmRemoveMenuItem from './components/confirm-remove-menu-item'
 
 /* global data */
 
@@ -34,6 +35,7 @@ class App extends React.Component {
   render () {
     return (
       <div className='_headless_dashboard_menu_editor'>
+        <ConfirmRemoveMenuItem />
         <Header />
         <Grid>
           <Grid.Column width={8}>

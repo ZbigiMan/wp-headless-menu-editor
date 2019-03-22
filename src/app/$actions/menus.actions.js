@@ -16,12 +16,36 @@ export function selectMenu (menuId) {
   }
 }
 
-export function saveMenuData (menuId, menuData) {
+export function saveMenuData (menuId, menuData, options) {
   return dispatch => {
     dispatch(saveMenuDataStarted(menuData))
     menusService.saveMenuData(menuId, menuData).then((res) => {
       dispatch(saveMenuDataSuccess(res))
+      if (options && options.reload) {
+        dispatch(getMenuData(menuId))
+      }
     })
+  }
+}
+
+export function addToMenu (item) {
+  return {
+    type: types.ADD_TO_MENU,
+    playload: item
+  }
+}
+
+export function confirmRemoveFromMenu (options) {
+  return {
+    type: types.CONFIRM_REMOVE_FROM_MENU,
+    playload: options
+  }
+}
+
+export function removeFromMenu (item) {
+  return {
+    type: types.REMOVE_FROM_MENU,
+    playload: item
   }
 }
 
