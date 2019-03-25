@@ -61,10 +61,10 @@ class WPHeadlessMenuEditor
 
     public function init_admin_menu()
     {
-        add_menu_page('Site Tree',
-            'Site Tree',
+        add_menu_page('Menu Editor',
+            'Menus Editor',
             'manage_options',
-            'site_tree',
+            'menus_editor',
             array($this, 'init_plugin'),
             'dashicons-list-view',
             2);
