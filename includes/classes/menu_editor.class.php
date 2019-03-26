@@ -43,7 +43,10 @@ class MenuEditor
             $menus = $this->get_menus();
         }
 
+        $locale = get_locale();
+
         return (object) array(
+            "locale" => array("current" => $locale),
             "wpajax" => array("url" => $this->get_ajaxurl()),
             "menus" => $menus,
             "posts_types" => $this->get_posts_types(),

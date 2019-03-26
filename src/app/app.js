@@ -2,8 +2,6 @@ import React from 'react'
 import { Grid } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
-import './i18n'
-
 import { selectMenu, setMenus } from './$actions/menus.actions'
 import { setPostsTypes } from './$actions/posts.actions'
 
@@ -15,6 +13,8 @@ import PostsSelect from './components/posts-select.component'
 import PostsList from './components/posts-list.component'
 import ConfirmRemoveMenuItem from './components/confirm-remove-menu-item'
 
+import I18n from './i18n'
+
 /* global data */
 
 @connect((store) => {
@@ -25,7 +25,10 @@ import ConfirmRemoveMenuItem from './components/confirm-remove-menu-item'
 class App extends React.Component {
   constructor () {
     super()
+    config.locale = data.locale
     config.apiUrl = data.wpajax.url
+    const i18n = new I18n()
+    i18n.init()
   }
 
   componentDidMount () {

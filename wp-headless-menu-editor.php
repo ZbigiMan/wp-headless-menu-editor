@@ -62,7 +62,7 @@ class WPHeadlessMenuEditor
     public function init_admin_menu()
     {
         add_menu_page('Menu Editor',
-            'Menus Editor',
+            'Menu Editor',
             'manage_options',
             'menus_editor',
             array($this, 'init_plugin'),

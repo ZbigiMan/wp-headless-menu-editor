@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import EventListener from 'react-event-listener'
 import { Segment, Divider, Dimmer, Loader, Icon } from 'semantic-ui-react'
+import { Trans } from 'react-i18next'
+
 import MenuItem from './menu-item.component'
 import { saveMenuData } from '../$actions/menus.actions'
 
@@ -79,10 +81,12 @@ class MenuEditor extends React.Component {
       <Segment raised key={'v' + this.stateV} className='menu-editor'>
         {this.props.currentMenuId &&
           <h5>
-            Site Tree "{this.props.menus.find(menu => {
+            <Trans>Editing</Trans>: "{this.props.menus.find(menu => {
               return menu.term_id === this.props.currentMenuId
             }).name}"
-            <small className='tip'><Icon name='hand point left outline' />drag and drop items</small>
+            <small className='tip'><Icon name='hand point left outline' />
+              <Trans>drag and drop items</Trans>
+            </small>
           </h5>
         }
         <Divider />
