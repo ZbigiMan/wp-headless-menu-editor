@@ -21,10 +21,17 @@ module.exports = [{
   module: {
     rules: [
       {
+        test: /\.js/,
+        type: 'javascript/auto',
         use: [
           'eslint-loader',
           'babel-loader'
         ]
+      },
+      {
+        test: /\.json/,
+        type: 'javascript/auto',
+        use: [require.resolve('json-loader')]
       }
     ]
   }

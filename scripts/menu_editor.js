@@ -7220,7 +7220,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!*************************************************************!*\
   !*** ./node_modules/semantic-ui-react/dist/es/lib/index.js ***!
   \*************************************************************/
-/*! exports provided: AutoControlledComponent, getChildMapping, mergeChildMappings, childrenUtils, useKeyOnly, useKeyOrValueAndKey, useValueAndKey, useMultipleProp, useTextAlignProp, useVerticalAlignProp, useWidthProp, customPropTypes, debug, makeDebugger, eventStack, createShorthand, createShorthandFactory, createHTMLDivision, createHTMLIframe, createHTMLImage, createHTMLInput, createHTMLLabel, createHTMLParagraph, getUnhandledProps, getElementType, htmlInputAttrs, htmlInputEvents, htmlInputProps, partitionHTMLProps, isBrowser, doesNodeContainClick, leven, createPaginationItems, SUI, numberToWordMap, numberToWord, normalizeOffset, normalizeTransitionDuration, objectDiff, shallowEqual */
+/*! exports provided: AutoControlledComponent, getChildMapping, mergeChildMappings, childrenUtils, useKeyOnly, useKeyOrValueAndKey, useValueAndKey, useMultipleProp, useTextAlignProp, useVerticalAlignProp, useWidthProp, customPropTypes, debug, makeDebugger, eventStack, getUnhandledProps, getElementType, htmlInputAttrs, htmlInputEvents, htmlInputProps, partitionHTMLProps, isBrowser, doesNodeContainClick, leven, createPaginationItems, SUI, numberToWordMap, numberToWord, normalizeOffset, normalizeTransitionDuration, objectDiff, shallowEqual, createShorthand, createShorthandFactory, createHTMLDivision, createHTMLIframe, createHTMLImage, createHTMLInput, createHTMLLabel, createHTMLParagraph */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8815,7 +8815,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nconst config = {};\n/* harmon
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var i18next__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! i18next */ \"./node_modules/i18next/dist/es/index.js\");\n/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-i18next */ \"./node_modules/react-i18next/dist/es/index.js\");\n/* harmony import */ var _translations_en_US_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./translations/en_US.js */ \"./src/app/translations/en_US.js\");\n/* harmony import */ var _translations_pl_PL_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./translations/pl_PL.js */ \"./src/app/translations/pl_PL.js\");\n/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./config */ \"./src/app/config.js\");\n\n\n\n\n\n\nclass I18n {\n  constructor() {\n    this.init = () => {\n      const resources = {\n        en_US: _translations_en_US_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n        pl_PL: _translations_pl_PL_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"]\n      };\n      i18next__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use(react_i18next__WEBPACK_IMPORTED_MODULE_1__[\"initReactI18next\"]).init({\n        resources,\n        lng: _config__WEBPACK_IMPORTED_MODULE_4__[\"default\"].locale.current,\n        fallbackLng: 'en_US',\n        keySeparator: false,\n        interpolation: {\n          escapeValue: false\n        },\n        debug: true\n      });\n    };\n  }\n\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (I18n);\n\n//# sourceURL=webpack:///./src/app/i18n.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var i18next__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! i18next */ \"./node_modules/i18next/dist/es/index.js\");\n/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-i18next */ \"./node_modules/react-i18next/dist/es/index.js\");\n/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./config */ \"./src/app/config.js\");\n/* harmony import */ var _translations_en_US_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../translations/en_US.json */ \"./translations/en_US.json\");\n/* harmony import */ var _translations_en_US_json__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_translations_en_US_json__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _translations_pl_PL_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../translations/pl_PL.json */ \"./translations/pl_PL.json\");\n/* harmony import */ var _translations_pl_PL_json__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_translations_pl_PL_json__WEBPACK_IMPORTED_MODULE_4__);\n\n\n\n\n\n\nclass I18n {\n  constructor() {\n    this.init = () => {\n      const resources = {\n        en_US: _translations_en_US_json__WEBPACK_IMPORTED_MODULE_3___default.a,\n        pl_PL: _translations_pl_PL_json__WEBPACK_IMPORTED_MODULE_4___default.a\n      };\n      i18next__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use(react_i18next__WEBPACK_IMPORTED_MODULE_1__[\"initReactI18next\"]).init({\n        resources,\n        lng: _config__WEBPACK_IMPORTED_MODULE_2__[\"default\"].locale.current,\n        fallbackLng: 'en_US',\n        keySeparator: false,\n        interpolation: {\n          escapeValue: false\n        },\n        debug: true\n      });\n    };\n  }\n\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (I18n);\n\n//# sourceURL=webpack:///./src/app/i18n.js?");
 
 /***/ }),
 
@@ -8843,27 +8843,25 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redu
 
 /***/ }),
 
-/***/ "./src/app/translations/en_US.js":
-/*!***************************************!*\
-  !*** ./src/app/translations/en_US.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./translations/en_US.json":
+/*!*********************************!*\
+  !*** ./translations/en_US.json ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  'translation': {\n    'pluginTitle': 'Menu Editor',\n    'Editing': 'Editing',\n    'drag and drop items': 'drag and drop items'\n  }\n});\n\n//# sourceURL=webpack:///./src/app/translations/en_US.js?");
+eval("module.exports = {\n  \"translation\": {\n    \"pluginTitle\": \"Menu Editor\",\n    \"Editing\": \"Editing\",\n    \"drag and drop items\": \"drag and drop items\"\n  }\n};\n\n//# sourceURL=webpack:///./translations/en_US.json?");
 
 /***/ }),
 
-/***/ "./src/app/translations/pl_PL.js":
-/*!***************************************!*\
-  !*** ./src/app/translations/pl_PL.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./translations/pl_PL.json":
+/*!*********************************!*\
+  !*** ./translations/pl_PL.json ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  'translation': {\n    'pluginTitle': 'Menu Editor',\n    'Editing': 'Edytowanie',\n    'drag and drop items': 'przesuń upuść pozycje menu'\n  }\n});\n\n//# sourceURL=webpack:///./src/app/translations/pl_PL.js?");
+eval("module.exports = {\n  \"translation\": {\n    \"pluginTitle\": \"Menu Editor\",\n    \"Editing\": \"Edytowanie\",\n    \"drag and drop items\": \"przesuń upuść pozycje menu\"\n  }\n};\n\n//# sourceURL=webpack:///./translations/pl_PL.json?");
 
 /***/ })
 

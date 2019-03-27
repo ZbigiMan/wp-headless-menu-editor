@@ -1,8 +1,9 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import enUs from './translations/en_US.js'
-import plPl from './translations/pl_PL.js'
 import config from './config'
+
+import enUs from '../../translations/en_US.json'
+import plPl from '../../translations/pl_PL.json'
 
 class I18n {
   init = () => {
