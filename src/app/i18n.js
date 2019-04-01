@@ -1,5 +1,6 @@
-import i18n from 'i18next'
+import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
+
 import config from './config'
 
 import enUs from '../../translations/en_US.json'
@@ -12,7 +13,7 @@ class I18n {
       pl_PL: plPl
     }
 
-    i18n
+    i18next
       .use(initReactI18next)
       .init({
         resources,
@@ -21,6 +22,9 @@ class I18n {
         keySeparator: false,
         interpolation: {
           escapeValue: false
+        },
+        react: {
+          wait: true
         },
         debug: true
       })

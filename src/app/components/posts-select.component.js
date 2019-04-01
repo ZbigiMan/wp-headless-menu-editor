@@ -7,7 +7,7 @@ import {
   switchHidePostsFromCurrentMenu,
   switchPostsSort
 } from '../$actions/posts.actions'
-import { Trans } from 'react-i18next'
+import { Trans, withTranslation } from 'react-i18next'
 
 @connect((store) => {
   return {
@@ -39,6 +39,7 @@ class PostsSelect extends React.Component {
   }
 
   render () {
+    const { t } = this.props
     return (
       <div className='posts-types-select'>
         <Segment secondary>
@@ -53,7 +54,7 @@ class PostsSelect extends React.Component {
                 <Checkbox
                   checked={this.props.hidePostsFromCurrentMenu}
                   onChange={this.switchHidePostsFromCurrentManu}
-                  label={'Not in ' + this.props.menus.find(menu => {
+                  label={t('Not in') + ' ' + this.props.menus.find(menu => {
                     return menu.term_id === this.props.currentMenuId
                   }).name + '"'
                   }
@@ -97,4 +98,4 @@ class PostsSelect extends React.Component {
   }
 }
 
-export default PostsSelect
+export default withTranslation()(PostsSelect)
