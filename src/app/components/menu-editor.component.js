@@ -81,7 +81,7 @@ class MenuEditor extends React.Component {
       <Segment raised key={'v' + this.stateV} className='menu-editor'>
         {this.props.currentMenuId &&
           <h5>
-            <Trans>Editing</Trans>: "{this.props.menus.find(menu => {
+            <Trans>Editing</Trans> "{this.props.menus.find(menu => {
               return menu.term_id === this.props.currentMenuId
             }).name}"
             <small className='tip'><Icon name='hand point left outline' />

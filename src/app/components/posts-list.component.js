@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Segment, Dimmer, Loader, Message, Button } from 'semantic-ui-react'
 import MenuItem from './menu-item.component'
 import { addToMenu, saveMenuData, confirmRemoveFromMenu } from '../$actions/menus.actions'
-
+import { Trans } from 'react-i18next'
 @connect((store) => {
   return {
     postsLoading: store.posts.postsLoading,
@@ -39,7 +39,8 @@ class PostsList extends React.Component {
         <Button
           size='mini'
           loading={this.props.currentMenuDataLoading || this.props.currentMenuDataSaving}
-          onClick={() => { this.confirmRemoveFromMenu(post) }}>Remove from tree
+          onClick={() => { this.confirmRemoveFromMenu(post) }}>
+          <Trans>Remove from menu</Trans>
         </Button>
       )
     }
@@ -48,7 +49,8 @@ class PostsList extends React.Component {
       <Button
         size='mini'
         loading={this.props.currentMenuDataLoading || this.props.currentMenuDataSaving}
-        onClick={() => { this.addToMenu(post) }}>Add to tree
+        onClick={() => { this.addToMenu(post) }}>
+        <Trans>Add to menu</Trans>
       </Button>
     )
   }

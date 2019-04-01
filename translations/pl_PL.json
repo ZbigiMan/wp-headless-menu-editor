@@ -2,6 +2,17 @@
   "translation": {
     "pluginTitle": "Menu Editor",
     "Editing": "Edytowanie",
-    "drag and drop items": "przesuń upuść pozycje menu"
+    "drag and drop items": "przesuń upuść pozycje menu",
+    "Choose menu to edit": "Wybierz menu do edycji",
+    "or": "lub",
+    "Create new": "Utwórz nowe",
+    "Select posts": "Wybierz posty",
+    "choose criteria": "wybierz kryteria",
+    "Not in": "Nie w",
+    "Select Type": "Wybierz typ",
+    "Order by": "Sotruj według",
+    "Sort": "Kierunek",
+    "Remove from menu": "Usuń z menu",
+    "Add to menu": "Dodaj do menu"
   }
 }

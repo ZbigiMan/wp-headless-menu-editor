@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Segment, Divider, Dropdown, Button } from 'semantic-ui-react'
 import { selectMenu } from '../$actions/menus.actions'
+import { Trans } from 'react-i18next'
 
 @connect((store) => {
   return {
@@ -20,7 +21,7 @@ class MenusSelect extends React.Component {
     return (
       <div className='menu-select'>
         <Segment secondary>
-          <h5>Choose tree (wp menu) to edit:</h5>
+          <h5><Trans>Choose menu to edit</Trans></h5>
           <Divider />
           <div className='flex'>
             <div className='menu-select-select'>
@@ -40,8 +41,8 @@ class MenusSelect extends React.Component {
                 value={this.props.currentMenuId}
               />
             </div>
-            <span className='span'>or</span>
-            <Button basic content='Create new' />
+            <span className='span'><Trans>or</Trans></span>
+            <Button basic><Trans>Create new</Trans></Button>
           </div>
         </Segment>
       </div>

@@ -7,6 +7,7 @@ import {
   switchHidePostsFromCurrentMenu,
   switchPostsSort
 } from '../$actions/posts.actions'
+import { Trans } from 'react-i18next'
 
 @connect((store) => {
   return {
@@ -43,27 +44,27 @@ class PostsSelect extends React.Component {
         <Segment secondary>
           <Grid>
             <Grid.Column width={10}>
-              <h5>Select posts
-                <small className='tip'><Icon name='hand point left outline' />choose criteria</small>
+              <h5><Trans>Select posts</Trans>
+                <small className='tip'><Icon name='hand point left outline' /><Trans>choose criteria</Trans></small>
               </h5>
             </Grid.Column>
             <Grid.Column width={6} textAlign='right'>
               {this.props.menus.length > 0 &&
-              <Checkbox
-                checked={this.props.hidePostsFromCurrentMenu}
-                onChange={this.switchHidePostsFromCurrentManu}
-                label={'Not in "' + this.props.menus.find(menu => {
-                  return menu.term_id === this.props.currentMenuId
-                }).name + '"'
-                }
-              />
+                <Checkbox
+                  checked={this.props.hidePostsFromCurrentMenu}
+                  onChange={this.switchHidePostsFromCurrentManu}
+                  label={'Not in ' + this.props.menus.find(menu => {
+                    return menu.term_id === this.props.currentMenuId
+                  }).name + '"'
+                  }
+                />
               }
             </Grid.Column>
           </Grid>
           <Divider />
           <Grid>
             <Grid.Column width={8}>
-              <Label>Select Type:</Label>
+              <Label><Trans>Select Type</Trans></Label>
               <Dropdown selection
                 fluid
                 multiple
@@ -73,7 +74,7 @@ class PostsSelect extends React.Component {
                 placeholder='Select type' />
             </Grid.Column>
             <Grid.Column width={6}>
-              <Label>Order by:</Label>
+              <Label><Trans>Order by</Trans></Label>
               <Dropdown selection
                 fluid
                 options={this.props.postsOrder}
@@ -82,7 +83,7 @@ class PostsSelect extends React.Component {
                 placeholder='Order by:' />
             </Grid.Column>
             <Grid.Column width={2} textAlign='center'>
-              <Label>Sort:</Label>
+              <Label><Trans>Sort</Trans></Label>
               <Button basic icon onClick={this.switchPostsSort}>
                 {this.props.postsSortUp
                   ? (<Icon name='sort up' />) : (<Icon name='sort down' />)
