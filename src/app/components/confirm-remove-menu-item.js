@@ -2,11 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Confirm } from 'semantic-ui-react'
 import { confirmRemoveFromMenu, removeFromMenu, saveMenuData } from '../$actions/menus.actions'
-
+import { withTranslation } from 'react-i18next'
 @connect((store) => {
   return {
     confirmRemoveMenuItem: store.menus.confirmRemoveMenuItem,
     currentMenuId: store.menus.currentMenuId,
+    currentMenuName: store.menus.currentMenuName,
     currentMenuData: store.menus.currentMenuData
   }
 })
@@ -25,10 +26,21 @@ class ConfirmRemoveMenuItem extends React.Component {
     })
   }
 
+  getContent = () => {
+    if (!this.props.confirmRemoveMenuItem.item) {
+      return
+    }
+    const { t } = this.props
+    return t('Are You sure You want to remove') +
+      ' "' + this.props.confirmRemoveMenuItem.item.title + '" ' +
+      t('from') + ' "' + this.props.currentMenuName + ' "?'
+  }
+
   render () {
     return (
       <Confirm
         open={this.props.confirmRemoveMenuItem.open}
+        content={this.getContent()}
         onCancel={this.onCancel}
         onConfirm={this.onConfirm}
       />
@@ -36,4 +48,4 @@ class ConfirmRemoveMenuItem extends React.Component {
   }
 }
 
-export default ConfirmRemoveMenuItem
+export default withTranslation()(ConfirmRemoveMenuItem)

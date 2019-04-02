@@ -28548,6 +28548,13 @@ body.pushable > .pusher {
     padding-left: 0.5rem;
     padding-right: 0.5rem; }
 
+.ui.modal .content {
+  box-sizing: border-box; }
+
+.ui.modal .button {
+  text-transform: uppercase;
+  height: auto; }
+
 .display-none {
   display: none; }
 

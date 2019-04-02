@@ -1,0 +1,14 @@
+.ui {
+
+    &.modal {
+
+        .content {
+            box-sizing: border-box;
+        }
+
+        .button {
+            text-transform: uppercase;
+            height: auto;
+        }
+    }
+}
