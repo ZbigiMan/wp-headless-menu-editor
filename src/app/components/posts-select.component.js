@@ -13,6 +13,7 @@ import { Trans, withTranslation } from 'react-i18next'
   return {
     menus: store.menus.menus,
     currentMenuId: store.menus.currentMenuId,
+    currentMenuName: store.menus.currentMenuName,
     postsTypes: store.posts.postsTypes,
     currentPostsTypes: store.posts.currentPostsTypes,
     postsOrder: store.posts.postsOrder,
@@ -54,10 +55,7 @@ class PostsSelect extends React.Component {
                 <Checkbox
                   checked={this.props.hidePostsFromCurrentMenu}
                   onChange={this.switchHidePostsFromCurrentManu}
-                  label={t('Not in') + ' ' + this.props.menus.find(menu => {
-                    return menu.term_id === this.props.currentMenuId
-                  }).name + '"'
-                  }
+                  label={t('Not in') + ' "' + this.props.currentMenuName + '"'}
                 />
               }
             </Grid.Column>
@@ -65,14 +63,15 @@ class PostsSelect extends React.Component {
           <Divider />
           <Grid>
             <Grid.Column width={8}>
-              <Label><Trans>Select Type</Trans></Label>
+              <Label><Trans>Select type</Trans></Label>
               <Dropdown selection
                 fluid
                 multiple
                 options={this.props.postsTypes}
                 onChange={this.selectPostsType}
                 value={this.props.currentPostsTypes}
-                placeholder='Select type' />
+                placeholder={t('Select type')}
+              />
             </Grid.Column>
             <Grid.Column width={6}>
               <Label><Trans>Order by</Trans></Label>
@@ -81,7 +80,8 @@ class PostsSelect extends React.Component {
                 options={this.props.postsOrder}
                 value={this.props.currentPostsOrder}
                 onChange={this.selectPostsOrder}
-                placeholder='Order by:' />
+                placeholder={t('Order by')}
+              />
             </Grid.Column>
             <Grid.Column width={2} textAlign='center'>
               <Label><Trans>Sort</Trans></Label>

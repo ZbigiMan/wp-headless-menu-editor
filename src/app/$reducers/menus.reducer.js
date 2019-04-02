@@ -3,6 +3,7 @@ import * as types from '../$constants/menus-action-types'
 const initialState = {
   menus: [],
   currentMenuId: '',
+  currentMenuName: '',
   currentMenuData: [],
   currentMenuDataLoading: false,
   currentMenuDataSaving: false,
@@ -24,7 +25,10 @@ export default function reducer (state = initialState, action) {
     {
       return {
         ...state,
-        currentMenuId: action.playload
+        currentMenuId: action.playload,
+        currentMenuName: state.menus.find(menu => {
+          return menu.term_id === action.playload
+        }).name
       }
     }
     case types.GET_MENU_DATA_STARTED:

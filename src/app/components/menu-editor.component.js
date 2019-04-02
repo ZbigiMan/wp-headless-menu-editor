@@ -14,6 +14,7 @@ import { saveMenuData } from '../$actions/menus.actions'
   return {
     menus: store.menus.menus,
     currentMenuId: store.menus.currentMenuId,
+    currentMenuName: store.menus.currentMenuName,
     currentMenuDataLoading: store.menus.currentMenuDataLoading,
     currentMenuData: store.menus.currentMenuData,
     postTypes: store.posts.postsTypes
@@ -81,9 +82,7 @@ class MenuEditor extends React.Component {
       <Segment raised key={'v' + this.stateV} className='menu-editor'>
         {this.props.currentMenuId &&
           <h5>
-            <Trans>Editing</Trans> "{this.props.menus.find(menu => {
-              return menu.term_id === this.props.currentMenuId
-            }).name}"
+            <Trans>Editing</Trans> "{this.props.currentMenuName}"
             <small className='tip'><Icon name='hand point left outline' />
               <Trans>drag and drop items</Trans>
             </small>
