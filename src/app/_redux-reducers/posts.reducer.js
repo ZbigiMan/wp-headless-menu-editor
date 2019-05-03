@@ -1,4 +1,4 @@
-import * as types from '../constants/posts-action-types'
+import * as types from '../_redux-constants/posts-action-types'
 
 const initialState = {
   postsTypes: [],

@@ -2,8 +2,8 @@ import React from 'react'
 import { Grid } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
-import { selectMenu, setMenus } from './actions/menus.actions'
-import { setPostsTypes } from './actions/posts.actions'
+import { selectMenu, setMenus } from './_redux-actions/menus.actions'
+import { setPostsTypes } from './_redux-actions/posts.actions'
 
 import config from './config'
 import Header from './components/header'

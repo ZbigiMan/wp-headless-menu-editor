@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Modal, Button } from 'semantic-ui-react'
-import { confirmRemoveFromMenu, removeFromMenu, saveMenuData } from '../actions/menus.actions'
+import { confirmRemoveFromMenu, removeFromMenu, saveMenuData } from '../_redux-actions/menus.actions'
 import { Trans, withTranslation } from 'react-i18next'
 @connect((store) => {
   return {

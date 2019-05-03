@@ -6,7 +6,7 @@ import {
   selectCurrentPostsOrder,
   switchHidePostsFromCurrentMenu,
   switchPostsSort
-} from '../actions/posts.actions'
+} from '../_redux-actions/posts.actions'
 import { Trans, withTranslation } from 'react-i18next'
 
 @connect((store) => {

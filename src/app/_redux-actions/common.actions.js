@@ -1,4 +1,4 @@
-import * as types from '../constants/common-action-types'
+import * as types from '../_redux-constants/common-action-types'
 
 export function openCloseMenuItemEditor (options) {
   return {

@@ -6,7 +6,7 @@ import { Segment, Divider, Dimmer, Loader, Icon } from 'semantic-ui-react'
 import { Trans } from 'react-i18next'
 
 import MenuItem from './menu-item'
-import { saveMenuData } from '../actions/menus.actions'
+import { saveMenuData } from '../_redux-actions/menus.actions'
 
 /* global getComputedStyle */
 

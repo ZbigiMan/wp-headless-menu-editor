@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Button, Icon, Popup } from 'semantic-ui-react'
-import { openCloseMenuItemEditor } from '../actions/common.actions'
+import { openCloseMenuItemEditor } from '../_redux-actions/common.actions'
 import { Trans } from 'react-i18next'
 
 @connect((store) => {

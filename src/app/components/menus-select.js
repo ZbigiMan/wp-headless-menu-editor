@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Segment, Divider, Dropdown, Button } from 'semantic-ui-react'
-import { selectMenu } from '../actions/menus.actions'
+import { selectMenu } from '../_redux-actions/menus.actions'
 import { Trans } from 'react-i18next'
 
 @connect((store) => {

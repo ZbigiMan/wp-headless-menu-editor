@@ -1,4 +1,4 @@
-import * as types from '../constants/menus-action-types'
+import * as types from '../_redux-constants/menus-action-types'
 
 const initialState = {
   menus: [],

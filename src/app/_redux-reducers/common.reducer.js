@@ -1,4 +1,4 @@
-import * as types from '../constants/common-action-types'
+import * as types from '../_redux-constants/common-action-types'
 
 const initialState = {
   menuItemEditor: {
