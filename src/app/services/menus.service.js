@@ -1,6 +1,6 @@
 import Ajax from '../classes/ajax'
-import Menu from '../$models/menu.model'
-import MenuItem from '../$models/menu-item.model'
+import Menu from '../models/menu.model'
+import MenuItem from '../models/menu-item.model'
 import config from '../config'
 
 class MenusService {

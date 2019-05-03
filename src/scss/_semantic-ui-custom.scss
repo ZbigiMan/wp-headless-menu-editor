@@ -4,6 +4,10 @@
 
         &.button {
             text-transform: uppercase;
+
+            &.no-top-label {
+                margin-top: 26px;
+            }
         }
 
         &.label {

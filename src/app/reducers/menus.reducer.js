@@ -1,4 +1,4 @@
-import * as types from '../$constants/menus-action-types'
+import * as types from '../constants/menus-action-types'
 
 const initialState = {
   menus: [],
@@ -62,7 +62,7 @@ export default function reducer (state = initialState, action) {
     case types.ADD_TO_MENU: {
       let item = action.playload
       let order = 1
-      if (!item.menu_order && state.currentMenuData.length > 0) {
+      if (state.currentMenuData.length > 0) {
         order = state.currentMenuData.sort((a, b) => {
           return b.menu_order - a.menu_order
         })[0].menu_order + 1

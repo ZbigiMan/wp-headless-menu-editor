@@ -5,8 +5,8 @@ import EventListener from 'react-event-listener'
 import { Segment, Divider, Dimmer, Loader, Icon } from 'semantic-ui-react'
 import { Trans } from 'react-i18next'
 
-import MenuItem from './menu-item.component'
-import { saveMenuData } from '../$actions/menus.actions'
+import MenuItem from './menu-item'
+import { saveMenuData } from '../actions/menus.actions'
 
 /* global getComputedStyle */
 
@@ -122,7 +122,7 @@ class MenuEditor extends React.Component {
                   key={'li-' + item.item.ID}
                   data-id={item.item.ID}
                 >
-                  <MenuItem item={item.item} secondary prefix='menuEditor' />
+                  <MenuItem item={item.item} secondary prefix='menuEditor' menuItemEditorMode='menuEditor' />
                   <span
                     className='menu-item--insert menu-item--insert-child'
                     ref={item['span-insert-child-' + item.item.ID].ref}
@@ -198,7 +198,8 @@ class MenuEditor extends React.Component {
 
   onDragStart (e) {
     this.dragStart = true
-    const draggedId = e.target.parentNode.parentNode.parentNode.getAttribute('id')
+    const draggedId = e.target.parentNode.parentNode.parentNode.parentNode.getAttribute('id')
+
     this.dragged = this.getElementRef(draggedId)
     this.dragOffset = this.getDragOffset(e)
     this.draggedClone = this.dragged.cloneNode(true)

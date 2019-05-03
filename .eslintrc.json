@@ -3,13 +3,14 @@
     "parserOptions": {
         "ecmaVersion": 7,
         "sourceType": "module",
+        "indent": [2, 2],
         "ecmaFeatures": {
             "jsx": true,
             "experimentalObjectRestSpread": true,
-            "experimentalDecorators": true          
+            "experimentalDecorators": true
         }
     },
     "rules": {
         "semi": 0
-    }   
+    }
 }

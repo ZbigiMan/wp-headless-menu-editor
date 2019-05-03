@@ -12,10 +12,14 @@
     "Select Type": "Select Type",
     "Order by": "Order by",
     "Sort": "Sort",
-    "Remove from menu": "Remove from menu",
-    "Add to menu": "Add to menu",
+    "Remove from": "Remove from",
+    "Add to": "Add to",
     "Are You sure You want to remove": "Are You sure You want to remove",
-    "from": "from"
-
+    "from": "from",
+    "No": "No",
+    "Yes": "Yes",
+    "Cancel": "Cancel",
+    "Save": "Save",
+    "Edit": "Edit"
   }
 }

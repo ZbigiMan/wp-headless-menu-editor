@@ -1,7 +1,7 @@
 import { observable, toJS, action } from 'mobx'
 import * as _ from 'lodash'
-import MenusService from '../$services/menus.service'
-import postsService from '../$services/posts.service'
+import MenusService from '../services/menus.service'
+import postsService from '../services/posts.service'
 
 class Store {
     @observable

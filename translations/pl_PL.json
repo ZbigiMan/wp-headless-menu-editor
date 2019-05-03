@@ -12,9 +12,14 @@
     "Select type": "Wybierz typ",
     "Order by": "Sotruj według",
     "Sort": "Kierunek",
-    "Remove from menu": "Usuń z menu",
-    "Add to menu": "Dodaj do menu",
+    "Remove from": "Usuń z",
+    "Add to": "Dodaj do",
     "Are You sure You want to remove": "Czy na pewno chcesz usunąć",
-    "from": "z"
+    "from": "z",
+    "No": "Nie",
+    "Yes": "Tak",
+    "Cancel": "Anuluj",
+    "Save": "Zapisz",
+    "Edit": "Edytuj"
   }
 }

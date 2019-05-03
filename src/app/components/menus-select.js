@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Segment, Divider, Dropdown, Button } from 'semantic-ui-react'
-import { selectMenu } from '../$actions/menus.actions'
+import { selectMenu } from '../actions/menus.actions'
 import { Trans } from 'react-i18next'
 
 @connect((store) => {
@@ -16,6 +16,12 @@ class MenusSelect extends React.Component {
     const menuId = parseInt(data.value)
     this.props.dispatch(selectMenu(menuId))
   }
+
+  renderLabel = label => ({
+    color: 'blue',
+    content: `Customized label - ${label.text}`,
+    icon: 'check'
+  })
 
   render () {
     return (
@@ -39,6 +45,7 @@ class MenusSelect extends React.Component {
                 onChange={this.selectMenu}
                 disabled={this.props.currentMenuDataLoading}
                 value={this.props.currentMenuId}
+                renderLabel={this.renderLabel}
               />
             </div>
             <span className='span'><Trans>or</Trans></span>

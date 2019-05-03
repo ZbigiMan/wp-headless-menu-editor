@@ -1,6 +1,6 @@
 import Ajax from '../classes/ajax'
 import config from '../config'
-import MenuItem from '../$models/menu-item.model'
+import MenuItem from '../models/menu-item.model'
 
 class PostsService {
   constructor () {

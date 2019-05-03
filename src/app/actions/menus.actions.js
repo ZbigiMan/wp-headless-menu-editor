@@ -1,6 +1,6 @@
-import menusService from '../$services/menus.service'
+import menusService from '../services/menus.service'
 import { filterPosts } from './posts.actions'
-import * as types from '../$constants/menus-action-types'
+import * as types from '../constants/menus-action-types'
 
 export function setMenus (data) {
   return {

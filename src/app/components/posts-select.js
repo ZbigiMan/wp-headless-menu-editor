@@ -6,7 +6,7 @@ import {
   selectCurrentPostsOrder,
   switchHidePostsFromCurrentMenu,
   switchPostsSort
-} from '../$actions/posts.actions'
+} from '../actions/posts.actions'
 import { Trans, withTranslation } from 'react-i18next'
 
 @connect((store) => {
@@ -45,12 +45,10 @@ class PostsSelect extends React.Component {
       <div className='posts-types-select'>
         <Segment secondary>
           <Grid>
-            <Grid.Column width={10}>
-              <h5><Trans>Select posts</Trans>
-                <small className='tip'><Icon name='hand point left outline' /><Trans>choose criteria</Trans></small>
-              </h5>
+            <Grid.Column width={6}>
+              <h5><Trans>Select posts</Trans></h5>
             </Grid.Column>
-            <Grid.Column width={6} textAlign='right'>
+            <Grid.Column width={10} textAlign='right'>
               {this.props.menus.length > 0 &&
                 <Checkbox
                   checked={this.props.hidePostsFromCurrentMenu}
@@ -62,7 +60,7 @@ class PostsSelect extends React.Component {
           </Grid>
           <Divider />
           <Grid>
-            <Grid.Column width={8}>
+            <Grid.Column width={9}>
               <Label><Trans>Select type</Trans></Label>
               <Dropdown selection
                 fluid
@@ -73,7 +71,7 @@ class PostsSelect extends React.Component {
                 placeholder={t('Select type')}
               />
             </Grid.Column>
-            <Grid.Column width={6}>
+            <Grid.Column width={5}>
               <Label><Trans>Order by</Trans></Label>
               <Dropdown selection
                 fluid
@@ -84,8 +82,7 @@ class PostsSelect extends React.Component {
               />
             </Grid.Column>
             <Grid.Column width={2} textAlign='center'>
-              <Label><Trans>Sort</Trans></Label>
-              <Button basic icon onClick={this.switchPostsSort}>
+              <Button className='no-top-label' basic icon onClick={this.switchPostsSort}>
                 {this.props.postsSortUp
                   ? (<Icon name='sort up' />) : (<Icon name='sort down' />)
                 }

@@ -1,6 +1,6 @@
 import { setMenus } from './setMenus'
 import menusMocs from '../mocs/mocs'
-import * as types from '../$constants/menus-action-types'
+import * as types from '../constants/menus-action-types'
 import Menu from '../$models/menu.model'
 
 /* global describe it expect */

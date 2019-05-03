@@ -1,7 +1,7 @@
 import * as _ from 'lodash'
 import store from '../store'
-import postsService from '../$services/posts.service'
-import * as types from '../$constants/posts-action-types'
+import postsService from '../services/posts.service'
+import * as types from '../constants/posts-action-types'
 
 export function getPosts (postsTypes) {
   return dispatch => {

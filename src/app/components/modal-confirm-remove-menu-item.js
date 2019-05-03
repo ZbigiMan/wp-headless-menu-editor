@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Confirm } from 'semantic-ui-react'
-import { confirmRemoveFromMenu, removeFromMenu, saveMenuData } from '../$actions/menus.actions'
-import { withTranslation } from 'react-i18next'
+import { Modal, Button } from 'semantic-ui-react'
+import { confirmRemoveFromMenu, removeFromMenu, saveMenuData } from '../actions/menus.actions'
+import { Trans, withTranslation } from 'react-i18next'
 @connect((store) => {
   return {
     confirmRemoveMenuItem: store.menus.confirmRemoveMenuItem,
@@ -26,24 +26,39 @@ class ConfirmRemoveMenuItem extends React.Component {
     })
   }
 
+  getHeader = () => {
+    if (!this.props.confirmRemoveMenuItem.item) {
+      return
+    }
+    const { t } = this.props
+    return t('Are You sure You want to remove')
+  }
+
   getContent = () => {
     if (!this.props.confirmRemoveMenuItem.item) {
       return
     }
     const { t } = this.props
-    return t('Are You sure You want to remove') +
-      ' "' + this.props.confirmRemoveMenuItem.item.title + '" ' +
+    return ' "' + this.props.confirmRemoveMenuItem.item.title + '" ' +
       t('from') + ' "' + this.props.currentMenuName + ' "?'
   }
 
   render () {
     return (
-      <Confirm
+      <Modal
         open={this.props.confirmRemoveMenuItem.open}
-        content={this.getContent()}
-        onCancel={this.onCancel}
-        onConfirm={this.onConfirm}
-      />
+      >
+        <Modal.Header>
+          {this.getHeader()}
+        </Modal.Header>
+        <Modal.Content>
+          <h4>{this.getContent()}</h4>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button basic onClick={this.onCancel}><Trans>No</Trans></Button>
+          <Button primary onClick={this.onConfirm}><Trans>Yes</Trans></Button>
+        </Modal.Actions>
+      </Modal>
     )
   }
 }
