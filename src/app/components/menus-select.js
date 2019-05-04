@@ -26,7 +26,7 @@ class MenusSelect extends React.Component {
   render () {
     return (
       <div className='menu-select'>
-        <Segment secondary>
+        <Segment>
           <h5><Trans>Choose menu to edit</Trans></h5>
           <Divider />
           <div className='flex'>

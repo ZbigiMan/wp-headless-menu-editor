@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Segment, Dimmer, Loader, Message } from 'semantic-ui-react'
+import { Segment, Dimmer, Loader, Message, Divider } from 'semantic-ui-react'
 import MenuItem from './menu-item'
+import { Trans } from 'react-i18next'
 
 @connect((store) => {
   return {
@@ -18,6 +19,8 @@ class PostsList extends React.Component {
   render () {
     return (
       <Segment className='posts-list'>
+        <h5><Trans>Posts List</Trans></h5>
+        <Divider />
         {this.props.postsLoading &&
         <ul>
           <Dimmer active inverted>

@@ -79,7 +79,7 @@ class MenuEditor extends React.Component {
     this.setReferences()
 
     return (
-      <Segment raised key={'v' + this.stateV} className='menu-editor'>
+      <Segment key={'v' + this.stateV} className='menu-editor'>
         {this.props.currentMenuId &&
           <h5>
             <Trans>Editing</Trans> "{this.props.currentMenuName}"

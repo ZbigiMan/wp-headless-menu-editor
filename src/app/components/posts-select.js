@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Grid, Segment, Divider, Dropdown, Label, Button, Icon, Checkbox } from 'semantic-ui-react'
+import { Grid, Segment, Divider, Dropdown, Label, Button, Icon, Checkbox, Popup } from 'semantic-ui-react'
 import {
   updateCurrentPostsTypes,
   selectCurrentPostsOrder,
@@ -43,7 +43,7 @@ class PostsSelect extends React.Component {
     const { t } = this.props
     return (
       <div className='posts-types-select'>
-        <Segment secondary>
+        <Segment>
           <Grid>
             <Grid.Column width={6}>
               <h5><Trans>Select posts</Trans></h5>
@@ -82,11 +82,15 @@ class PostsSelect extends React.Component {
               />
             </Grid.Column>
             <Grid.Column width={2} textAlign='center'>
-              <Button className='no-top-label' basic icon onClick={this.switchPostsSort}>
-                {this.props.postsSortUp
-                  ? (<Icon name='sort up' />) : (<Icon name='sort down' />)
-                }
-              </Button>
+              <Popup trigger={
+                <Button className='no-top-label' basic icon onClick={this.switchPostsSort}>
+                  {this.props.postsSortUp
+                    ? (<Icon name='sort up' />) : (<Icon name='sort down' />)
+                  }
+                </Button>
+              } >
+                <Trans>Direction of sorting</Trans>
+              </Popup>
             </Grid.Column>
           </Grid>
         </Segment>

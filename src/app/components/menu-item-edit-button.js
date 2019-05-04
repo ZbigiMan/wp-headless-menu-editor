@@ -22,7 +22,6 @@ class MenuItemEditButton extends React.Component {
       <Popup trigger={
         <Button
           className='menuItemButton'
-          basic
           icon
           onClick={this.handleOnClick}
         >
