@@ -11,6 +11,6 @@
 * Standard JS
 #### Backend:
 * PHP7
-* wp-api
+* WordPress Plugin API
 
 ### React App Source Code: `\src\app\`
