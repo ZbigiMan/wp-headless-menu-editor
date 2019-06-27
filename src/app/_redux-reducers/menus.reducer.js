@@ -8,7 +8,8 @@ const initialState = {
   currentMenuDataLoading: false,
   currentMenuDataSaving: false,
   confirmRemoveMenuItem: {
-    open: false
+    open: false,
+    item: null
   }
 }
 

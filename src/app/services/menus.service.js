@@ -40,6 +40,12 @@ class MenusService {
       return res
     })
   }
+
+  isPostInMenu (objectId, menuData) {
+    return menuData.find((item) => {
+      return item.object_id === objectId
+    })
+  }
 }
 
 const menusService = new MenusService()

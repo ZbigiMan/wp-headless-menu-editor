@@ -43,7 +43,7 @@ class MenuItem extends React.Component {
           key={'MenuItemEditButton-' + this.props.prefix + this.props.item.ID}
         />
         <MenuItemAddRemoveButton
-          post={this.props.item}
+          item={this.props.item}
         />
       </div>
     )

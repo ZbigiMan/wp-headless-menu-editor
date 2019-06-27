@@ -17,22 +17,24 @@ import { Trans } from 'react-i18next'
 })
 class MenuItemAddRemoveButton extends React.Component {
     addToMenu = () => {
-      this.props.dispatch(addToMenu(this.props.post))
-      this.props.dispatch(saveMenuData(this.props.currentMenuId, this.props.currentManuData, {
-        reload: true
-      }))
+      this.props.dispatch(addToMenu(this.props.item))
+      this.props.dispatch(saveMenuData(
+        this.props.currentMenuId,
+        this.props.currentManuData, {
+          reload: true
+        }))
     }
 
     confirmRemoveFromMenu = () => {
       this.props.dispatch(confirmRemoveFromMenu({
         open: true,
-        item: this.props.post
+        item: this.props.item
       }))
     }
 
     addRemoveButton = () => {
       let menuItem = this.props.currentManuData.find(item => {
-        return item.object_id === this.props.post.object_id
+        return item.object_id === this.props.item.object_id
       })
 
       if (menuItem) {
@@ -42,7 +44,7 @@ class MenuItemAddRemoveButton extends React.Component {
               className='menuItemButton'
               icon='remove'
               disabled={this.props.currentMenuDataLoading || this.props.currentMenuDataSaving}
-              onClick={() => { this.confirmRemoveFromMenu(this.props.post) }}
+              onClick={() => { this.confirmRemoveFromMenu(this.props.item) }}
             />}
           >
             <Trans>Remove from</Trans> "{this.props.currentMenuName}"
@@ -57,7 +59,7 @@ class MenuItemAddRemoveButton extends React.Component {
             icon='add'
             primary
             disabled={this.props.currentMenuDataLoading || this.props.currentMenuDataSaving}
-            onClick={() => { this.addToMenu(this.props.post) }}
+            onClick={() => { this.addToMenu(this.props.item) }}
           />}
         >
           <Trans>Add to</Trans> "{this.props.currentMenuName}"

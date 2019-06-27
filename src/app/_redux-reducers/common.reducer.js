@@ -2,8 +2,8 @@ import * as types from '../_redux-constants/common-action-types'
 
 const initialState = {
   menuItemEditor: {
-    mode: '',
-    open: false
+    open: false,
+    item: null
   }
 }
 

@@ -12,8 +12,8 @@ import { Trans } from 'react-i18next'
 class MenuItemEditButton extends React.Component {
   handleOnClick = () => {
     this.props.dispatch(openCloseMenuItemEditor({
-      mode: this.props.menuItemEditorMode,
-      open: true
+      open: true,
+      item: this.props.item
     }))
   }
 
