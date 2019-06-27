@@ -4,8 +4,6 @@
 
 ### Install: download or clone repo, copy to `wp-content\plugins\` folder.
 
-### React App Source Code: `\src\app\`
-
 ### The Stack
 #### Front-end:
 * React/Redux
@@ -14,3 +12,5 @@
 #### Backend:
 * PHP7
 * wp-api
+
+### React App Source Code: `\src\app\`
