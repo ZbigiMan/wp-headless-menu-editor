@@ -1,6 +1,6 @@
 ### WP Headless Menu Editor - WordPress Plugin
 
-![wp-headless-menu-editor](https://raw.githubusercontent.com/ZbigiMan/wp-headless-menu-editor/master/screenshot/wp-headless-menu-editor.png?token=ACUD7R47PIBSHBSMMZDWSQ25CT35U)
+![wp-headless-menu-editor](/screenshot/wp-headless-menu-editor.png)
 
 ### Install: download or clone repo, copy to `wp-content\plugins\` folder.
 
