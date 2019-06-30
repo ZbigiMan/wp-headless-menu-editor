@@ -6,7 +6,7 @@ import MenuItemAddRemoveButton from './menu-item-add-remove-button'
 
 @connect((store) => {
   return {
-    postTypes: store.posts.postsTypes
+    postTypes: store.posts.postTypes
   }
 })
 class MenuItem extends React.Component {

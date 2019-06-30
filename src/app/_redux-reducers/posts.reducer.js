@@ -1,8 +1,8 @@
 import * as types from '../_redux-constants/posts-action-types'
 
 const initialState = {
-  postsTypes: [],
-  currentPostsTypes: [],
+  postTypes: [],
+  currentpostTypes: [],
   postsOrder: [{
     value: 'post_date',
     text: 'Date'
@@ -48,14 +48,14 @@ export default function reducer (state = initialState, action) {
     {
       return {
         ...state,
-        postsTypes: action.playload
+        postTypes: action.playload
       }
     }
     case types.UPDATE_CURRENT_POSTS_TYPES_SUCCESS:
     {
       return {
         ...state,
-        currentPostsTypes: action.playload
+        currentpostTypes: action.playload
       }
     }
     case types.SET_CURRENT_POSTS_ORDER:

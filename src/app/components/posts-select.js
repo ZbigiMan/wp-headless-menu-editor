@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Grid, Segment, Divider, Dropdown, Label, Button, Icon, Checkbox, Popup } from 'semantic-ui-react'
 import {
-  updateCurrentPostsTypes,
+  updateCurrentpostTypes,
   selectCurrentPostsOrder,
   switchHidePostsFromCurrentMenu,
   switchPostsSort
@@ -14,8 +14,8 @@ import { Trans, withTranslation } from 'react-i18next'
     menus: store.menus.menus,
     currentMenuId: store.menus.currentMenuId,
     currentMenuName: store.menus.currentMenuName,
-    postsTypes: store.posts.postsTypes,
-    currentPostsTypes: store.posts.currentPostsTypes,
+    postTypes: store.posts.postTypes,
+    currentpostTypes: store.posts.currentpostTypes,
     postsOrder: store.posts.postsOrder,
     currentPostsOrder: store.posts.currentPostsOrder,
     hidePostsFromCurrentMenu: store.posts.hidePostsFromCurrentMenu,
@@ -24,7 +24,7 @@ import { Trans, withTranslation } from 'react-i18next'
 })
 class PostsSelect extends React.Component {
   selectPostsType = (e, data) => {
-    this.props.dispatch(updateCurrentPostsTypes(data.value))
+    this.props.dispatch(updateCurrentpostTypes(data.value))
   }
 
   selectPostsOrder = (e, data) => {
@@ -65,9 +65,9 @@ class PostsSelect extends React.Component {
               <Dropdown selection
                 fluid
                 multiple
-                options={this.props.postsTypes}
+                options={this.props.postTypes}
                 onChange={this.selectPostsType}
-                value={this.props.currentPostsTypes}
+                value={this.props.currentpostTypes}
                 placeholder={t('Select type')}
               />
             </Grid.Column>

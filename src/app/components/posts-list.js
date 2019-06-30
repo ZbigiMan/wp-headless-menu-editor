@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Segment, Dimmer, Loader, Message, Divider } from 'semantic-ui-react'
+import { Segment, Dimmer, Loader, Message, Divider, Pagination } from 'semantic-ui-react'
 import MenuItem from './menu-item'
 import { Trans } from 'react-i18next'
 
@@ -16,6 +16,25 @@ import { Trans } from 'react-i18next'
   }
 })
 class PostsList extends React.Component {
+  state = {
+    activePage: 1,
+    itemsOnPage: 5
+  }
+
+  getTotalPages = () => {
+    return Math.ceil(this.props.currentPosts.length / this.state.itemsOnPage)
+  }
+
+  onChangePage = (e, { activePage }) => {
+    this.setState({ activePage })
+  }
+
+  isOnPage = (index) => {
+    let rangeMax = this.state.activePage * this.state.itemsOnPage
+    let rangeMin = rangeMax - this.state.itemsOnPage
+    return (index >= rangeMin && index < rangeMax)
+  }
+
   render () {
     return (
       <Segment className='posts-list'>
@@ -34,7 +53,8 @@ class PostsList extends React.Component {
         }
         {this.props.currentPosts && this.props.currentPosts.length > 0 && !this.props.currentPostsLoading &&
         <ul>
-          {this.props.currentPosts.map(item =>
+          {this.props.currentPosts.map((item, index) =>
+            this.isOnPage(index) &&
             <li className='menu-item'
               key={'li-menu-item-segment' + item.object_id}
             >
@@ -42,6 +62,19 @@ class PostsList extends React.Component {
             </li>
           )}
         </ul>}
+        <Segment basic textAlign='center'>
+          {this.getTotalPages() > 1 &&
+          <Pagination
+            totalPages={this.getTotalPages()}
+            activePage={this.state.activePage}
+            onPageChange={this.onChangePage}
+            firstItem={null}
+            lastItem={null}
+            siblingRange={0}
+            size='mini'
+            secondary
+          />}
+        </Segment>
       </Segment>
     )
   }

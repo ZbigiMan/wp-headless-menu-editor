@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Modal, Button, Input, Label, Form, Divider } from 'semantic-ui-react'
+import { Modal, Button, Input, Label, Form, Segment, Icon } from 'semantic-ui-react'
 import { openCloseMenuItemEditor } from '../_redux-actions/common.actions'
 import { Trans, withTranslation } from 'react-i18next'
+import config from '../config'
 import { saveMenuData } from '../_redux-actions/menus.actions'
 
 @connect((store) => {
@@ -12,7 +13,8 @@ import { saveMenuData } from '../_redux-actions/menus.actions'
     currentMenuName: store.menus.currentMenuName,
     currentMenuData: store.menus.currentMenuData,
     currentMenuDataLoading: store.menus.currentMenuDataLoading,
-    currentMenuDataSaving: store.menus.currentMenuDataSaving
+    currentMenuDataSaving: store.menus.currentMenuDataSaving,
+    postTypes: store.posts.postTypes
   }
 })
 class ModalMenuItemEditor extends React.Component {
@@ -42,6 +44,27 @@ class ModalMenuItemEditor extends React.Component {
     return t('Editing') + ' "' + this.props.menuItemEditor.item.title + '"'
   }
 
+  getDetails = () => {
+    if (!this.props.menuItemEditor.item) {
+      return
+    }
+    return (
+      <div>
+        <Label><Trans>Type</Trans>:</Label>
+        <span>
+          &nbsp;
+          {this.props.postTypes.find(type => {
+            return type.value === this.props.menuItemEditor.item.object
+          }).text}
+          {}
+          &nbsp;
+        </span>
+        <Label><Trans>Title</Trans>:</Label>
+        <span>&nbsp;{this.props.menuItemEditor.item.post_title}</span>
+      </div>
+    )
+  }
+
   getRenameMenuItem = () => {
     if (!this.props.menuItemEditor.item) {
       return
@@ -52,31 +75,40 @@ class ModalMenuItemEditor extends React.Component {
     })
     if (isPostInMenu) {
       return (
-        <Form onSubmit={this.renameMenuItemOnSubmit}>
-          <Form.Field>
-            <Label>Rename Menu Item</Label>
-            <Input
-              onChange={this.renameMenuItemOnChange}
-              action={
-                <Button
-                  primary
-                  type='submit'
-                  disabled={this.props.currentMenuDataLoading || this.props.currentMenuDataSaving}
-                >
-                  <Trans>Save</Trans>
-                </Button>
-              }
-              defaultValue={this.props.menuItemEditor.item.title}
-            />
-          </Form.Field>
-        </Form>
+        <Segment>
+          <Form onSubmit={this.renameMenuItemOnSubmit}>
+            <Form.Field>
+              <Input
+                label={
+                  <Label color='blue'>
+                    <Trans>Rename Menu Item</Trans>:
+                  </Label>
+                }
+                onChange={this.renameMenuItemOnChange}
+                action={
+                  <Button
+                    primary
+                    type='submit'
+                    disabled={this.props.currentMenuDataLoading || this.props.currentMenuDataSaving}
+                  >
+                    <Trans>Save</Trans>
+                  </Button>
+                }
+                defaultValue={this.props.menuItemEditor.item.title}
+              />
+            </Form.Field>
+          </Form>
+        </Segment>
       )
     }
   }
 
   getEditSource = () => {
+    const editPostLink = config.editPostPath.replace('{postId}', this.props.menuItemEditor.item.object_id)
     return (
-      <Button>Eidit Source</Button>
+      <Segment textAlign='center'>
+        <a href={editPostLink} target='_blank'><Button primary basic><Trans>Open in content editor</Trans></Button></a>
+      </Segment>
     )
   }
 
@@ -86,21 +118,26 @@ class ModalMenuItemEditor extends React.Component {
     }
     return (<React.Fragment>
       {this.getRenameMenuItem()}
-      <Divider />
       {this.getEditSource()}</React.Fragment>)
   }
 
   render () {
     return (
-      <Modal open={this.props.menuItemEditor.open}>
+      <Modal
+        closeIcon={<Icon name='close' onClick={this.onCancel} />}
+        open={this.props.menuItemEditor.open}
+      >
         <Modal.Header>
           {this.getHeader()}
         </Modal.Header>
         <Modal.Content>
+          {this.getDetails()}
           {this.getContent()}
         </Modal.Content>
         <Modal.Actions>
-          <Button basic onClick={this.onCancel}><Trans>Close</Trans></Button>
+          <Segment basic textAlign='center'>
+            <Button basic onClick={this.onCancel}><Trans>Close</Trans></Button>
+          </Segment>
         </Modal.Actions>
       </Modal>
     )

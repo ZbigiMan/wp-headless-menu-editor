@@ -3,10 +3,10 @@ import store from '../store'
 import postsService from '../services/posts.service'
 import * as types from '../_redux-constants/posts-action-types'
 
-export function getPosts (postsTypes) {
+export function getPosts (postTypes) {
   return dispatch => {
     dispatch(getPostsStarted())
-    postsService.getPosts(postsTypes).then(res => {
+    postsService.getPosts(postTypes).then(res => {
       dispatch(getPostsLoadded(res))
     })
   }
@@ -72,30 +72,30 @@ const setCurrentPosts = (data) => {
   }
 }
 
-export function setPostsTypes (data) {
+export function setPostTypes (data) {
   return dispatch => {
-    dispatch(setPostsTypesSuccess(data))
-    dispatch(updateCurrentPostsTypes(data.map(item => {
+    dispatch(setPostTypesSuccess(data))
+    dispatch(updateCurrentpostTypes(data.map(item => {
       return item.value
     })))
   }
 }
 
-const setPostsTypesSuccess = (data) => {
+const setPostTypesSuccess = (data) => {
   return {
     type: types.SET_POSTS_TYPES_SUCCESS,
     playload: data
   }
 }
 
-export function updateCurrentPostsTypes (data) {
+export function updateCurrentpostTypes (data) {
   return dispatch => {
-    dispatch(updateCurrentPostsTypesSuccess(data))
+    dispatch(updateCurrentpostTypesSuccess(data))
     dispatch(getPosts(data))
   }
 }
 
-const updateCurrentPostsTypesSuccess = (data) => {
+const updateCurrentpostTypesSuccess = (data) => {
   return {
     type: types.UPDATE_CURRENT_POSTS_TYPES_SUCCESS,
     playload: data

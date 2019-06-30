@@ -23,6 +23,10 @@
     "Save": "Zapisz",
     "Edit": "Edytuj",
     "Posts List": "Lista postów",
-    "Direction of sorting": "Kierunek sortowania"
+    "Direction of sorting": "Kierunek sortowania",
+    "Type": "Type",
+    "Title": "Title",
+    "Rename Menu Item": "Zmień nazwę pozycji menu",
+    "Open in content editor": "Edytuj zawartość"
   }
 }

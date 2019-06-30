@@ -47,15 +47,21 @@ class MenuEditor
 
         return (object) array(
             "locale" => array("current" => $locale),
-            "wpajax" => array("url" => $this->get_ajaxurl()),
+            "wpajax" => array("url" => $this->get_ajax_url()),
             "menus" => $menus,
             "posts_types" => $this->get_posts_types(),
+            "admin" => array("url" => $this->get_admin_url())
         );
     }
 
-    public function get_ajaxurl()
+    public function get_ajax_url()
     {
         return admin_url('admin-ajax.php');
+    }
+
+    public function get_admin_url()
+    {
+        return admin_url();
     }
 
     // Create new menu

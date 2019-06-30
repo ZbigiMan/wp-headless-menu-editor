@@ -17,7 +17,7 @@ import { saveMenuData } from '../_redux-actions/menus.actions'
     currentMenuName: store.menus.currentMenuName,
     currentMenuDataLoading: store.menus.currentMenuDataLoading,
     currentMenuData: store.menus.currentMenuData,
-    postTypes: store.posts.postsTypes
+    postTypes: store.posts.postTypes
   }
 })
 class MenuEditor extends React.Component {

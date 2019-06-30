@@ -3,7 +3,7 @@ import { Grid } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 import { selectMenu, setMenus } from './_redux-actions/menus.actions'
-import { setPostsTypes } from './_redux-actions/posts.actions'
+import { setPostTypes } from './_redux-actions/posts.actions'
 
 import config from './config'
 import Header from './components/header'
@@ -20,7 +20,7 @@ import I18n from './i18n'
 
 @connect((store) => {
   return {
-    currentPostsTypes: store.posts.currentPostsTypes
+    currentpostTypes: store.posts.currentpostTypes
   }
 })
 class App extends React.Component {
@@ -28,6 +28,7 @@ class App extends React.Component {
     super()
     config.locale = data.locale
     config.apiUrl = data.wpajax.url
+    config.adminUrl = data.admin.url
     const i18n = new I18n()
     i18n.init()
   }
@@ -35,7 +36,7 @@ class App extends React.Component {
   componentDidMount () {
     this.props.dispatch(setMenus(data.menus))
     this.props.dispatch(selectMenu(data.menus[0].term_id))
-    this.props.dispatch(setPostsTypes(data.posts_types))
+    this.props.dispatch(setPostTypes(data.posts_types))
   }
 
   render () {

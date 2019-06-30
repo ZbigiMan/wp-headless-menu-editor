@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Modal, Button } from 'semantic-ui-react'
+import { Modal, Button, Segment, Icon } from 'semantic-ui-react'
 import { confirmRemoveFromMenu, removeFromMenu, saveMenuData } from '../_redux-actions/menus.actions'
 import { Trans, withTranslation } from 'react-i18next'
 @connect((store) => {
@@ -46,6 +46,7 @@ class ConfirmRemoveMenuItem extends React.Component {
   render () {
     return (
       <Modal
+        closeIcon={<Icon name='close' onClick={this.onCancel} />}
         open={this.props.confirmRemoveMenuItem.open}
       >
         <Modal.Header>
@@ -55,8 +56,10 @@ class ConfirmRemoveMenuItem extends React.Component {
           <h4>{this.getContent()}</h4>
         </Modal.Content>
         <Modal.Actions>
-          <Button basic onClick={this.onCancel}><Trans>No</Trans></Button>
-          <Button primary onClick={this.onConfirm}><Trans>Yes</Trans></Button>
+          <Segment basic textAlign='center'>
+            <Button basic onClick={this.onCancel}><Trans>No</Trans></Button>
+            <Button primary onClick={this.onConfirm}><Trans>Yes</Trans></Button>
+          </Segment>
         </Modal.Actions>
       </Modal>
     )
