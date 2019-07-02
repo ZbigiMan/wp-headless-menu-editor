@@ -389,12 +389,12 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
   position: relative;
   margin-right: 1.5em; }
 
-.ui.animated.button .hidden.content, .ui.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.animated.button .content.menu-item--insert, .ui.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.animated.button .content.menuItemButton, .ui.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.animated.button .content.menu-item--insert {
+.ui.animated.button .hidden.content, .ui.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.animated.button .content.menu-item--insert, .ui.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.animated.button .content.menuItemButton, .ui.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.animated.button .content.menu-item--insert {
   position: absolute;
   width: 100%; }
 
 /* Horizontal */
-.ui.animated.button .visible.content, .ui.animated.button .hidden.content, .ui.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.animated.button .content.menu-item--insert, .ui.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.animated.button .content.menuItemButton, .ui.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.animated.button .content.menu-item--insert {
+.ui.animated.button .visible.content, .ui.animated.button .hidden.content, .ui.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.animated.button .content.menu-item--insert, .ui.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.animated.button .content.menuItemButton, .ui.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.animated.button .content.menu-item--insert {
   -webkit-transition: right 0.3s ease 0s;
   transition: right 0.3s ease 0s; }
 
@@ -402,7 +402,7 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
   left: auto;
   right: 0%; }
 
-.ui.animated.button .hidden.content, .ui.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.animated.button .content.menu-item--insert, .ui.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.animated.button .content.menuItemButton, .ui.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.animated.button .content.menu-item--insert {
+.ui.animated.button .hidden.content, .ui.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.animated.button .content.menu-item--insert, .ui.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.animated.button .content.menuItemButton, .ui.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.animated.button .content.menu-item--insert {
   top: 50%;
   left: auto;
   right: -100%;
@@ -413,26 +413,26 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
   left: auto;
   right: 200%; }
 
-.ui.animated.button:focus .hidden.content, .ui.animated.button:focus ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.animated.button:focus .content.menu-item--insert, .ui.animated.button:focus ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.animated.button:focus .content.menuItemButton, .ui.animated.button:focus ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.animated.button:focus .content.menu-item--insert,
+.ui.animated.button:focus .hidden.content, .ui.animated.button:focus ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.animated.button:focus .content.menu-item--insert, .ui.animated.button:focus ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.animated.button:focus .content.menuItemButton, .ui.animated.button:focus ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.animated.button:focus .content.menu-item--insert,
 .ui.animated.button:hover .hidden.content,
-.ui.animated.button:hover ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.animated.button:hover .content.menu-item--insert,
-.ui.animated.button:hover ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.animated.button:hover .content.menuItemButton,
-.ui.animated.button:hover ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.animated.button:hover .content.menu-item--insert {
+.ui.animated.button:hover ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.animated.button:hover .content.menu-item--insert,
+.ui.animated.button:hover ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.animated.button:hover .content.menuItemButton,
+.ui.animated.button:hover ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.animated.button:hover .content.menu-item--insert {
   left: auto;
   right: 0%; }
 
 /* Vertical */
 .ui.vertical.animated.button .visible.content,
 .ui.vertical.animated.button .hidden.content,
-.ui.vertical.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button .content.menu-item--insert,
-.ui.vertical.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button .content.menuItemButton,
-.ui.vertical.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.vertical.animated.button .content.menu-item--insert {
+.ui.vertical.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button .content.menu-item--insert,
+.ui.vertical.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button .content.menuItemButton,
+.ui.vertical.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.vertical.animated.button .content.menu-item--insert {
   -webkit-transition: top 0.3s ease, -webkit-transform 0.3s ease;
   transition: top 0.3s ease, -webkit-transform 0.3s ease;
   transition: top 0.3s ease, transform 0.3s ease;
@@ -445,12 +445,12 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 
 .ui.vertical.animated.button .hidden.content,
-.ui.vertical.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button .content.menu-item--insert,
-.ui.vertical.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button .content.menuItemButton,
-.ui.vertical.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.vertical.animated.button .content.menu-item--insert {
+.ui.vertical.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button .content.menu-item--insert,
+.ui.vertical.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button .content.menuItemButton,
+.ui.vertical.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.vertical.animated.button .content.menu-item--insert {
   top: -50%;
   left: 0%;
   right: auto; }
@@ -461,26 +461,26 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
   transform: translateY(200%);
   right: auto; }
 
-.ui.vertical.animated.button:focus .hidden.content, .ui.vertical.animated.button:focus ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button:focus .content.menu-item--insert, .ui.vertical.animated.button:focus ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button:focus .content.menuItemButton, .ui.vertical.animated.button:focus ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.vertical.animated.button:focus .content.menu-item--insert,
+.ui.vertical.animated.button:focus .hidden.content, .ui.vertical.animated.button:focus ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button:focus .content.menu-item--insert, .ui.vertical.animated.button:focus ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button:focus .content.menuItemButton, .ui.vertical.animated.button:focus ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.vertical.animated.button:focus .content.menu-item--insert,
 .ui.vertical.animated.button:hover .hidden.content,
-.ui.vertical.animated.button:hover ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button:hover .content.menu-item--insert,
-.ui.vertical.animated.button:hover ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button:hover .content.menuItemButton,
-.ui.vertical.animated.button:hover ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.vertical.animated.button:hover .content.menu-item--insert {
+.ui.vertical.animated.button:hover ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button:hover .content.menu-item--insert,
+.ui.vertical.animated.button:hover ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.vertical.animated.button:hover .content.menuItemButton,
+.ui.vertical.animated.button:hover ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.vertical.animated.button:hover .content.menu-item--insert {
   top: 50%;
   right: auto; }
 
 /* Fade */
 .ui.fade.animated.button .visible.content,
 .ui.fade.animated.button .hidden.content,
-.ui.fade.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button .content.menu-item--insert,
-.ui.fade.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button .content.menuItemButton,
-.ui.fade.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.fade.animated.button .content.menu-item--insert {
+.ui.fade.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button .content.menu-item--insert,
+.ui.fade.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button .content.menuItemButton,
+.ui.fade.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.fade.animated.button .content.menu-item--insert {
   -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
   transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -495,12 +495,12 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 
 .ui.fade.animated.button .hidden.content,
-.ui.fade.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button .content.menu-item--insert,
-.ui.fade.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button .content.menuItemButton,
-.ui.fade.animated.button ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.fade.animated.button .content.menu-item--insert {
+.ui.fade.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button .content.menu-item--insert,
+.ui.fade.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button .content.menuItemButton,
+.ui.fade.animated.button ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.fade.animated.button .content.menu-item--insert {
   opacity: 0;
   left: 0%;
   right: auto;
@@ -515,14 +515,14 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
   -webkit-transform: scale(0.75);
   transform: scale(0.75); }
 
-.ui.fade.animated.button:focus .hidden.content, .ui.fade.animated.button:focus ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button:focus .content.menu-item--insert, .ui.fade.animated.button:focus ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button:focus .content.menuItemButton, .ui.fade.animated.button:focus ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.fade.animated.button:focus .content.menu-item--insert,
+.ui.fade.animated.button:focus .hidden.content, .ui.fade.animated.button:focus ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button:focus .content.menu-item--insert, .ui.fade.animated.button:focus ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button:focus .content.menuItemButton, .ui.fade.animated.button:focus ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.fade.animated.button:focus .content.menu-item--insert,
 .ui.fade.animated.button:hover .hidden.content,
-.ui.fade.animated.button:hover ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button:hover .content.menu-item--insert,
-.ui.fade.animated.button:hover ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button:hover .content.menuItemButton,
-.ui.fade.animated.button:hover ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.fade.animated.button:hover .content.menu-item--insert {
+.ui.fade.animated.button:hover ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button:hover .content.menu-item--insert,
+.ui.fade.animated.button:hover ._wp_headless_menu_editor .menu-editor li.menu-item.drag .content.menuItemButton,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.fade.animated.button:hover .content.menuItemButton,
+.ui.fade.animated.button:hover ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.fade.animated.button:hover .content.menu-item--insert {
   left: 0%;
   right: auto;
   opacity: 1;
@@ -3976,14 +3976,14 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 /*--------------
     Hidden
 ---------------*/
-.ui.hidden.divider, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.divider.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.divider.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.divider.menu-item--insert {
+.ui.hidden.divider, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.divider.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.divider.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.divider.menu-item--insert {
   border-color: transparent !important; }
 
-.ui.hidden.divider:before, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.divider.menu-item--insert:before, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.divider.menuItemButton:before, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.divider.menu-item--insert:before,
+.ui.hidden.divider:before, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.divider.menu-item--insert:before, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.divider.menuItemButton:before, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.divider.menu-item--insert:before,
 .ui.hidden.divider:after,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.divider.menu-item--insert:after,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.divider.menuItemButton:after,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.divider.menu-item--insert:after {
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.divider.menu-item--insert:after,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.divider.menuItemButton:after,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.divider.menu-item--insert:after {
   display: none; }
 
 /*--------------
@@ -10437,22 +10437,22 @@ img.ui.image {
 /*******************************
             States
 *******************************/
-.ui.hidden.images, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.images.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.images.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.images.menu-item--insert,
+.ui.hidden.images, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.images.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.images.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.images.menu-item--insert,
 .ui.hidden.image,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.image.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.image.menuItemButton,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.image.menu-item--insert {
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.image.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.image.menuItemButton,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.image.menu-item--insert {
   display: none; }
 
-.ui.hidden.transition.images, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.transition.images.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.transition.images.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.transition.images.menu-item--insert,
+.ui.hidden.transition.images, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.transition.images.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.transition.images.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.transition.images.menu-item--insert,
 .ui.hidden.transition.image,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.transition.image.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.transition.image.menuItemButton,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.transition.image.menu-item--insert {
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.transition.image.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.transition.image.menuItemButton,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.transition.image.menu-item--insert {
   display: block;
   visibility: hidden; }
 
-.ui.images > .hidden.transition, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.images > .transition.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.images > .transition.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.images > .transition.menu-item--insert {
+.ui.images > .hidden.transition, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.images > .transition.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.images > .transition.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.images > .transition.menu-item--insert {
   display: inline-block;
   visibility: hidden; }
 
@@ -11585,11 +11585,11 @@ a.ui.active.label:ActiveHover:before {
 /*-------------------
       Hidden
 --------------------*/
-.ui.labels.hidden .label, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.labels.menu-item--insert .label, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.labels.menuItemButton .label, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.labels.menu-item--insert .label,
+.ui.labels.hidden .label, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.labels.menu-item--insert .label, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.labels.menuItemButton .label, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.labels.menu-item--insert .label,
 .ui.label.hidden,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.label.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.label.menuItemButton,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.label.menu-item--insert {
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.label.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.label.menuItemButton,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.label.menu-item--insert {
   display: none !important; }
 
 /*******************************
@@ -13317,9 +13317,9 @@ ol.ui.horizontal.list li:before,
 
 .ui.loader.disabled,
 .ui.loader.hidden,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.loader.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.loader.menuItemButton,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.loader.menu-item--insert {
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.loader.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.loader.menuItemButton,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.loader.menu-item--insert {
   display: none; }
 
 /*******************************
@@ -13606,7 +13606,7 @@ ol.ui.horizontal.list li:before,
   -webkit-transition: all 0.5s ease 0.1s;
   transition: all 0.5s ease 0.1s; }
 
-.ui.reveal > .hidden.content, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.reveal > .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.reveal > .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.reveal > .content.menu-item--insert {
+.ui.reveal > .hidden.content, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.reveal > .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.reveal > .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.reveal > .content.menu-item--insert {
   position: relative !important;
   z-index: 2 !important; }
 
@@ -13640,7 +13640,7 @@ ol.ui.horizontal.list li:before,
 .ui.slide.reveal > .visible.content {
   position: relative !important; }
 
-.ui.slide.reveal > .hidden.content, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.reveal > .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.reveal > .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.slide.reveal > .content.menu-item--insert {
+.ui.slide.reveal > .hidden.content, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.reveal > .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.reveal > .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.slide.reveal > .content.menu-item--insert {
   position: absolute !important;
   left: 0% !important;
   width: 100% !important;
@@ -13652,11 +13652,11 @@ ol.ui.horizontal.list li:before,
   -webkit-transform: translateX(-100%) !important;
   transform: translateX(-100%) !important; }
 
-.ui.slide.active.reveal > .hidden.content, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.active.reveal > .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.active.reveal > .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.slide.active.reveal > .content.menu-item--insert,
+.ui.slide.active.reveal > .hidden.content, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.active.reveal > .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.active.reveal > .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.slide.active.reveal > .content.menu-item--insert,
 .ui.slide.reveal:hover > .hidden.content,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.reveal:hover > .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.reveal:hover > .content.menuItemButton,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.slide.reveal:hover > .content.menu-item--insert {
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.reveal:hover > .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.reveal:hover > .content.menuItemButton,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.slide.reveal:hover > .content.menu-item--insert {
   -webkit-transform: translateX(0%) !important;
   transform: translateX(0%) !important; }
 
@@ -13664,7 +13664,7 @@ ol.ui.horizontal.list li:before,
   -webkit-transform: translateX(0%) !important;
   transform: translateX(0%) !important; }
 
-.ui.slide.right.reveal > .hidden.content, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.right.reveal > .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.right.reveal > .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.slide.right.reveal > .content.menu-item--insert {
+.ui.slide.right.reveal > .hidden.content, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.right.reveal > .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.right.reveal > .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.slide.right.reveal > .content.menu-item--insert {
   -webkit-transform: translateX(-100%) !important;
   transform: translateX(-100%) !important; }
 
@@ -13673,15 +13673,15 @@ ol.ui.horizontal.list li:before,
   -webkit-transform: translateX(100%) !important;
   transform: translateX(100%) !important; }
 
-.ui.slide.right.active.reveal > .hidden.content, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.right.active.reveal > .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.right.active.reveal > .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.slide.right.active.reveal > .content.menu-item--insert,
+.ui.slide.right.active.reveal > .hidden.content, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.right.active.reveal > .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.right.active.reveal > .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.slide.right.active.reveal > .content.menu-item--insert,
 .ui.slide.right.reveal:hover > .hidden.content,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.right.reveal:hover > .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.right.reveal:hover > .content.menuItemButton,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.slide.right.reveal:hover > .content.menu-item--insert {
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.right.reveal:hover > .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.right.reveal:hover > .content.menuItemButton,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.slide.right.reveal:hover > .content.menu-item--insert {
   -webkit-transform: translateX(0%) !important;
   transform: translateX(0%) !important; }
 
-.ui.slide.up.reveal > .hidden.content, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.up.reveal > .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.up.reveal > .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.slide.up.reveal > .content.menu-item--insert {
+.ui.slide.up.reveal > .hidden.content, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.up.reveal > .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.up.reveal > .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.slide.up.reveal > .content.menu-item--insert {
   -webkit-transform: translateY(100%) !important;
   transform: translateY(100%) !important; }
 
@@ -13690,15 +13690,15 @@ ol.ui.horizontal.list li:before,
   -webkit-transform: translateY(-100%) !important;
   transform: translateY(-100%) !important; }
 
-.ui.slide.up.active.reveal > .hidden.content, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.up.active.reveal > .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.up.active.reveal > .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.slide.up.active.reveal > .content.menu-item--insert,
+.ui.slide.up.active.reveal > .hidden.content, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.up.active.reveal > .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.up.active.reveal > .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.slide.up.active.reveal > .content.menu-item--insert,
 .ui.slide.up.reveal:hover > .hidden.content,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.up.reveal:hover > .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.up.reveal:hover > .content.menuItemButton,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.slide.up.reveal:hover > .content.menu-item--insert {
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.up.reveal:hover > .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.up.reveal:hover > .content.menuItemButton,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.slide.up.reveal:hover > .content.menu-item--insert {
   -webkit-transform: translateY(0%) !important;
   transform: translateY(0%) !important; }
 
-.ui.slide.down.reveal > .hidden.content, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.down.reveal > .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.down.reveal > .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.slide.down.reveal > .content.menu-item--insert {
+.ui.slide.down.reveal > .hidden.content, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.down.reveal > .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.down.reveal > .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.slide.down.reveal > .content.menu-item--insert {
   -webkit-transform: translateY(-100%) !important;
   transform: translateY(-100%) !important; }
 
@@ -13707,11 +13707,11 @@ ol.ui.horizontal.list li:before,
   -webkit-transform: translateY(100%) !important;
   transform: translateY(100%) !important; }
 
-.ui.slide.down.active.reveal > .hidden.content, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.down.active.reveal > .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.down.active.reveal > .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.slide.down.active.reveal > .content.menu-item--insert,
+.ui.slide.down.active.reveal > .hidden.content, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.down.active.reveal > .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.down.active.reveal > .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.slide.down.active.reveal > .content.menu-item--insert,
 .ui.slide.down.reveal:hover > .hidden.content,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.down.reveal:hover > .content.menu-item--insert,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.slide.down.reveal:hover > .content.menuItemButton,
-._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.slide.down.reveal:hover > .content.menu-item--insert {
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.down.reveal:hover > .content.menu-item--insert,
+._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.slide.down.reveal:hover > .content.menuItemButton,
+._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.slide.down.reveal:hover > .content.menu-item--insert {
   -webkit-transform: translateY(0%) !important;
   transform: translateY(0%) !important; }
 
@@ -13746,7 +13746,7 @@ ol.ui.horizontal.list li:before,
 .ui.move.reveal > .visible.content {
   position: relative !important; }
 
-.ui.move.reveal > .hidden.content, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.move.reveal > .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.move.reveal > .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.move.reveal > .content.menu-item--insert {
+.ui.move.reveal > .hidden.content, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.move.reveal > .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.move.reveal > .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.move.reveal > .content.menu-item--insert {
   position: absolute !important;
   left: 0% !important;
   width: 100% !important; }
@@ -13815,7 +13815,7 @@ ol.ui.horizontal.list li:before,
   -webkit-transform: none !important;
   transform: none !important; }
 
-.ui.disabled.reveal:hover > .hidden.hidden.content, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.disabled.reveal:hover > .content.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.disabled.reveal:hover > .content.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.disabled.reveal:hover > .content.menu-item--insert {
+.ui.disabled.reveal:hover > .hidden.hidden.content, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.disabled.reveal:hover > .content.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.disabled.reveal:hover > .content.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.disabled.reveal:hover > .content.menu-item--insert {
   display: none !important; }
 
 /*******************************
@@ -19856,7 +19856,7 @@ Floated Menu / Item
 /*--------------
      Hidden
 ---------------*/
-.ui.hidden.hidden.hidden.hidden.message, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.message.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.message.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.message.menu-item--insert {
+.ui.hidden.hidden.hidden.hidden.message, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.message.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.message.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.message.menu-item--insert {
   display: none; }
 
 /*******************************
@@ -21588,11 +21588,11 @@ Floated Menu / Item
 ---------------*/
 /* Initialized checkbox moves input below element
  to prevent manually triggering */
-.ui.checkbox input.hidden, .ui.checkbox ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag input.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.checkbox input.menu-item--insert, .ui.checkbox ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag input.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.checkbox input.menuItemButton, .ui.checkbox ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze input.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.checkbox input.menu-item--insert {
+.ui.checkbox input.hidden, .ui.checkbox ._wp_headless_menu_editor .menu-editor li.menu-item.drag input.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.checkbox input.menu-item--insert, .ui.checkbox ._wp_headless_menu_editor .menu-editor li.menu-item.drag input.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.checkbox input.menuItemButton, .ui.checkbox ._wp_headless_menu_editor .menu-editor li.menu-item.freeze input.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.checkbox input.menu-item--insert {
   z-index: -1; }
 
 /* Selectable Label */
-.ui.checkbox input.hidden + label, .ui.checkbox ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag input.menu-item--insert + label, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.checkbox input.menu-item--insert + label, .ui.checkbox ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag input.menuItemButton + label, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.checkbox input.menuItemButton + label, .ui.checkbox ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze input.menu-item--insert + label, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.checkbox input.menu-item--insert + label {
+.ui.checkbox input.hidden + label, .ui.checkbox ._wp_headless_menu_editor .menu-editor li.menu-item.drag input.menu-item--insert + label, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.checkbox input.menu-item--insert + label, .ui.checkbox ._wp_headless_menu_editor .menu-editor li.menu-item.drag input.menuItemButton + label, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.checkbox input.menuItemButton + label, .ui.checkbox ._wp_headless_menu_editor .menu-editor li.menu-item.freeze input.menu-item--insert + label, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.checkbox input.menu-item--insert + label {
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -22534,7 +22534,7 @@ select.ui.dropdown {
   word-wrap: normal; }
 
 /* User Item */
-.ui.selection.dropdown .menu > .hidden.addition.item, .ui.selection.dropdown ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .menu > .addition.item.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.selection.dropdown .menu > .addition.item.menu-item--insert, .ui.selection.dropdown ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .menu > .addition.item.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.selection.dropdown .menu > .addition.item.menuItemButton, .ui.selection.dropdown ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .menu > .addition.item.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.selection.dropdown .menu > .addition.item.menu-item--insert {
+.ui.selection.dropdown .menu > .hidden.addition.item, .ui.selection.dropdown ._wp_headless_menu_editor .menu-editor li.menu-item.drag .menu > .addition.item.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.selection.dropdown .menu > .addition.item.menu-item--insert, .ui.selection.dropdown ._wp_headless_menu_editor .menu-editor li.menu-item.drag .menu > .addition.item.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.selection.dropdown .menu > .addition.item.menuItemButton, .ui.selection.dropdown ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .menu > .addition.item.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.selection.dropdown .menu > .addition.item.menu-item--insert {
   display: none; }
 
 /* Hover */
@@ -26027,7 +26027,7 @@ a.ui.nag {
   display: block;
   z-index: 100; }
 
-.ui.shape .hidden.side, .ui.shape ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .side.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.shape .side.menu-item--insert, .ui.shape ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .side.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .ui.shape .side.menuItemButton, .ui.shape ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .side.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .ui.shape .side.menu-item--insert {
+.ui.shape .hidden.side, .ui.shape ._wp_headless_menu_editor .menu-editor li.menu-item.drag .side.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.shape .side.menu-item--insert, .ui.shape ._wp_headless_menu_editor .menu-editor li.menu-item.drag .side.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .ui.shape .side.menuItemButton, .ui.shape ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .side.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .ui.shape .side.menu-item--insert {
   opacity: 0.6; }
 
 /*--------------
@@ -26774,7 +26774,7 @@ body.pushable > .pusher {
   left: -99999px; }
 
 /* Hidden */
-.hidden.transition, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .transition.menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .transition.menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .transition.menu-item--insert {
+.hidden.transition, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .transition.menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .transition.menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .transition.menu-item--insert {
   display: none;
   visibility: hidden; }
 
@@ -28543,33 +28543,33 @@ body.pushable > .pusher {
 /*******************************
          Site Overrides
 *******************************/
-._headless_dashboard_menu_editor div {
+._wp_headless_menu_editor div {
   box-sizing: border-box; }
 
-._headless_dashboard_menu_editor .button {
+._wp_headless_menu_editor .button {
   height: auto; }
 
-._headless_dashboard_menu_editor label {
+._wp_headless_menu_editor label {
   box-sizing: border-box; }
-  ._headless_dashboard_menu_editor label:before {
+  ._wp_headless_menu_editor label:before {
     box-sizing: border-box; }
 
-._headless_dashboard_menu_editor ul {
+._wp_headless_menu_editor ul {
   margin: 0;
   padding: 0; }
 
-._headless_dashboard_menu_editor .ui.button {
+._wp_headless_menu_editor .ui.button {
   text-transform: uppercase; }
-  ._headless_dashboard_menu_editor .ui.button.no-top-label {
+  ._wp_headless_menu_editor .ui.button.no-top-label {
     margin-top: 26px; }
 
-._headless_dashboard_menu_editor .ui.label {
+._wp_headless_menu_editor .ui.label {
   background: transparent; }
 
-._headless_dashboard_menu_editor .ui.grid {
+._wp_headless_menu_editor .ui.grid {
   padding-left: 0.5rem;
   padding-right: 0.5rem; }
-  ._headless_dashboard_menu_editor .ui.grid .column:not(.row) {
+  ._wp_headless_menu_editor .ui.grid .column:not(.row) {
     padding-left: 0.5rem;
     padding-right: 0.5rem; }
 
@@ -28583,7 +28583,7 @@ body.pushable > .pusher {
 .display-none {
   display: none; }
 
-.hidden, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .menu-item--insert, ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag .menuItemButton, ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze .menu-item--insert {
+.hidden, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .menu-item--insert, ._wp_headless_menu_editor .menu-editor li.menu-item.drag .menuItemButton, ._wp_headless_menu_editor .menu-editor li.menu-item.freeze .menu-item--insert {
   opacity: 0;
   pointer-events: none; }
 
@@ -28593,13 +28593,13 @@ body.pushable > .pusher {
     display: block;
     padding: 0.5rem; }
 
-._headless_dashboard_menu_editor {
+._wp_headless_menu_editor {
   width: 100%;
   height: 100%;
   min-height: 100%;
   padding: 1rem 1rem 1rem 0;
   box-sizing: border-box; }
-  ._headless_dashboard_menu_editor h4, ._headless_dashboard_menu_editor h5 {
+  ._wp_headless_menu_editor h4, ._wp_headless_menu_editor h5 {
     text-transform: uppercase; }
 
 .tip {
@@ -28609,31 +28609,31 @@ body.pushable > .pusher {
   .tip:hover {
     opacity: 1; }
 
-._headless_dashboard_menu_editor .menu-item {
+._wp_headless_menu_editor .menu-item {
   margin: 0;
   opacity: 1; }
-  ._headless_dashboard_menu_editor .menu-item .menu-item-inner {
+  ._wp_headless_menu_editor .menu-item .menu-item-inner {
     display: flex; }
-    ._headless_dashboard_menu_editor .menu-item .menu-item-inner .menu-item-segment {
+    ._wp_headless_menu_editor .menu-item .menu-item-inner .menu-item-segment {
       margin: 1px 3px 0px 0;
       padding: 0;
       z-index: 2;
       display: table; }
-      ._headless_dashboard_menu_editor .menu-item .menu-item-inner .menu-item-segment .menu-item-segment-content {
+      ._wp_headless_menu_editor .menu-item .menu-item-inner .menu-item-segment .menu-item-segment-content {
         display: flex; }
-        ._headless_dashboard_menu_editor .menu-item .menu-item-inner .menu-item-segment .menu-item-segment-content .menu-item-bar {
+        ._wp_headless_menu_editor .menu-item .menu-item-inner .menu-item-segment .menu-item-segment-content .menu-item-bar {
           max-width: 250px;
           min-width: 250px;
           margin: 0;
           display: block;
           padding: 0.4rem 0.4rem 0.4rem 0.8rem;
           font-weight: bold; }
-          ._headless_dashboard_menu_editor .menu-item .menu-item-inner .menu-item-segment .menu-item-segment-content .menu-item-bar:hover {
+          ._wp_headless_menu_editor .menu-item .menu-item-inner .menu-item-segment .menu-item-segment-content .menu-item-bar:hover {
             border-color: black; }
-          ._headless_dashboard_menu_editor .menu-item .menu-item-inner .menu-item-segment .menu-item-segment-content .menu-item-bar div.label {
+          ._wp_headless_menu_editor .menu-item .menu-item-inner .menu-item-segment .menu-item-segment-content .menu-item-bar div.label {
             float: right;
             margin-right: 0; }
-        ._headless_dashboard_menu_editor .menu-item .menu-item-inner .menu-item-segment .menu-item-segment-content .label {
+        ._wp_headless_menu_editor .menu-item .menu-item-inner .menu-item-segment .menu-item-segment-content .label {
           height: auto;
           max-height: 1.5rem;
           min-width: 90px;
@@ -28644,20 +28644,20 @@ body.pushable > .pusher {
           right: 0;
           z-index: -1; }
 
-._headless_dashboard_menu_editor .menu-select .menu-select-select {
+._wp_headless_menu_editor .menu-select .menu-select-select {
   max-width: 200px;
   min-width: 200px; }
 
-._headless_dashboard_menu_editor .menu-editor {
+._wp_headless_menu_editor .menu-editor {
   user-select: none;
   min-height: 200px; }
-  ._headless_dashboard_menu_editor .menu-editor #menu-editor-ul {
+  ._wp_headless_menu_editor .menu-editor #menu-editor-ul {
     padding-left: 15px; }
-  ._headless_dashboard_menu_editor .menu-editor ul ul {
+  ._wp_headless_menu_editor .menu-editor ul ul {
     margin-left: 15px; }
-  ._headless_dashboard_menu_editor .menu-editor li.menu-item {
+  ._wp_headless_menu_editor .menu-editor li.menu-item {
     cursor: move; }
-    ._headless_dashboard_menu_editor .menu-editor li.menu-item .menu-item--insert {
+    ._wp_headless_menu_editor .menu-editor li.menu-item .menu-item--insert {
       display: block;
       max-width: 200px;
       min-width: 200px;
@@ -28672,29 +28672,29 @@ body.pushable > .pusher {
       pointer-events: auto;
       opacity: 0;
       background: gray; }
-      ._headless_dashboard_menu_editor .menu-editor li.menu-item .menu-item--insert.hover {
+      ._wp_headless_menu_editor .menu-editor li.menu-item .menu-item--insert.hover {
         opacity: 1;
         background: green;
         transition: all 0.3s ease; }
-      ._headless_dashboard_menu_editor .menu-editor li.menu-item .menu-item--insert.menu-item--insert-child {
+      ._wp_headless_menu_editor .menu-editor li.menu-item .menu-item--insert.menu-item--insert-child {
         margin-left: 15px; }
-      ._headless_dashboard_menu_editor .menu-editor li.menu-item .menu-item--insert.menu-item--insert-after {
+      ._wp_headless_menu_editor .menu-editor li.menu-item .menu-item--insert.menu-item--insert-after {
         margin-top: -8px; }
-    ._headless_dashboard_menu_editor .menu-editor li.menu-item.drag {
+    ._wp_headless_menu_editor .menu-editor li.menu-item.drag {
       position: absolute;
       z-index: 999;
       opacity: 0.95; }
-    ._headless_dashboard_menu_editor .menu-editor li.menu-item.freeze {
+    ._wp_headless_menu_editor .menu-editor li.menu-item.freeze {
       opacity: 0.5; }
 
-._headless_dashboard_menu_editor.drag {
+._wp_headless_menu_editor.drag {
   cursor: move; }
-  ._headless_dashboard_menu_editor.drag .menu-editor .menuItemButton {
+  ._wp_headless_menu_editor.drag .menu-editor .menuItemButton {
     opacity: 0.25;
     pointer-events: none; }
 
-._headless_dashboard_menu_editor .posts-list {
+._wp_headless_menu_editor .posts-list {
   justify-content: center;
   min-height: 200px; }
-  ._headless_dashboard_menu_editor .posts-list .menu-item {
+  ._wp_headless_menu_editor .posts-list .menu-item {
     margin-bottom: 3px; }

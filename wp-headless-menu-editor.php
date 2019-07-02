@@ -65,9 +65,17 @@ class WPHeadlessMenuEditor
             'Menu Editor',
             'manage_options',
             'menus_editor',
-            array($this, 'init_plugin'),
+            array($this, 'init_menu_editor'),
             'dashicons-list-view',
             2);
+
+        add_menu_page('Menu API',
+            'Menu API',
+            'manage_options',
+            'menus_api',
+            array($this, 'init_menu_api'),
+            'dashicons-list-view',
+            3);
     }
 
     public function init_assets()
@@ -81,11 +89,17 @@ class WPHeadlessMenuEditor
         wp_enqueue_style('styles', plugin_dir_url(__FILE__) . '/styles/styles.css', false, '1.1', 'all');
     }
 
-    public function init_plugin()
+    public function init_menu_editor()
     {
         $this->init_assets();
 
         require_once PLUGIN_DIR_PATH. '/includes/templates/menu_editor.template.php';
+    }
+
+    public function init_menu_api()
+    {
+        $this->init_assets();
+        require_once PLUGIN_DIR_PATH. '/includes/templates/menu_api.template.php';
     }
 }
 
