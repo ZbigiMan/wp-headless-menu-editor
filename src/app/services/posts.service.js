@@ -7,7 +7,7 @@ class PostsService {
     this.$ajax = new Ajax()
   }
 
-  getPosts (types) {
+  async getPosts (types) {
     return this.$ajax.post({
       url: config.apiUrl,
       data: {

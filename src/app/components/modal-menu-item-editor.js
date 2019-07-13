@@ -80,7 +80,7 @@ class ModalMenuItemEditor extends React.Component {
             <Form.Field>
               <Input
                 label={
-                  <Label color='blue'>
+                  <Label>
                     <Trans>Rename Menu Item</Trans>:
                   </Label>
                 }
@@ -107,7 +107,7 @@ class ModalMenuItemEditor extends React.Component {
     const editPostLink = config.editPostPath.replace('{postId}', this.props.menuItemEditor.item.object_id)
     return (
       <Segment textAlign='center'>
-        <a href={editPostLink} target='_blank'><Button primary basic><Trans>Open in content editor</Trans></Button></a>
+        <a href={editPostLink} target='_blank'><Button><Trans>Open in content editor</Trans></Button></a>
       </Segment>
     )
   }

@@ -6,7 +6,7 @@ class Header extends React.Component {
   render () {
     return (
       <Segment secondary textAlign='center' size='mini'>
-        <h3><Trans>pluginTitle</Trans></h3>
+        <h3><Trans>{this.props.title}</Trans></h3>
       </Segment>
     )
   }

@@ -1,6 +1,7 @@
 {
   "translation": {
     "pluginTitle": "Menu Editor",
+    "pluginApiTitle": "Headless Menu Editor API",
     "Editing": "Editing",
     "drag and drop items": "drag and drop items",
     "Choose menu to edit": "Choose menu to edit",

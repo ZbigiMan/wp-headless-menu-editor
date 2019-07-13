@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './store'
@@ -12,7 +13,9 @@ documentReady.then(() => {
   const root = document.querySelector('#root_wp_headless_menu_editor')
   render(
     <Provider store={store}>
-      <App />
+      <Router basename='/wp-admin/'>
+        <App />
+      </Router>
     </Provider>,
     root)
 })

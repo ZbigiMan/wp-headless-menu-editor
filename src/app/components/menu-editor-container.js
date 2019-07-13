@@ -20,7 +20,7 @@ class MenuEditorContainer extends React.Component {
       <React.Fragment>
         <ModalMenuItemEditor />
         <ConfirmRemoveMenuItem />
-        <Header />
+        <Header title='pluginTitle' />
         <Grid>
           <Grid.Column width={6}>
             <PostsSelect />

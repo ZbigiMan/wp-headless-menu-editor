@@ -43,6 +43,31 @@ class Ajax {
       return []
     }
   }
+
+  async get (options) {
+    let _url = options.url
+    let _headers = options.headers || this.config.headers
+
+    if (!_url) {
+      console.warn('Ajax.post:', this.config.warnings.no_url_or_data)
+      return
+    }
+
+    let response = await fetch(_url, {
+      method: 'GET',
+      headers: _headers
+    })
+      .catch(error => console.error('Error:', error))
+
+    try {
+      let responseText = await response.text()
+      let responseData = JSON.parse(responseText)
+      return responseData
+    } catch (error) {
+      console.error('error', error)
+      return []
+    }
+  }
 }
 
 export default Ajax

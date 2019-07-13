@@ -14,7 +14,7 @@ class MenusService {
     })
   }
 
-  getMenuData (menuId) {
+  async getMenuData (menuId) {
     return this.$ajax.post({
       url: config.apiUrl,
       data: {
@@ -28,7 +28,7 @@ class MenusService {
     })
   }
 
-  saveMenuData (menuId, menuData) {
+  async saveMenuData (menuId, menuData) {
     return this.$ajax.post({
       url: config.apiUrl,
       data: {

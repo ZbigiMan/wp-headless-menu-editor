@@ -47,11 +47,19 @@ class MenuEditor
 
         return (object) array(
             "locale" => array("current" => $locale),
-            "wpajax" => array("url" => $this->get_ajax_url()),
+            "urls" => array(
+                "rest" => $this->get_rest_url() . 'hme/v1/',
+                "wpajax" => $this->get_ajax_url(),
+                "admin" => $this->get_admin_url()
+            ),
             "menus" => $menus,
-            "posts_types" => $this->get_posts_types(),
-            "admin" => array("url" => $this->get_admin_url())
+            "posts_types" => $this->get_posts_types()
         );
+    }
+
+    public function get_rest_url()
+    {
+        return str_replace('wp-admin', 'wp-json', admin_url());
     }
 
     public function get_ajax_url()

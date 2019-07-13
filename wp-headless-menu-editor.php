@@ -30,23 +30,49 @@ class WPHeadlessMenuEditor
 
         add_action('admin_menu', array($this, 'init_admin_menu'));
         add_action('admin_init', array($this, 'init_assets'));
+
+        add_action('rest_api_init', function () {
+            register_rest_route( 'hme/v1','/menus', array(
+              'methods' => 'GET',
+              'callback' => 'get_menus_to_api',
+            ));
+
+            register_rest_route( 'hme/v1','/menus/(?P<id>\d+)', array(
+                'methods' => 'GET',
+                'callback' => 'get_menu_data_to_api',
+              ));
+        });
+
+        function get_menus_to_api()
+        {
+            return get_terms('nav_menu', array(
+                'hide_empty' => false,
+            ));
+        }
+
+        function get_menu_data_to_api($data)
+        {
+            return wp_get_nav_menu_items($data['id']);
+        }
+
+
         // add_action('admin_init', array($this, 'remove_dashboard_widgets'));
 
         $this->$menuEditor->init_ajax();
     }
 
-    function remove_dashboard_widgets() {
-        remove_action( 'welcome_panel', 'wp_welcome_panel' );
-        remove_meta_box('dashboard_incoming_links', 'dashboard', 'normal'); //Removes the 'incoming links' widget
-        remove_meta_box('dashboard_plugins', 'dashboard', 'normal'); //Removes the 'plugins' widget
-        remove_meta_box('dashboard_primary', 'dashboard', 'normal'); //Removes the 'WordPress News' widget
-        remove_meta_box('dashboard_secondary', 'dashboard', 'normal'); //Removes the secondary widget
-        remove_meta_box('dashboard_quick_press', 'dashboard', 'side'); //Removes the 'Quick Draft' widget
-        remove_meta_box('dashboard_recent_drafts', 'dashboard', 'side'); //Removes the 'Recent Drafts' widget
-        remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal'); //Removes the 'Activity' widget
-        remove_meta_box('dashboard_right_now', 'dashboard', 'normal'); //Removes the 'At a Glance' widget
-        remove_meta_box('dashboard_activity', 'dashboard', 'normal'); //Removes the 'Activity' widget (since 3.8)
-    }
+    // function remove_dashboard_widgets() {
+    //     remove_action( 'welcome_panel', 'wp_welcome_panel' );
+    //     remove_meta_box('dashboard_incoming_links', 'dashboard', 'normal'); //Removes the 'incoming links' widget
+    //     remove_meta_box('dashboard_plugins', 'dashboard', 'normal'); //Removes the 'plugins' widget
+    //     remove_meta_box('dashboard_primary', 'dashboard', 'normal'); //Removes the 'WordPress News' widget
+    //     remove_meta_box('dashboard_secondary', 'dashboard', 'normal'); //Removes the secondary widget
+    //     remove_meta_box('dashboard_quick_press', 'dashboard', 'side'); //Removes the 'Quick Draft' widget
+    //     remove_meta_box('dashboard_recent_drafts', 'dashboard', 'side'); //Removes the 'Recent Drafts' widget
+    //     remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal'); //Removes the 'Activity' widget
+    //     remove_meta_box('dashboard_right_now', 'dashboard', 'normal'); //Removes the 'At a Glance' widget
+    //     remove_meta_box('dashboard_activity', 'dashboard', 'normal'); //Removes the 'Activity' widget (since 3.8)
+    // }
 
     public function activate()
     {
@@ -74,7 +100,7 @@ class WPHeadlessMenuEditor
             'manage_options',
             'menus_api',
             array($this, 'init_menu_api'),
-            'dashicons-list-view',
+            'dashicons-rest-api',
             3);
     }
 
