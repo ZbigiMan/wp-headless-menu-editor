@@ -42,7 +42,7 @@ export default function reducer (state = initialState, action) {
       }
     }
 
-    case types.API_SET_CURRENT_MENU_ID: {
+    case types.API_SET_MENU_ID: {
       return {
         ...state,
         currentMenuId: action.playload

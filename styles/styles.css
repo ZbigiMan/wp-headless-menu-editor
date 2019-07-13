@@ -28698,3 +28698,11 @@ body.pushable > .pusher {
   min-height: 200px; }
   ._wp_headless_menu_editor .posts-list .menu-item {
     margin-bottom: 3px; }
+
+._wp_headless_menu_editor .menu-api .ui .label.custom-label {
+  margin-bottom: 1em; }
+  ._wp_headless_menu_editor .menu-api .ui .label.custom-label a {
+    opacity: 1;
+    transition: opacity 0.4s ease; }
+    ._wp_headless_menu_editor .menu-api .ui .label.custom-label a:hover {
+      opacity: 0.7; }
