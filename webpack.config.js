@@ -12,7 +12,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const extractSASS = new ExtractTextPlugin(stylesFilename)
 
 module.exports = [{
-  mode: 'development',
+  mode: 'production',
   entry: scriptsEntry,
   output: {
     path: path.resolve(__dirname, scriprsOutput),
