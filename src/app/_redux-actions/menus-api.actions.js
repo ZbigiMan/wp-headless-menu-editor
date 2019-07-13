@@ -7,22 +7,21 @@ export function apiGetMenus (attrs) {
     menusApiService.getMenus(attrs).then((data) => {
       dispatch(apiGetMenusSuccess(data))
       if (data.length > 0) {
-        dispatch(apiGetMenuDataStarted)
-        dispatch(setCurrentMenuId(data[0].term_id))
-        menusApiService.getMenus({
-          id: data[0].term_id
-        }).then((data) => {
-          dispatch(apiGetMenuDataSuccess(data))
-        })
+        dispatch(apiGetMenuData(data[0].term_id))
       }
     })
   }
 }
 
-export function setCurrentMenuId (id) {
-  return {
-    type: types.API_SET_CURRENT_MENU_ID,
-    playload: id
+export function apiGetMenuData (id) {
+  return dispatch => {
+    dispatch(apiGetMenuDataStarted)
+    dispatch(apiSetMenuId(id))
+    menusApiService.getMenus({
+      id: id
+    }).then((data) => {
+      dispatch(apiGetMenuDataSuccess(data))
+    })
   }
 }
 
@@ -47,6 +46,13 @@ const apiGetMenuDataStarted = () => {
 const apiGetMenuDataSuccess = (data) => {
   return {
     type: types.API_GET_MENU_DATA_SUCCESS,
+    playload: data
+  }
+}
+
+const apiSetMenuId = (data) => {
+  return {
+    type: types.API_SET_MENU_ID,
     playload: data
   }
 }

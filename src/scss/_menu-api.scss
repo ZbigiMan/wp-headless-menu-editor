@@ -1,0 +1,23 @@
+._wp_headless_menu_editor {
+
+    .menu-api {
+        .ui {
+
+            .label {
+
+                &.custom-label {
+                    margin-bottom: 1em;
+
+                    a {
+                        opacity: 1;
+                        transition: opacity 0.4s ease;
+
+                        &:hover {
+                            opacity: 0.7;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
