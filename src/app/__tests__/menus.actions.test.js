@@ -1,7 +1,7 @@
-import { setMenus } from './setMenus'
-import menusMocs from '../mocs/mocs'
+import { setMenus } from '../_redux-actions/menus.actions'
+import menusMocs from '../__mocs__/mocs'
 import * as types from '../_redux-constants/menus-action-types'
-import Menu from '../$models/menu.model'
+import Menu from '../models/menu.model'
 
 /* global describe it expect */
 

@@ -12,7 +12,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const extractSASS = new ExtractTextPlugin(stylesFilename)
 
 module.exports = [{
-  mode: 'production',
+  mode: 'development',
   entry: scriptsEntry,
   output: {
     path: path.resolve(__dirname, scriprsOutput),
@@ -24,8 +24,7 @@ module.exports = [{
         test: /\.js/,
         type: 'javascript/auto',
         use: [
-          'eslint-loader',
-          'babel-loader'
+          'eslint-loader', 'babel-loader'
         ]
       },
       {
