@@ -1,4 +1,4 @@
-const menusMoc = [{
+const menusData = [{
   'term_id': 2,
   'name': 'Main Menu',
   'slug': 'main-menu',
@@ -24,4 +24,4 @@ const menusMoc = [{
 }
 ]
 
-export default menusMoc
+export default menusData

@@ -10,16 +10,52 @@ export function setMenus (data) {
 }
 
 export function selectMenu (menuId) {
-  return dispatch => {
+  return async dispatch => {
     dispatch(setMenuId(menuId))
     dispatch(getMenuData(menuId))
   }
 }
 
-export function saveMenuData (menuId, menuData, options) {
+export function setMenuId (menuId) {
+  return {
+    type: types.SET_CURRENT_MENU_ID,
+    playload: menuId
+  }
+}
+
+export function getMenuData (menuId) {
+  return async dispatch => {
+    dispatch(getMenuDataStarted())
+    await menusService.getMenuData(menuId).then((res) => {
+      dispatch(getMenuDataLoaded(res))
+    })
+  }
+}
+
+export function getMenuDataStarted () {
+  return {
+    type: types.GET_MENU_DATA_STARTED
+  }
+}
+
+export function getMenuDataLoaded (data) {
   return dispatch => {
+    dispatch(getMenuDataSuccess(data))
+    dispatch(filterPosts())
+  }
+}
+
+export function getMenuDataSuccess (data) {
+  return {
+    type: types.GET_MENU_DATA_SUCCESS,
+    playload: data
+  }
+}
+
+export function saveMenuData (menuId, menuData, options) {
+  return async dispatch => {
     dispatch(saveMenuDataStarted(menuData))
-    menusService.saveMenuData(menuId, menuData).then((res) => {
+    await menusService.saveMenuData(menuId, menuData).then((res) => {
       dispatch(saveMenuDataSuccess(res))
       if (options && options.reload) {
         dispatch(getMenuData(menuId))
@@ -49,50 +85,14 @@ export function removeFromMenu (item) {
   }
 }
 
-const setMenuId = (menuId) => {
-  return {
-    type: types.SET_CURRENT_MENU_ID,
-    playload: menuId
-  }
-}
-
-const getMenuData = (menuId) => {
-  return dispatch => {
-    dispatch(getMenuDataStarted())
-    menusService.getMenuData(menuId).then((res) => {
-      dispatch(getMenuDataLoaded(res))
-    })
-  }
-}
-
-const getMenuDataStarted = () => {
-  return {
-    type: types.GET_MENU_DATA_STARTED
-  }
-}
-
-const getMenuDataLoaded = (data) => {
-  return dispatch => {
-    dispatch(getMenuDataSuccess(data))
-    dispatch(filterPosts())
-  }
-}
-
-const getMenuDataSuccess = (data) => {
-  return {
-    type: types.GET_MENU_DATA_SUCCESS,
-    playload: data
-  }
-}
-
-const saveMenuDataStarted = (data) => {
+export function saveMenuDataStarted (data) {
   return {
     type: types.SAVE_MENU_DATA_STARTED,
     playload: data
   }
 }
 
-const saveMenuDataSuccess = (res) => {
+export function saveMenuDataSuccess (res) {
   return {
     type: types.SAVE_MENU_DATA_SUCCESS,
     playload: res

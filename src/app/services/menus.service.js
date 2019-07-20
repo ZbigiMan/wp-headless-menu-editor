@@ -14,6 +14,12 @@ class MenusService {
     })
   }
 
+  fetchMenuData (menuData) {
+    return menuData.map(item => {
+      return new MenuItem(item)
+    })
+  }
+
   async getMenuData (menuId) {
     return this.$ajax.post({
       url: config.apiUrl,
@@ -22,9 +28,7 @@ class MenusService {
         menu_id: menuId
       }
     }).then(res => {
-      return res.map(item => {
-        return new MenuItem(item)
-      })
+      return this.fetchMenuData(res)
     })
   }
 
