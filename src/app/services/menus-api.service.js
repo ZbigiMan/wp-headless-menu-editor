@@ -1,9 +1,9 @@
-import Ajax from '../classes/ajax'
+import AjaxService from './ajax.service'
 import config from '../config'
 
 class MenusApiService {
   constructor () {
-    this.$ajax = new Ajax()
+    this.$ajax = new AjaxService()
   }
 
   async getMenus (attrs) {

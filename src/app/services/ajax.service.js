@@ -1,5 +1,5 @@
 /* global FormData fetch */
-class Ajax {
+class AjaxService {
   constructor () {
     this.config = {
       headers: {
@@ -16,7 +16,7 @@ class Ajax {
     let _data = options.data
 
     if (!_url || !_data) {
-      console.warn('Ajax.post:', this.config.warnings.no_url_or_data)
+      console.warn('AjaxService.post:', this.config.warnings.no_url_or_data)
       return
     }
 
@@ -49,7 +49,7 @@ class Ajax {
     let _headers = options.headers || this.config.headers
 
     if (!_url) {
-      console.warn('Ajax.post:', this.config.warnings.no_url_or_data)
+      console.warn('AjaxService.post:', this.config.warnings.no_url_or_data)
       return
     }
 
@@ -70,4 +70,4 @@ class Ajax {
   }
 }
 
-export default Ajax
+export default AjaxService

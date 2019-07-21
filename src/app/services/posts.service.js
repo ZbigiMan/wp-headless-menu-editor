@@ -1,10 +1,10 @@
-import Ajax from '../classes/ajax'
+import AjaxService from './ajax.service'
 import config from '../config'
 import MenuItem from '../models/menu-item.model'
 
 class PostsService {
   constructor () {
-    this.$ajax = new Ajax()
+    this.$ajax = new AjaxService()
   }
 
   async getPosts (types) {

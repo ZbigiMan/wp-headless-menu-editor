@@ -89,14 +89,14 @@ class MenuEditor
         ));
     }
 
-    // Ajax get menus
+    // AjaxService get menus
     public function ajax_get_menus()
     {
         echo json_encode($this->get_menus());
         wp_die();
     }
 
-    // Ajax get menu items
+    // AjaxService get menu items
     public function ajax_get_menu_items()
     {
         if (isset($_POST["menu_id"])) {
@@ -134,7 +134,7 @@ class MenuEditor
 
     }
 
-    // Ajax get posts
+    // AjaxService get posts
     public function ajax_get_posts()
     {
         if (isset($_POST["types"])) {
@@ -180,7 +180,7 @@ class MenuEditor
         return $res;
     }
 
-    // Ajax save menu
+    // AjaxService save menu
     public function ajax_save_menu()
     {
 

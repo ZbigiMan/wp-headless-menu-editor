@@ -1,11 +1,11 @@
-import Ajax from '../classes/ajax'
+import AjaxService from './ajax.service'
 import Menu from '../models/menu.model'
 import MenuItem from '../models/menu-item.model'
 import config from '../config'
 
 class MenusService {
   constructor () {
-    this.$ajax = new Ajax()
+    this.$ajax = new AjaxService()
   }
 
   fetchMenus (menus) {
