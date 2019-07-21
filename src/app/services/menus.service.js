@@ -8,13 +8,13 @@ class MenusService {
     this.$ajax = new AjaxService()
   }
 
-  fetchMenus (menus) {
+  parseMenus (menus) {
     return menus.map(menu => {
       return new Menu(menu)
     })
   }
 
-  fetchMenuData (menuData) {
+  parseMenuData (menuData) {
     return menuData.map(item => {
       return new MenuItem(item)
     })
@@ -28,7 +28,7 @@ class MenusService {
         menu_id: menuId
       }
     }).then(res => {
-      return this.fetchMenuData(res)
+      return this.parseMenuData(res)
     })
   }
 

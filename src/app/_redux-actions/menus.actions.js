@@ -5,7 +5,7 @@ import * as types from '../_redux-constants/menus-action-types'
 export function setMenus (data) {
   return {
     type: types.SET_MENUS,
-    playload: menusService.fetchMenus(data)
+    playload: menusService.parseMenus(data)
   }
 }
 

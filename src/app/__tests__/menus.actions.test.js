@@ -89,7 +89,7 @@ describe('Action: getMenuData', () => {
       headers: { 'content-type': 'application/json' }
     })
 
-    const menuDataParsed = menusService.fetchMenuData(menuData)
+    const menuDataParsed = menusService.parseMenuData(menuData)
 
     const expectedActions = [
       {
