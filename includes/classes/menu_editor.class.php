@@ -17,7 +17,7 @@ class MenuEditor
     {
         $ajax_functions = array(
             'get_menus',
-            'get_menu_items',
+            'get_menu_data',
             'save_menu',
             'get_posts',
         );
@@ -97,7 +97,7 @@ class MenuEditor
     }
 
     // AjaxService get menu items
-    public function ajax_get_menu_items()
+    public function ajax_get_menu_data()
     {
         if (isset($_POST["menu_id"])) {
             $menu_id = $_POST["menu_id"];

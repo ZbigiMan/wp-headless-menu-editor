@@ -1,4 +1,4 @@
-export const menuData = [
+const menuDataFromAPI = [
   {
     'ID': 1081,
     'post_author': '1',
@@ -229,4 +229,4 @@ export const menuData = [
   }
 ]
 
-export default menuData
+export default menuDataFromAPI
