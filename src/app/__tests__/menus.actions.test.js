@@ -18,9 +18,12 @@ const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 afterEach(fetchMock.restore)
 
+const menuId = menusData[0].term_id
+
 describe('Action: setMenus', () => {
   it(`Should return ${types.SET_MENUS} Action,
-      ${types.SET_MENUS} Action playload should be the Array of Menu models`, () => {
+      ${types.SET_MENUS} Action playload should be the Array of Menu models`,
+  () => {
     const expectedAction = {
       type: types.SET_MENUS,
       playload: menusData
@@ -38,10 +41,9 @@ describe('Action: setMenus', () => {
 })
 
 describe('Action: selectMenu', () => {
-  const menuId = menusData[0].term_id
-
   it(`Should return ${types.SET_CURRENT_MENU_ID} Action
-      and ${types.GET_MENU_DATA_STARTED} Action`, () => {
+      and ${types.GET_MENU_DATA_STARTED} Action`,
+  () => {
     const store = mockStore({})
     fetchMock.postOnce(config.apiUrl, {
       body: menuData,
@@ -66,12 +68,21 @@ describe('Action: selectMenu', () => {
   })
 })
 
-describe('Action: getMenuData', () => {
-  const menuId = menusData[0].term_id
+describe('Action: setMenuId', () => {
+  it(`Should return ${types.SET_CURRENT_MENU_ID} Action`, () => {
+    const expectedAction = {
+      type: types.SET_CURRENT_MENU_ID,
+      playload: menuId
+    }
+    expect(actions.setMenuId(menuId)).toEqual(expectedAction)
+  })
+})
 
+describe('Action: getMenuData', () => {
   it(`Should return ${types.GET_MENU_DATA_STARTED} Action
       and ${types.GET_MENU_DATA_SUCCESS} Action,
-      ${types.GET_MENU_DATA_SUCCESS} Action playload should be the Array of MenuItem models`, () => {
+      ${types.GET_MENU_DATA_SUCCESS} Action playload should be the Array of MenuItem models`,
+  () => {
     const store = mockStore({})
     fetchMock.postOnce(config.apiUrl, {
       body: menuData,
