@@ -24,7 +24,7 @@ class MenusService {
     return this.$ajax.post({
       url: config.apiUrl,
       data: {
-        action: 'get_menu_items',
+        action: 'get_menu_data',
         menu_id: menuId
       }
     }).then(res => {

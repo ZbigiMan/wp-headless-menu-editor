@@ -64,6 +64,20 @@ export function saveMenuData (menuId, menuData, options) {
   }
 }
 
+export function saveMenuDataStarted (data) {
+  return {
+    type: types.SAVE_MENU_DATA_STARTED,
+    playload: data
+  }
+}
+
+export function saveMenuDataSuccess (res) {
+  return {
+    type: types.SAVE_MENU_DATA_SUCCESS,
+    playload: res
+  }
+}
+
 export function addToMenu (item) {
   return {
     type: types.ADD_TO_MENU,
@@ -82,19 +96,5 @@ export function removeFromMenu (item) {
   return {
     type: types.REMOVE_FROM_MENU,
     playload: item
-  }
-}
-
-export function saveMenuDataStarted (data) {
-  return {
-    type: types.SAVE_MENU_DATA_STARTED,
-    playload: data
-  }
-}
-
-export function saveMenuDataSuccess (res) {
-  return {
-    type: types.SAVE_MENU_DATA_SUCCESS,
-    playload: res
   }
 }
