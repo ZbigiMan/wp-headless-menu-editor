@@ -1,4 +1,4 @@
-import * as _ from 'lodash'
+import { sortBy } from 'lodash'
 import store from '../store'
 import postsService from '../services/posts.service'
 import * as types from '../_redux-constants/posts-action-types'
@@ -51,7 +51,7 @@ const hidePostsFromCurrentMenu = () => {
 
 const orderPosts = (posts) => {
   const state = store.getState()
-  posts = _.sortBy(posts, ['post', state.posts.currentPostsOrder])
+  posts = sortBy(posts, ['post', state.posts.currentPostsOrder])
   if (!state.posts.postsSortUp) {
     posts.reverse()
   }

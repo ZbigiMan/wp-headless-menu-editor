@@ -12,7 +12,7 @@ class MenuItem
             "menu-item-object" => $data["object"],
             "menu-item-parent-id" => $data["menu_item_parent"],
             "menu-item-position" => $data["menu_order"],
-            "menu-item-type" => $data["type"],
+            "menu-item-type" => $data["post_type"],
             "menu-item-title" => $data["title"],
             "menu-item-url" => $data["url"],
             "menu-item-description" => $data["description"],

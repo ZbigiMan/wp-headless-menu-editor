@@ -1,24 +1,41 @@
 export default class MenuItem {
   constructor (data) {
     this.ID = data.ID
-    this.attr_title = data.attr_title
-    this.classes = data.classes
-    this.db_id = data.db_id
-    this.description = data.description
-    this.menu_item_parent = data.menu_item_parent
-    this.object = data.object
-    this.object_id = data.object_id.toString()
-    this.post_parent = data.post_parent
+    this.post_author = data.post_author
+    this.post_date = data.post_date
+    this.post_date_gmt = data.post_date_gmt
+    this.post_content = data.post_content
     this.post_title = data.post_title
-    this.target = data.target
-    this.title = data.title
+    this.post_excerpt = data.post_excerpt
+    this.post_status = data.post_status
+    this.comment_status = data.comment_status
+    this.ping_status = data.ping_status
+    this.post_password = data.post_password
+    this.post_name = data.post_name
+    this.to_ping = data.to_ping
+    this.pinged = data.pinged
+    this.post_modified = data.post_modified
+    this.post_modified_gmt = data.post_modified_gmt
+    this.post_content_filtered = data.post_content_filtered
+    this.post_parent = data.post_parent
+    this.guid = data.guid
+    this.menu_order = data.menu_order
+    this.post_type = data.post_type
+    this.post_mime_type = data.post_mime_type
+    this.comment_count = data.comment_count
+    this.filter = data.filter
+    this.db_id = data.db_id
+    this.menu_item_parent = data.menu_item_parent
+    this.object_id = data.object_id.toString()
+    this.object = data.object
     this.type = data.type
     this.type_label = data.type_label
+    this.title = data.title
     this.url = data.url
+    this.target = data.target
+    this.attr_title = data.attr_title
+    this.description = data.description
+    this.classes = data.classes
     this.xfn = data.xfn
-    this._invalid = data._invalid
-    this.post_date = data.post_date
-    this.post_modified = data.post_modified
-    this.menu_order = data.menu_order
   }
 }

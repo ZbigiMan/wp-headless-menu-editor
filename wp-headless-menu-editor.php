@@ -2,8 +2,7 @@
 
 /*
  * Plugin Name: WP Headless Menu Editor
- * Plugin URI:  https://zbigiman.com/wp-plugins/decapitated_menu_editor
- * Description: WP Headless Menu Editor
+ * Description: Menu editor for headless WordPress  - independent of Appearance. Adds menus to wp-json api.
  * Version:     1.0.0.
  * Author:      Zbigi Man
  * Author URI:  https://zbigiman.com

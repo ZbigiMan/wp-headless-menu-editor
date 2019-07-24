@@ -3,9 +3,9 @@ import thunk from 'redux-thunk'
 import fetchMock from 'fetch-mock'
 import config from '../config'
 import * as actions from '../_redux-actions/menus.actions'
-import menusData from '../__mocs__/__data__/menus-data'
+import menusData from '../__mocs__/__data__/menus-data-from-api'
 import menuDataFromAPI from '../__mocs__/__data__/menu-data-from-api'
-import menuDataToSave from '../__mocs__/__data__/menu-data-to-save'
+import menuDataFromModel from '../__mocs__/__data__/menu-data-from-model'
 import * as types from '../_redux-constants/menus-action-types'
 import menusService from '../services/menus.service'
 import Menu from '../models/menu.model'
@@ -132,7 +132,7 @@ describe('Action: saveMenuData', () => {
     const expectedActions = [
       {
         type: types.SAVE_MENU_DATA_STARTED,
-        playload: menuDataToSave
+        playload: menuDataFromModel
       },
       {
         type: types.SAVE_MENU_DATA_SUCCESS,
@@ -148,7 +148,7 @@ describe('Action: saveMenuData', () => {
     }
 
     return store.dispatch(
-      actions.saveMenuData(menuId, menuDataToSave, options)
+      actions.saveMenuData(menuId, menuDataFromModel, options)
     ).then(() => {
       expect(store.getActions()).toEqual(expectedActions)
     })
@@ -159,9 +159,9 @@ describe('Action: saveMenuDataStarted', () => {
   it(`Should return ${types.SAVE_MENU_DATA_STARTED} Action`, () => {
     const expectedAction = {
       type: types.SAVE_MENU_DATA_STARTED,
-      playload: menuDataToSave
+      playload: menuDataFromModel
     }
-    expect(actions.saveMenuDataStarted(menuDataToSave)).toEqual(expectedAction)
+    expect(actions.saveMenuDataStarted(menuDataFromModel)).toEqual(expectedAction)
   })
 })
 
