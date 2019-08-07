@@ -1,5 +1,5 @@
 import menusService from '../services/menus.service'
-import { filterPosts } from './posts.actions'
+import { setCurrentPosts, orderPosts, hidePostsFromCurrentMenu } from './posts.actions'
 import * as types from '../_redux-constants/menus-action-types'
 
 export function setMenus (data) {
@@ -26,9 +26,13 @@ export function setMenuId (menuId) {
 export function getMenuData (menuId) {
   return async dispatch => {
     dispatch(getMenuDataStarted())
-    await menusService.getMenuData(menuId).then((res) => {
-      dispatch(getMenuDataLoaded(res))
-    })
+    try {
+      await menusService.getMenuData(menuId).then((res) => {
+        dispatch(getMenuDataLoaded(res))
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 
@@ -39,9 +43,13 @@ export function getMenuDataStarted () {
 }
 
 export function getMenuDataLoaded (data) {
-  return dispatch => {
+  return (dispatch, getState) => {
     dispatch(getMenuDataSuccess(data))
-    dispatch(filterPosts())
+    if (getState().posts) {
+      dispatch(setCurrentPosts(
+        orderPosts(hidePostsFromCurrentMenu(getState().posts.allPosts))
+      ))
+    }
   }
 }
 
@@ -55,12 +63,16 @@ export function getMenuDataSuccess (data) {
 export function saveMenuData (menuId, menuData, options) {
   return async dispatch => {
     dispatch(saveMenuDataStarted(menuData))
-    await menusService.saveMenuData(menuId, menuData).then((res) => {
-      dispatch(saveMenuDataSuccess(res))
-      if (options && options.reload) {
-        dispatch(getMenuData(menuId))
-      }
-    })
+    try {
+      await menusService.saveMenuData(menuId, menuData).then((res) => {
+        dispatch(saveMenuDataSuccess(res))
+        if (options && options.reload) {
+          dispatch(getMenuData(menuId))
+        }
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 

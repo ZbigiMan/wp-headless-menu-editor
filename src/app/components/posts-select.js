@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Grid, Segment, Divider, Dropdown, Label, Button, Icon, Checkbox, Popup } from 'semantic-ui-react'
 import {
-  updateCurrentpostTypes,
+  updateCurrentPostTypes,
   selectCurrentPostsOrder,
   switchHidePostsFromCurrentMenu,
   switchPostsSort
@@ -24,7 +24,7 @@ import { Trans, withTranslation } from 'react-i18next'
 })
 class PostsSelect extends React.Component {
   selectPostsType = (e, data) => {
-    this.props.dispatch(updateCurrentpostTypes(data.value))
+    this.props.dispatch(updateCurrentPostTypes(data.value))
   }
 
   selectPostsOrder = (e, data) => {

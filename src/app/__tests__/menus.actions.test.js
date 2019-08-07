@@ -3,13 +3,15 @@ import thunk from 'redux-thunk'
 import fetchMock from 'fetch-mock'
 import config from '../config'
 import * as actions from '../_redux-actions/menus.actions'
-import menusData from '../__mocs__/__data__/menus-data-from-api'
+import menusDataFromAPI from '../__mocs__/__data__/menus-data-from-api'
 import menuDataFromAPI from '../__mocs__/__data__/menu-data-from-api'
 import menuDataFromModel from '../__mocs__/__data__/menu-data-from-model'
+import postsDataFromAPI from '../__mocs__/__data__/posts-data-from-api'
 import * as types from '../_redux-constants/menus-action-types'
 import menusService from '../services/menus.service'
 import Menu from '../models/menu.model'
 import MenuItem from '../models/menu-item.model'
+import postsService from '../services/posts.service'
 
 /* global describe it expect afterEach */
 
@@ -19,8 +21,16 @@ const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 afterEach(fetchMock.restore)
 
-const menuId = menusData[0].term_id
+const menuId = menusDataFromAPI[0].term_id
 const menuItem = new MenuItem(menuDataFromAPI[0])
+
+const postsDataParsed = postsService.parsePostsData(postsDataFromAPI)
+
+const initialState = {
+  posts: {
+    allPosts: postsDataParsed
+  }
+}
 
 describe('Action: setMenus', () => {
   it(`Should return ${types.SET_MENUS} Action,
@@ -28,10 +38,10 @@ describe('Action: setMenus', () => {
   () => {
     const expectedAction = {
       type: types.SET_MENUS,
-      playload: menusData
+      playload: menusDataFromAPI
     }
-    expect(actions.setMenus(menusData)).toEqual(expectedAction)
-    const playload = actions.setMenus(menusData).playload
+    expect(actions.setMenus(menusDataFromAPI)).toEqual(expectedAction)
+    const playload = actions.setMenus(menusDataFromAPI).playload
     let matches = 0
     playload.forEach(item => {
       if (item instanceof Menu) {
@@ -46,7 +56,7 @@ describe('Action: selectMenu', () => {
   it(`Should return ${types.SET_CURRENT_MENU_ID} Action
       and ${types.GET_MENU_DATA_STARTED} Action`,
   () => {
-    const store = mockStore({})
+    const store = mockStore(initialState)
     fetchMock.postOnce(config.apiUrl, {
       body: menuDataFromAPI,
       headers: { 'content-type': 'application/json' }
@@ -85,8 +95,8 @@ describe('Action: getMenuData', () => {
       then ${types.GET_MENU_DATA_SUCCESS} Action,
       ${types.GET_MENU_DATA_SUCCESS} Action playload should be an Array of MenuItem models`,
   () => {
-    const store = mockStore({})
-    fetchMock.postOnce(config.apiUrl, {
+    const store = mockStore(initialState)
+    fetchMock.post(config.apiUrl, {
       body: menuDataFromAPI,
       headers: { 'content-type': 'application/json' }
     })
@@ -108,12 +118,12 @@ describe('Action: getMenuData', () => {
       expect(store.getActions()[0]).toEqual(expectedActions[0])
       expect(store.getActions()[1]).toEqual(expectedActions[1])
       let matches = 0
-      menuDataParsed.forEach(item => {
+      store.getActions()[1].playload.forEach(item => {
         if (item instanceof MenuItem) {
           matches++
         }
       })
-      expect(matches).toEqual(menuDataParsed.length)
+      expect(matches).toEqual(store.getActions()[1].playload.length)
     })
   })
 })

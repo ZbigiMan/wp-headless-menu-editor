@@ -7,6 +7,12 @@ class PostsService {
     this.$ajax = new AjaxService()
   }
 
+  parsePostsData (postsData) {
+    return postsData.map(item => {
+      return new MenuItem(item)
+    })
+  }
+
   async getPosts (types) {
     return this.$ajax.post({
       url: config.apiUrl,
@@ -15,9 +21,7 @@ class PostsService {
         types: JSON.stringify(types)
       }
     }).then(res => {
-      return res.map(item => {
-        return new MenuItem(item)
-      })
+      return this.parsePostsData(res)
     })
   }
 }

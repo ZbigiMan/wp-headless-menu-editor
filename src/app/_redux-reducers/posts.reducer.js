@@ -29,7 +29,7 @@ export default function reducer (state = initialState, action) {
       }
     }
 
-    case types.GET_POSTS_SUCCESS: {
+    case types.SET_ALL_POSTS: {
       return {
         ...state,
         postsLoading: false,

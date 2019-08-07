@@ -4,68 +4,41 @@ import postsService from '../services/posts.service'
 import * as types from '../_redux-constants/posts-action-types'
 
 export function getPosts (postTypes) {
-  return dispatch => {
+  return async dispatch => {
     dispatch(getPostsStarted())
-    postsService.getPosts(postTypes).then(res => {
-      dispatch(getPostsLoadded(res))
-    })
+    try {
+      await postsService.getPosts(postTypes).then(res => {
+        dispatch(getPostsSuccess(res))
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 
-const getPostsStarted = () => {
+export function getPostsStarted () {
   return {
     type: types.GET_POSTS_STARTED
   }
 }
 
-const getPostsLoadded = (data) => {
+export function getPostsSuccess (data) {
   return dispatch => {
-    dispatch(getPostsSuccess(data))
-    dispatch(filterPosts())
+    dispatch(setAllPosts(data))
+    dispatch(setCurrentPosts(
+      orderPosts(hidePostsFromCurrentMenu(data))
+    ))
   }
 }
 
-export function filterPosts () {
-  let posts = hidePostsFromCurrentMenu()
-  posts = orderPosts(posts)
-  return dispatch => {
-    dispatch(setCurrentPosts(posts))
-  }
-}
-
-const hidePostsFromCurrentMenu = () => {
-  const state = store.getState()
-  let posts = state.posts.allPosts
-  if (state.posts.hidePostsFromCurrentMenu) {
-    posts = posts.filter(post => {
-      const isInMenu = state.menus.currentMenuData.find(item => {
-        return parseInt(item.object_id) === parseInt(post.object_id)
-      })
-      if (!isInMenu) {
-        return post
-      }
-    })
-  }
-  return posts
-}
-
-const orderPosts = (posts) => {
-  const state = store.getState()
-  posts = sortBy(posts, ['post', state.posts.currentPostsOrder])
-  if (!state.posts.postsSortUp) {
-    posts.reverse()
-  }
-  return posts
-}
-
-const getPostsSuccess = (data) => {
+export function setAllPosts (data) {
   return {
-    type: types.GET_POSTS_SUCCESS,
+    type: types.SET_ALL_POSTS,
     playload: data
   }
 }
 
-const setCurrentPosts = (data) => {
+export function setCurrentPosts (data) {
   return {
     type: types.SET_CURRENT_POSTS,
     playload: data
@@ -75,7 +48,7 @@ const setCurrentPosts = (data) => {
 export function setPostTypes (data) {
   return dispatch => {
     dispatch(setPostTypesSuccess(data))
-    dispatch(updateCurrentpostTypes(data.map(item => {
+    dispatch(updateCurrentPostTypes(data.map(item => {
       return item.value
     })))
   }
@@ -88,14 +61,14 @@ const setPostTypesSuccess = (data) => {
   }
 }
 
-export function updateCurrentpostTypes (data) {
+export function updateCurrentPostTypes (data) {
   return dispatch => {
-    dispatch(updateCurrentpostTypesSuccess(data))
+    dispatch(updateCurrentPostTypesSuccess(data))
     dispatch(getPosts(data))
   }
 }
 
-const updateCurrentpostTypesSuccess = (data) => {
+const updateCurrentPostTypesSuccess = (data) => {
   return {
     type: types.UPDATE_CURRENT_POSTS_TYPES_SUCCESS,
     playload: data
@@ -105,7 +78,9 @@ const updateCurrentpostTypesSuccess = (data) => {
 export function selectCurrentPostsOrder (data) {
   return dispatch => {
     dispatch(setCurrentPostsOrder(data))
-    dispatch(filterPosts())
+    dispatch(setCurrentPosts(
+      orderPosts(hidePostsFromCurrentMenu(data))
+    ))
   }
 }
 
@@ -117,9 +92,13 @@ const setCurrentPostsOrder = (data) => {
 }
 
 export function switchHidePostsFromCurrentMenu () {
-  return dispatch => {
+  return (dispatch, getState) => {
     dispatch(setHidePostsFromCurrentMenu())
-    dispatch(filterPosts())
+    if (getState().posts) {
+      dispatch(setCurrentPosts(
+        orderPosts(hidePostsFromCurrentMenu(getState().posts.allPosts))
+      ))
+    }
   }
 }
 
@@ -130,9 +109,13 @@ const setHidePostsFromCurrentMenu = () => {
 }
 
 export function switchPostsSort () {
-  return dispatch => {
+  return (dispatch, getState) => {
     dispatch(setPostsSort())
-    dispatch(filterPosts())
+    if (getState().posts) {
+      dispatch(setCurrentPosts(
+        orderPosts(hidePostsFromCurrentMenu(getState().posts.allPosts))
+      ))
+    }
   }
 }
 
@@ -140,4 +123,28 @@ const setPostsSort = () => {
   return {
     type: types.SET_POSTS_SORT
   }
+}
+
+export function orderPosts (posts) {
+  const state = store.getState()
+  posts = sortBy(posts, ['post', state.posts.currentPostsOrder])
+  if (!state.posts.postsSortUp) {
+    posts.reverse()
+  }
+  return posts
+}
+
+export function hidePostsFromCurrentMenu (posts) {
+  const state = store.getState()
+  if (state.posts.hidePostsFromCurrentMenu) {
+    posts = posts.filter(post => {
+      const isInMenu = state.menus.currentMenuData.find(item => {
+        return parseInt(item.object_id) === parseInt(post.object_id)
+      })
+      if (!isInMenu) {
+        return post
+      }
+    })
+  }
+  return posts
 }
