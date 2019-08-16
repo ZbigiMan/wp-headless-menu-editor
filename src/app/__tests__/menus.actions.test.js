@@ -42,13 +42,9 @@ describe('Action: setMenus', () => {
     }
     expect(actions.setMenus(menusDataFromAPI)).toEqual(expectedAction)
     const playload = actions.setMenus(menusDataFromAPI).playload
-    let matches = 0
     playload.forEach(item => {
-      if (item instanceof Menu) {
-        matches++
-      }
+      expect(item instanceof Menu).toEqual(true)
     })
-    expect(matches).toEqual(playload.length)
   })
 })
 
@@ -117,13 +113,9 @@ describe('Action: getMenuData', () => {
     ).then(() => {
       expect(store.getActions()[0]).toEqual(expectedActions[0])
       expect(store.getActions()[1]).toEqual(expectedActions[1])
-      let matches = 0
       store.getActions()[1].playload.forEach(item => {
-        if (item instanceof MenuItem) {
-          matches++
-        }
+        expect(item instanceof MenuItem).toEqual(true)
       })
-      expect(matches).toEqual(store.getActions()[1].playload.length)
     })
   })
 })

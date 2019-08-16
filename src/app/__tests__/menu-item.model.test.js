@@ -10,14 +10,9 @@ describe('Model: MenuItem', () => {
     const modelAttrs = Object.keys(menuItem)
     const apiAttrs = Object.keys(MenuDataFromApi[0])
 
-    let matches = 0
     apiAttrs.forEach(attr => {
-      if (modelAttrs.indexOf(attr) !== -1) {
-        matches++
-      }
+      expect(modelAttrs.indexOf(attr)).not.toEqual(-1)
     })
-
-    expect(matches).toEqual(apiAttrs.length)
   })
 
   it('Should be compatible with posts data from API', () => {
@@ -31,7 +26,6 @@ describe('Model: MenuItem', () => {
         matches++
       }
     })
-
     expect(matches).toEqual(apiAttrs.length)
   })
 })

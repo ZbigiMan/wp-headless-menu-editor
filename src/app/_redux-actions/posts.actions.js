@@ -54,7 +54,7 @@ export function setPostTypes (data) {
   }
 }
 
-const setPostTypesSuccess = (data) => {
+export function setPostTypesSuccess (data) {
   return {
     type: types.SET_POSTS_TYPES_SUCCESS,
     playload: data
@@ -68,7 +68,7 @@ export function updateCurrentPostTypes (data) {
   }
 }
 
-const updateCurrentPostTypesSuccess = (data) => {
+export function updateCurrentPostTypesSuccess (data) {
   return {
     type: types.UPDATE_CURRENT_POSTS_TYPES_SUCCESS,
     playload: data
@@ -76,15 +76,17 @@ const updateCurrentPostTypesSuccess = (data) => {
 }
 
 export function selectCurrentPostsOrder (data) {
-  return dispatch => {
+  return (dispatch, getState) => {
     dispatch(setCurrentPostsOrder(data))
-    dispatch(setCurrentPosts(
-      orderPosts(hidePostsFromCurrentMenu(data))
-    ))
+    if (getState().posts) {
+      dispatch(setCurrentPosts(
+        orderPosts(hidePostsFromCurrentMenu(getState().posts.allPosts))
+      ))
+    }
   }
 }
 
-const setCurrentPostsOrder = (data) => {
+export function setCurrentPostsOrder (data) {
   return {
     type: types.SET_CURRENT_POSTS_ORDER,
     playload: data
@@ -102,7 +104,7 @@ export function switchHidePostsFromCurrentMenu () {
   }
 }
 
-const setHidePostsFromCurrentMenu = () => {
+export function setHidePostsFromCurrentMenu () {
   return {
     type: types.SET_HIDE_POSTS_FROM_CURRENT_MENU
   }
@@ -119,7 +121,7 @@ export function switchPostsSort () {
   }
 }
 
-const setPostsSort = () => {
+export function setPostsSort () {
   return {
     type: types.SET_POSTS_SORT
   }
