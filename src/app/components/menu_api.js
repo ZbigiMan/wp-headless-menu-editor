@@ -29,6 +29,22 @@ class MenuApi extends React.Component {
     return (
       <div className='menu-api'>
         <Segment>
+          <Label
+            size='large'
+            color='blue'
+            ribbon
+            className='custom-label'
+          >
+            Headless Menu Editor endpoints:
+          </Label>
+          {!this.props.menusLoading &&
+          <React.Fragment>
+            <div><a href='#endpoint1' >{config.restUrl + 'menus/'}</a></div>
+            <div><a href='#endpoint2' >{config.restUrl + 'menus/{id}'}</a></div>
+          </React.Fragment>
+          }
+        </Segment>
+        <Segment id='endpoint1'>
           {!this.props.menusLoading &&
             <React.Fragment>
               <Label
@@ -55,7 +71,7 @@ class MenuApi extends React.Component {
             </React.Fragment>
           }
         </Segment>
-        <Segment>
+        <Segment id='endpoint2'>
           {!this.props.menuDataLoading &&
             <React.Fragment>
               <Label

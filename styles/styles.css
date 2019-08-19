@@ -29047,13 +29047,27 @@ body.pushable > .pusher {
 
 ._wp_headless_menu_editor .ui.label {
   background: transparent; }
+  ._wp_headless_menu_editor .ui.label.custom-label {
+    margin-bottom: 1em; }
+    ._wp_headless_menu_editor .ui.label.custom-label a {
+      opacity: 1;
+      transition: opacity 0.4s ease; }
+      ._wp_headless_menu_editor .ui.label.custom-label a:hover {
+        opacity: 0.7; }
 
 ._wp_headless_menu_editor .ui.grid {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem; }
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem; }
   ._wp_headless_menu_editor .ui.grid .column:not(.row) {
     padding-left: 0.5rem;
     padding-right: 0.5rem; }
+    ._wp_headless_menu_editor .ui.grid .column:not(.row).main {
+      padding-left: 1rem;
+      padding-right: 1rem; }
+      ._wp_headless_menu_editor .ui.grid .column:not(.row).main:first-of-type {
+        padding-left: 1.5rem; }
 
 .ui.modal .content {
   box-sizing: border-box; }
@@ -29156,7 +29170,7 @@ body.pushable > .pusher {
       background: gray; }
       ._wp_headless_menu_editor .menu-editor li.menu-item .menu-item--insert.hover {
         opacity: 1;
-        background: green;
+        background: #21ba45;
         transition: all 0.3s ease; }
       ._wp_headless_menu_editor .menu-editor li.menu-item .menu-item--insert.menu-item--insert-child {
         margin-left: 15px; }
@@ -29180,11 +29194,3 @@ body.pushable > .pusher {
   min-height: 200px; }
   ._wp_headless_menu_editor .posts-list .menu-item {
     margin-bottom: 3px; }
-
-._wp_headless_menu_editor .menu-api .ui .label.custom-label {
-  margin-bottom: 1em; }
-  ._wp_headless_menu_editor .menu-api .ui .label.custom-label a {
-    opacity: 1;
-    transition: opacity 0.4s ease; }
-    ._wp_headless_menu_editor .menu-api .ui .label.custom-label a:hover {
-      opacity: 0.7; }

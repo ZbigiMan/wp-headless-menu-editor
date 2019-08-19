@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import EventListener from 'react-event-listener'
-import { Segment, Divider, Dimmer, Loader, Icon } from 'semantic-ui-react'
+import { Segment, Label, Dimmer, Loader, Icon } from 'semantic-ui-react'
 import { Trans } from 'react-i18next'
 
 import MenuItem from './menu-item'
@@ -81,14 +81,18 @@ class MenuEditor extends React.Component {
     return (
       <Segment key={'v' + this.stateV} className='menu-editor'>
         {this.props.currentMenuId &&
-          <h5>
+          <Label
+            size='large'
+            color='blue'
+            ribbon
+            className='custom-label'
+          >
             <Trans>Editing</Trans> "{this.props.currentMenuName}"
             <small className='tip'><Icon name='hand point left outline' />
               <Trans>drag and drop items</Trans>
             </small>
-          </h5>
+          </Label>
         }
-        <Divider />
         {this.props.currentMenuDataLoading &&
           <Dimmer active inverted>
             <Loader inverted />

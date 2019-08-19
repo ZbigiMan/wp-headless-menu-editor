@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Grid, Segment, Divider, Dropdown, Label, Button, Icon, Checkbox, Popup } from 'semantic-ui-react'
+import { Grid, Segment, Dropdown, Label, Button, Icon, Checkbox, Popup } from 'semantic-ui-react'
 import {
   updateCurrentPostTypes,
   selectCurrentPostsOrder,
@@ -44,21 +44,14 @@ class PostsSelect extends React.Component {
     return (
       <div className='posts-types-select'>
         <Segment>
-          <Grid>
-            <Grid.Column width={6}>
-              <h5><Trans>Select posts</Trans></h5>
-            </Grid.Column>
-            <Grid.Column width={10} textAlign='right'>
-              {this.props.menus.length > 0 &&
-                <Checkbox
-                  checked={this.props.hidePostsFromCurrentMenu}
-                  onChange={this.switchHidePostsFromCurrentManu}
-                  label={t('Not in') + ' "' + this.props.currentMenuName + '"'}
-                />
-              }
-            </Grid.Column>
-          </Grid>
-          <Divider />
+          <Label
+            size='large'
+            color='blue'
+            ribbon
+            className='custom-label'
+          >
+            <Trans>Select posts</Trans>
+          </Label>
           <Grid>
             <Grid.Column width={9}>
               <Label><Trans>Select type</Trans></Label>
@@ -91,6 +84,17 @@ class PostsSelect extends React.Component {
               } >
                 <Trans>Direction of sorting</Trans>
               </Popup>
+            </Grid.Column>
+          </Grid>
+          <Grid>
+            <Grid.Column width={16}>
+              {this.props.menus.length > 0 &&
+                <Checkbox
+                  checked={this.props.hidePostsFromCurrentMenu}
+                  onChange={this.switchHidePostsFromCurrentManu}
+                  label={t('Not in') + ' "' + this.props.currentMenuName + '"'}
+                />
+              }
             </Grid.Column>
           </Grid>
         </Segment>

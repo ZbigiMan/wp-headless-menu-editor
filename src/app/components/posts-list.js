@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Segment, Dimmer, Loader, Message, Divider, Pagination } from 'semantic-ui-react'
+import { Segment, Label, Dimmer, Loader, Message, Pagination } from 'semantic-ui-react'
 import MenuItem from './menu-item'
 import { Trans } from 'react-i18next'
 
@@ -38,8 +38,14 @@ class PostsList extends React.Component {
   render () {
     return (
       <Segment className='posts-list'>
-        <h5><Trans>Posts List</Trans></h5>
-        <Divider />
+        <Label
+          size='large'
+          color='blue'
+          ribbon
+          className='custom-label'
+        >
+          <Trans>Posts List</Trans>
+        </Label>
         {this.props.postsLoading &&
         <ul>
           <Dimmer active inverted>

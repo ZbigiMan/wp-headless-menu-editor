@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Segment, Divider, Dropdown, Button } from 'semantic-ui-react'
+import { Segment, Label, Dropdown, Button } from 'semantic-ui-react'
 import { selectMenu } from '../_redux-actions/menus.actions'
 import { Trans } from 'react-i18next'
 
@@ -27,8 +27,14 @@ class MenusSelect extends React.Component {
     return (
       <div className='menu-select'>
         <Segment>
-          <h5><Trans>Choose menu to edit</Trans></h5>
-          <Divider />
+          <Label
+            size='large'
+            color='blue'
+            ribbon
+            className='custom-label'
+          >
+            <Trans>Choose menu to edit</Trans>
+          </Label>
           <div className='flex'>
             <div className='menu-select-select'>
               <Dropdown

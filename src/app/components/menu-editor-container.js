@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Grid } from 'semantic-ui-react'
-import Header from './header'
 import MenusSelect from './menus-select'
 import MenuEditor from './menu-editor'
 import PostsSelect from './posts-select'
@@ -20,13 +19,12 @@ class MenuEditorContainer extends React.Component {
       <React.Fragment>
         <ModalMenuItemEditor />
         <ConfirmRemoveMenuItem />
-        <Header title='pluginTitle' />
         <Grid>
-          <Grid.Column width={6}>
+          <Grid.Column width={6} className='main'>
             <PostsSelect />
             <PostsList />
           </Grid.Column>
-          <Grid.Column width={10}>
+          <Grid.Column width={10} className='main'>
             <MenuEditor />
             <MenusSelect />
           </Grid.Column>
