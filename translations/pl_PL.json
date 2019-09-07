@@ -15,7 +15,8 @@
     "Sort": "Kierunek",
     "Remove from": "Usuń z",
     "Add to": "Dodaj do",
-    "Are You sure You want to remove": "Czy na pewno chcesz usunąć",
+    "Are you sure?": "Czy na pewno?",
+    "Remove": "Usunąć",
     "from": "z",
     "No": "Nie",
     "Yes": "Tak",
@@ -28,6 +29,8 @@
     "Type": "Type",
     "Title": "Title",
     "Rename Menu Item": "Zmień nazwę pozycji menu",
-    "Open in content editor": "Edytuj zawartość"
+    "Open in content editor": "Edytuj zawartość",
+    "Add menu items from the Post List" : "Nie dodałeś jeszcze żadnych pozycji do menu.",
+    "Menu Name": "Nazwa Name"
   }
 }

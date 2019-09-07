@@ -49,7 +49,7 @@ class ModalMenuItemEditor extends React.Component {
       return
     }
     return (
-      <div>
+      <Segment basic>
         <Label><Trans>Type</Trans>:</Label>
         <span>
           &nbsp;
@@ -61,7 +61,7 @@ class ModalMenuItemEditor extends React.Component {
         </span>
         <Label><Trans>Title</Trans>:</Label>
         <span>&nbsp;{this.props.menuItemEditor.item.post_title}</span>
-      </div>
+      </Segment>
     )
   }
 
@@ -75,10 +75,11 @@ class ModalMenuItemEditor extends React.Component {
     })
     if (isPostInMenu) {
       return (
-        <Segment>
+        <Segment basic>
           <Form onSubmit={this.renameMenuItemOnSubmit}>
             <Form.Field>
               <Input
+                autoFocus
                 label={
                   <Label>
                     <Trans>Rename Menu Item</Trans>:
@@ -106,7 +107,7 @@ class ModalMenuItemEditor extends React.Component {
   getEditSource = () => {
     const editPostLink = config.editPostPath.replace('{postId}', this.props.menuItemEditor.item.object_id)
     return (
-      <Segment textAlign='center'>
+      <Segment basic textAlign='center'>
         <a href={editPostLink} target='_blank'><Button><Trans>Open in content editor</Trans></Button></a>
       </Segment>
     )

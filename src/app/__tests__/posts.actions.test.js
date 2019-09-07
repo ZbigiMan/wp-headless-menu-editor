@@ -11,7 +11,7 @@ import MenuItem from '../models/menu-item.model'
 
 /* global describe it expect afterEach */
 
-config.apiUrl = '/wp-admin/admin-ajax.php'
+config.wp_ajax_url = '/wp-admin/admin-ajax.php'
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
@@ -33,7 +33,7 @@ describe('Action: getPosts', () => {
     with playload as Array of MenuItem models`,
   () => {
     const store = mockStore({})
-    fetchMock.post(config.apiUrl, {
+    fetchMock.post(config.wp_ajax_url, {
       body: postsDataFromAPI,
       headers: { 'content-type': 'application/json' }
     })

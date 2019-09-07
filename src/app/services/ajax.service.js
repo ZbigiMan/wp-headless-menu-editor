@@ -46,12 +46,21 @@ class AjaxService {
 
   async get (options) {
     let _url = options.url
-    let _headers = options.headers || this.config.headers
-
     if (!_url) {
-      console.warn('AjaxService.post:', this.config.warnings.no_url_or_data)
+      console.warn('AjaxService.get:', this.config.warnings.no_url_or_data)
       return
     }
+
+    if (options.data) {
+      if (options.data.action) {
+        _url += '?action=' + options.data.action
+      }
+      if (options.data.params) {
+        _url += '&' + options.data.params
+      }
+    }
+
+    let _headers = options.headers || this.config.headers
 
     let response = await fetch(_url, {
       method: 'GET',

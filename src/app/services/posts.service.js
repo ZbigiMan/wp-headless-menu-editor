@@ -15,7 +15,7 @@ class PostsService {
 
   async getPosts (types) {
     return this.$ajax.post({
-      url: config.apiUrl,
+      url: config.wp_ajax_url,
       data: {
         action: 'get_posts',
         types: JSON.stringify(types)

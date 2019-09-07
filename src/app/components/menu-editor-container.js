@@ -7,6 +7,8 @@ import PostsSelect from './posts-select'
 import PostsList from './posts-list'
 import ConfirmRemoveMenuItem from './modal-confirm-remove-menu-item'
 import ModalMenuItemEditor from './modal-menu-item-editor'
+import ModalCreateMenu from './modal-create-menu'
+import ConfirmRemoveMenu from './modal-confirm-remove-menu'
 
 @connect((store) => {
   return {
@@ -19,6 +21,8 @@ class MenuEditorContainer extends React.Component {
       <React.Fragment>
         <ModalMenuItemEditor />
         <ConfirmRemoveMenuItem />
+        <ConfirmRemoveMenu />
+        <ModalCreateMenu />
         <Grid>
           <Grid.Column width={6} className='main'>
             <PostsSelect />

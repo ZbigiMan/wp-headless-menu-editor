@@ -20,6 +20,8 @@ class MenuEditor
             'get_menu_data',
             'save_menu',
             'get_posts',
+            'create_new_menu',
+            'delete_menu'
         );
 
         foreach ($ajax_functions as $func) {
@@ -36,10 +38,10 @@ class MenuEditor
         $menus = $this->get_menus();
 
         if (count($menus) === 0) {
-            $types = $this->get_posts_types();
-            $types = json_decode(json_encode($types), true);
-            $posts = $this->get_posts(['Page']);
-            $this->create_menu('Main Menu', $posts);
+            $this->create_menu(
+                'Main Menu',
+                $this->get_posts(['Page'])
+            );
             $menus = $this->get_menus();
         }
 
@@ -55,6 +57,34 @@ class MenuEditor
             "menus" => $menus,
             "posts_types" => $this->get_posts_types()
         );
+    }
+
+    public function ajax_create_new_menu()
+    {
+        $menu_name = $_POST["menu_name"];
+        if (isset($menu_name)) {
+            $new_menu_id = $this->create_menu($menu_name, []);
+            $res = array(
+                'new_menu_id' => $new_menu_id,
+                'menus' => $this->get_menus()
+            );
+            echo json_encode($res);
+            wp_die();
+        }
+    }
+
+    public function ajax_delete_menu()
+    {
+        $menu_id = $_POST['menu_id'];
+        if (isset($menu_id)) {
+            wp_delete_nav_menu($menu_id);
+            $res = array(
+                'deleted_menu_id' => $menu_id,
+                'menus' => $this->get_menus()
+            );
+            echo json_encode($res);
+            wp_die();
+        }
     }
 
     public function get_rest_url()
@@ -75,10 +105,9 @@ class MenuEditor
     // Create new menu
     public function create_menu($menu_name, $menu_data)
     {
-
         $menu_id = wp_create_nav_menu($menu_name);
         $this->save_menu($menu_id, $menu_data);
-
+        return $menu_id;
     }
 
     // Get menus
@@ -99,8 +128,8 @@ class MenuEditor
     // AjaxService get menu items
     public function ajax_get_menu_data()
     {
-        if (isset($_POST["menu_id"])) {
-            $menu_id = $_POST["menu_id"];
+        if (isset($_GET["menu_id"])) {
+            $menu_id = $_GET["menu_id"];
             $menu_items = wp_get_nav_menu_items($menu_id);
             echo json_encode($menu_items);
             wp_die();
@@ -110,7 +139,6 @@ class MenuEditor
     // Get posts types
     public function get_posts_types()
     {
-
         $args = array(
             'public' => true,
         );
@@ -191,6 +219,7 @@ class MenuEditor
             $menu_data = json_decode($menu_data, true);
 
             $this->save_menu($menu_id, $menu_data);
+            echo json_encode(wp_get_nav_menu_items($menu_id));
             wp_die();
         };
     }
@@ -210,11 +239,6 @@ class MenuEditor
                     wp_delete_post($data["db_id"]);
                 }
             };
-
-            $res = wp_get_nav_menu_items($menu_id);
-
-            echo json_encode($res);
-
         } catch (Exception $e) {
             echo $e->getMessage();
         }

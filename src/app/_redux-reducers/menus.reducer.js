@@ -7,9 +7,15 @@ const initialState = {
   currentMenuData: [],
   currentMenuDataLoading: false,
   currentMenuDataSaving: false,
-  confirmRemoveMenuItem: {
+  confirmRemoveMenuItemModal: {
     open: false,
     item: null
+  },
+  createNewMenuModal: {
+    open: false
+  },
+  confirmRemoveMenuModal: {
+    open: false
   }
 }
 
@@ -81,7 +87,7 @@ export default function reducer (state = initialState, action) {
     case types.CONFIRM_REMOVE_FROM_MENU: {
       return {
         ...state,
-        confirmRemoveMenuItem: action.playload
+        confirmRemoveMenuItemModal: action.playload
       }
     }
     case types.REMOVE_FROM_MENU: {
@@ -93,6 +99,46 @@ export default function reducer (state = initialState, action) {
       return {
         ...state,
         currentMenuData: newCurrentMenuData
+      }
+    }
+    case types.MODAL_CREATE_MENU_OPEN: {
+      return {
+        ...state,
+        createNewMenuModal: {
+          open: action.playload
+        }
+      }
+    }
+    case types.CREATE_MENU_STARTED: {
+      return {
+        ...state,
+        currentMenuDataSaving: true
+      }
+    }
+    case types.CREATE_MENU_SUCCESS: {
+      return {
+        ...state,
+        currentMenuDataSaving: false
+      }
+    }
+    case types.DELETE_MENU_STARTED: {
+      return {
+        ...state,
+        currentMenuDataSaving: false
+      }
+    }
+    case types.DELETE_MENU_SUCCESS: {
+      return {
+        ...state,
+        currentMenuDataSaving: false
+      }
+    }
+    case types.MODAL_CONFIRM_REMOVE_MENU_OPEN_CLOSE: {
+      return {
+        ...state,
+        confirmRemoveMenuModal: {
+          open: action.playload
+        }
       }
     }
     default:
