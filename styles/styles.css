@@ -29097,6 +29097,13 @@ body.pushable > .pusher {
   box-sizing: border-box; }
   ._wp_headless_menu_editor h4, ._wp_headless_menu_editor h5 {
     text-transform: uppercase; }
+  ._wp_headless_menu_editor .link {
+    text-decoration: underline;
+    cursor: pointer; }
+    ._wp_headless_menu_editor .link.danger {
+      color: rgba(0, 0, 0, 0.6); }
+      ._wp_headless_menu_editor .link.danger:hover {
+        color: #d01919; }
 
 .tip {
   text-transform: none;

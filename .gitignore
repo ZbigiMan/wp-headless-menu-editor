@@ -32,6 +32,3 @@ testem.log
 .DS_Store
 Thumbs.db
 ./package-lock.json
-
-/styles/styles.css
-/scripts/menu_editor.js

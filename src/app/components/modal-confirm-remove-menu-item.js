@@ -5,7 +5,7 @@ import { confirmRemoveFromMenu, removeFromMenu, saveMenuData } from '../_redux-a
 import { Trans, withTranslation } from 'react-i18next'
 @connect((store) => {
   return {
-    confirmRemoveMenuItem: store.menus.confirmRemoveMenuItem,
+    confirmRemoveMenuItemModal: store.menus.confirmRemoveMenuItemModal,
     currentMenuId: store.menus.currentMenuId,
     currentMenuName: store.menus.currentMenuName,
     currentMenuData: store.menus.currentMenuData
@@ -18,7 +18,7 @@ class ConfirmRemoveMenuItem extends React.Component {
 
   onConfirm = () => {
     this.props.dispatch(confirmRemoveFromMenu({ open: false }))
-    this.props.dispatch(removeFromMenu(this.props.confirmRemoveMenuItem.item))
+    this.props.dispatch(removeFromMenu(this.props.confirmRemoveMenuItemModal.item))
     setTimeout(() => {
       this.props.dispatch(saveMenuData(this.props.currentMenuId, this.props.currentMenuData, {
         reload: true
@@ -27,33 +27,36 @@ class ConfirmRemoveMenuItem extends React.Component {
   }
 
   getHeader = () => {
-    if (!this.props.confirmRemoveMenuItem.item) {
+    if (!this.props.confirmRemoveMenuItemModal.item) {
       return
     }
-    const { t } = this.props
-    return t('Are You sure You want to remove')
+    return (<Trans>Are you sure?</Trans>)
   }
 
   getContent = () => {
-    if (!this.props.confirmRemoveMenuItem.item) {
+    if (!this.props.confirmRemoveMenuItemModal.item) {
       return
     }
-    const { t } = this.props
-    return ' "' + this.props.confirmRemoveMenuItem.item.title + '" ' +
-      t('from') + ' "' + this.props.currentMenuName + ' "?'
+    return (
+      <React.Fragment>
+        <Trans>Remove</Trans>&nbsp;
+        <strong>"{this.props.confirmRemoveMenuItemModal.item.title}"</strong>&nbsp;
+        <Trans>from</Trans>&nbsp;
+        <strong>"{this.props.currentMenuName}"</strong>?
+      </React.Fragment>)
   }
 
   render () {
     return (
       <Modal
         closeIcon={<Icon name='close' onClick={this.onCancel} />}
-        open={this.props.confirmRemoveMenuItem.open}
+        open={this.props.confirmRemoveMenuItemModal.open}
       >
         <Modal.Header>
           {this.getHeader()}
         </Modal.Header>
         <Modal.Content>
-          <h4>{this.getContent()}</h4>
+          {this.getContent()}
         </Modal.Content>
         <Modal.Actions>
           <Segment basic textAlign='center'>

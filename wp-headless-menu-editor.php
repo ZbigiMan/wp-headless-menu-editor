@@ -7,7 +7,7 @@
  * Author:      Zbigi Man
  * Author URI:  https://zbigiman.com
  * License:     GPL-2.0+
- * Copyright:   2018 Zbigi Man
+ * Copyright:   2019 Zbigi Man
  */
 
 if (!defined('ABSPATH')) {
@@ -54,24 +54,8 @@ class WPHeadlessMenuEditor
             return wp_get_nav_menu_items($data['id']);
         }
 
-
-        // add_action('admin_init', array($this, 'remove_dashboard_widgets'));
-
         $this->$menuEditor->init_ajax();
     }
-
-    // function remove_dashboard_widgets() {
-    //     remove_action( 'welcome_panel', 'wp_welcome_panel' );
-    //     remove_meta_box('dashboard_incoming_links', 'dashboard', 'normal'); //Removes the 'incoming links' widget
-    //     remove_meta_box('dashboard_plugins', 'dashboard', 'normal'); //Removes the 'plugins' widget
-    //     remove_meta_box('dashboard_primary', 'dashboard', 'normal'); //Removes the 'WordPress News' widget
-    //     remove_meta_box('dashboard_secondary', 'dashboard', 'normal'); //Removes the secondary widget
-    //     remove_meta_box('dashboard_quick_press', 'dashboard', 'side'); //Removes the 'Quick Draft' widget
-    //     remove_meta_box('dashboard_recent_drafts', 'dashboard', 'side'); //Removes the 'Recent Drafts' widget
-    //     remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal'); //Removes the 'Activity' widget
-    //     remove_meta_box('dashboard_right_now', 'dashboard', 'normal'); //Removes the 'At a Glance' widget
-    //     remove_meta_box('dashboard_activity', 'dashboard', 'normal'); //Removes the 'Activity' widget (since 3.8)
-    // }
 
     public function activate()
     {

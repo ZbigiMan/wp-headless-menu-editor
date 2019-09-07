@@ -15,7 +15,7 @@ import postsService from '../services/posts.service'
 
 /* global describe it expect afterEach */
 
-config.apiUrl = '/wp-admin/admin-ajax.php'
+config.wp_ajax_url = '/wp-admin/admin-ajax.php'
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
@@ -53,7 +53,7 @@ describe('Action: selectMenu', () => {
       and ${types.GET_MENU_DATA_STARTED} Action`,
   () => {
     const store = mockStore(initialState)
-    fetchMock.postOnce(config.apiUrl, {
+    fetchMock.get(config.wp_ajax_url + '?action=get_menu_data&menu_id=2', {
       body: menuDataFromAPI,
       headers: { 'content-type': 'application/json' }
     })
@@ -92,7 +92,7 @@ describe('Action: getMenuData', () => {
       ${types.GET_MENU_DATA_SUCCESS} Action playload should be an Array of MenuItem models`,
   () => {
     const store = mockStore(initialState)
-    fetchMock.post(config.apiUrl, {
+    fetchMock.get(config.wp_ajax_url + '?action=get_menu_data&menu_id=2', {
       body: menuDataFromAPI,
       headers: { 'content-type': 'application/json' }
     })
@@ -126,7 +126,11 @@ describe('Action: saveMenuData', () => {
       if options.reload is true, should return ${types.GET_MENU_DATA_STARTED} Action`,
   () => {
     const store = mockStore({})
-    fetchMock.post(config.apiUrl, {
+    fetchMock.post(config.wp_ajax_url, {
+      body: menuDataFromAPI,
+      headers: { 'content-type': 'application/json' }
+    })
+    fetchMock.get(config.wp_ajax_url + '?action=get_menu_data&menu_id=2', {
       body: menuDataFromAPI,
       headers: { 'content-type': 'application/json' }
     })
@@ -207,5 +211,64 @@ describe('Action: removeFromMenu', () => {
       playload: menuItem
     }
     expect(actions.removeFromMenu(menuItem)).toEqual(expectedAction)
+  })
+})
+
+describe('Action: modalCreateMenuOpen', () => {
+  it(`Should return ${types.MODAL_CREATE_MENU_OPEN} Action`, () => {
+    const expectedAction = {
+      type: types.MODAL_CREATE_MENU_OPEN,
+      playload: true
+    }
+    expect(actions.modalCreateMenuOpen(true)).toEqual(expectedAction)
+  })
+})
+
+describe('Action: createMenu', () => {
+  it(`Should return Actions:
+     ${types.SET_MENUS},
+     ${types.SET_CURRENT_MENU_ID},
+     ${types.GET_MENU_DATA_STARTED},
+     ${types.CREATE_MENU_SUCCESS},
+     ${types.MODAL_CREATE_MENU_OPEN}
+     `,
+  () => {
+    const store = mockStore(initialState)
+    fetchMock.post(config.wp_ajax_url, {
+      body: {
+        new_menu_id: '2',
+        menus: menusDataFromAPI
+      },
+      headers: { 'content-type': 'application/json' }
+    })
+    fetchMock.get(config.wp_ajax_url + '?action=get_menu_data&menu_id=2', {
+      body: menuDataFromAPI,
+      headers: { 'content-type': 'application/json' }
+    })
+    const expectedActions = [
+      {
+        type: types.SET_MENUS,
+        playload: menusDataFromAPI
+      },
+      {
+        type: types.SET_CURRENT_MENU_ID,
+        playload: '2'
+      },
+      {
+        type: types.GET_MENU_DATA_STARTED
+      },
+      {
+        type: types.CREATE_MENU_SUCCESS
+      },
+      {
+        type: types.MODAL_CREATE_MENU_OPEN,
+        playload: false
+      }
+    ]
+    return store.dispatch(
+      actions.createMenu('New Menu')
+    ).then(() => {
+      expect(store.getActions()).toEqual(expectedActions)
+    })
   })
 })

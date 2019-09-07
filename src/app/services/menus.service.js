@@ -21,11 +21,11 @@ class MenusService {
   }
 
   async getMenuData (menuId) {
-    return this.$ajax.post({
-      url: config.apiUrl,
+    return this.$ajax.get({
+      url: config.wp_ajax_url,
       data: {
         action: 'get_menu_data',
-        menu_id: menuId
+        params: `menu_id=${menuId}`
       }
     }).then(res => {
       return this.parseMenuData(res)
@@ -34,11 +34,35 @@ class MenusService {
 
   async saveMenuData (menuId, menuData) {
     return this.$ajax.post({
-      url: config.apiUrl,
+      url: config.wp_ajax_url,
       data: {
         action: 'save_menu',
         menu_id: menuId,
         menu_data: JSON.stringify(menuData)
+      }
+    }).then(res => {
+      return res
+    })
+  }
+
+  async createMenu (menuName) {
+    return this.$ajax.post({
+      url: config.wp_ajax_url,
+      data: {
+        action: 'create_new_menu',
+        menu_name: menuName
+      }
+    }).then(res => {
+      return res
+    })
+  }
+
+  async deleteMenu (menuId) {
+    return this.$ajax.post({
+      url: config.wp_ajax_url,
+      data: {
+        action: 'delete_menu',
+        menu_id: menuId
       }
     }).then(res => {
       return res

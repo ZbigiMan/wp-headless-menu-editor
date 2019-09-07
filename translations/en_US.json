@@ -10,12 +10,13 @@
     "Select posts": "Select posts",
     "choose criteria": "choose criteria",
     "Not in": "Not in",
-    "Select Type": "Select Type",
+    "Select type": "Select type",
     "Order by": "Order by",
     "Sort": "Sort",
     "Remove from": "Remove from",
     "Add to": "Add to",
-    "Are You sure You want to remove": "Are You sure You want to remove",
+    "Are you sure?": "Are you sure?",
+    "Remove": "Remove",
     "from": "from",
     "No": "No",
     "Yes": "Yes",
@@ -28,6 +29,8 @@
     "Type": "Type",
     "Title": "Title",
     "Rename Menu Item": "Rename Menu Item",
-    "Open in content editor": "Open in content editor"
+    "Open in content editor": "Open in content editor",
+    "Add menu items from the Post List" : "Add menu items from the Post List.",
+    "Menu Name": "Menu Name"
   }
 }

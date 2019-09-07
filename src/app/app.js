@@ -27,7 +27,7 @@ class App extends React.Component {
       menus_api: false
     }
     config.locale = data.locale
-    config.apiUrl = data.urls.wpajax
+    config.wp_ajax_url = data.urls.wpajax
     config.adminUrl = data.urls.admin
     config.restUrl = data.urls.rest
 

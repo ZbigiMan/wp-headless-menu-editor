@@ -98,6 +98,9 @@ class MenuEditor extends React.Component {
             <Loader inverted />
           </Dimmer>
         }
+        {this.props.currentMenuData.length === 0 &&
+          <div><Trans>Add menu items from the Post List</Trans></div>
+        }
         {!this.props.currentMenuDataLoading && this._refs &&
           <ul id='menu-editor-ul' key='menu-editor-ul'>
             {this._refs.map((item, index) =>

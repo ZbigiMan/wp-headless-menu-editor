@@ -110,3 +110,73 @@ export function removeFromMenu (item) {
     playload: item
   }
 }
+
+export function modalCreateMenuOpen (data) {
+  return {
+    type: types.MODAL_CREATE_MENU_OPEN,
+    playload: data
+  }
+}
+
+export function createMenu (menuName) {
+  return async dispatch => {
+    dispatch(createMenuStarted)
+    try {
+      await menusService.createMenu(menuName).then((res) => {
+        dispatch(setMenus(res.menus))
+        dispatch(selectMenu(res.new_menu_id))
+        dispatch(createMenuSuccess())
+        dispatch(modalCreateMenuOpen(false))
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export function createMenuStarted () {
+  return {
+    type: types.CREATE_MENU_STARTED
+  }
+}
+
+export function createMenuSuccess () {
+  return {
+    type: types.CREATE_MENU_SUCCESS
+  }
+}
+
+export function deleteMenu (menuId) {
+  return async dispatch => {
+    dispatch(deleteMenuStarted)
+    try {
+      await menusService.deleteMenu(menuId).then((res) => {
+        dispatch(setMenus(res.menus))
+        dispatch(selectMenu(res.menus[0].term_id))
+        dispatch(deleteMenuSuccess())
+        dispatch(modalConfirmDeleteMenuOpenClose(false))
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export function deleteMenuStarted () {
+  return {
+    type: types.DELETE_MENU_STARTED
+  }
+}
+
+export function deleteMenuSuccess () {
+  return {
+    type: types.DELETE_MENU_SUCCESS
+  }
+}
+
+export function modalConfirmDeleteMenuOpenClose (data) {
+  return {
+    type: types.MODAL_CONFIRM_REMOVE_MENU_OPEN_CLOSE,
+    playload: data
+  }
+}
