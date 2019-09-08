@@ -6,6 +6,8 @@ import config from './config'
 import enUs from '../../translations/en_US.json'
 import plPl from '../../translations/pl_PL.json'
 
+/* global MODE */
+
 class I18n {
   init = () => {
     const resources = {
@@ -26,7 +28,7 @@ class I18n {
         react: {
           wait: true
         },
-        debug: true
+        debug: MODE === 'development'
       })
   }
 }

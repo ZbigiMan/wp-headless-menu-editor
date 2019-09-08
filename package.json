@@ -5,7 +5,8 @@
   "main": "app/index.js",
   "scripts": {
     "start": "webpack -w",
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "build": "webpack --env.prod"
   },
   "author": "Zbigi Man",
   "license": "ISC",
