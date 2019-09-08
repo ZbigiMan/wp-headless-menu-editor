@@ -2,30 +2,29 @@ const path = require('path')
 
 const webpack = require('webpack')
 
-const scriptsEntry = './src/app/index.js'
-const scriprsOutput = './scripts'
-const scriprsFilename = 'menu_editor.js'
+const SCRIPTS_ENTRY = './src/app/index.js'
+const SCRIPTS_OUTPUT = './scripts'
+const SCRIPTS_FILENAME = 'menu_editor.js'
 
-const stylesEntry = './src/scss/styles.scss'
-const stylesOutput = './styles'
-const stylesFilename = 'styles.css'
+const STYLES_ENTRY = './src/scss/styles.scss'
+const STYLES_OUTPUT = './styles'
+const STYLES_FILENAME = 'styles.css'
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const extractSASS = new ExtractTextPlugin(stylesFilename)
+const extractSASS = new ExtractTextPlugin(STYLES_FILENAME)
 
 module.exports = env => {
   const MODE = env && env.prod ? 'production' : 'development'
-
   const definePlugin = new webpack.DefinePlugin({
     MODE: JSON.stringify(MODE)
   })
 
   return [{
     mode: MODE,
-    entry: scriptsEntry,
+    entry: SCRIPTS_ENTRY,
     output: {
-      path: path.resolve(__dirname, scriprsOutput),
-      filename: scriprsFilename
+      path: path.resolve(__dirname, SCRIPTS_OUTPUT),
+      filename: SCRIPTS_FILENAME
     },
     module: {
       rules: [
@@ -48,10 +47,10 @@ module.exports = env => {
     ]
   }, {
     mode: MODE,
-    entry: stylesEntry,
+    entry: STYLES_ENTRY,
     output: {
-      path: path.resolve(__dirname, stylesOutput),
-      filename: stylesFilename
+      path: path.resolve(__dirname, STYLES_OUTPUT),
+      filename: STYLES_FILENAME
     },
     module: {
       rules: [{
