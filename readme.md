@@ -7,6 +7,7 @@
 * /wp-json/hme/v1/menus/{id}
 
 ![wp-headless-menu-editor](/assets/screenshot-1.png)
+![wp-headless-menu-editor](/assets/screenshot-2.png)
 
 ### Licence GPLv3
 
