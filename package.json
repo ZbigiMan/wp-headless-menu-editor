@@ -1,7 +1,7 @@
 {
   "name": "wp-headless-menu-editor",
   "version": "1.0.0",
-  "description": "WP Headless Menu Editor, WordPress plugin. Menu editor for headless WordPress - independent of Appearance. Adds menus to wp-json api.",
+  "description": "WP Headless Menu Editor, WordPress plugin. Menu editor for headless WordPress - independent of Appearance. Adds menus to WP REST API v2.",
   "main": "app/index.js",
   "scripts": {
     "start": "webpack -w",
@@ -9,7 +9,7 @@
     "build": "webpack --env.prod"
   },
   "author": "Zbigi Man",
-  "license": "ISC",
+  "license": "GPL-2.0+",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

@@ -1,11 +1,16 @@
 <?php
+
+// Create _MENU_EDITOR namespace
 namespace _MENU_EDITOR;
 
+// Import Models
 require PLUGIN_DIR_PATH . '/includes/models/menu-item.model.php';
 require PLUGIN_DIR_PATH . '/includes/models/post-menu-item.model.php';
 
+// use _MODELS namespace
 use _MODELS as _models;
 
+// MenuEditor Class
 class MenuEditor
 {
 
@@ -34,7 +39,6 @@ class MenuEditor
     // Get initial data
     public function get_initial_data()
     {
-
         $menus = $this->get_menus();
 
         if (count($menus) === 0) {
@@ -59,6 +63,7 @@ class MenuEditor
         );
     }
 
+    // Create new menu
     public function ajax_create_new_menu()
     {
         $menu_name = $_POST["menu_name"];
@@ -73,6 +78,7 @@ class MenuEditor
         }
     }
 
+    // Delete menu
     public function ajax_delete_menu()
     {
         $menu_id = $_POST['menu_id'];
@@ -87,16 +93,19 @@ class MenuEditor
         }
     }
 
+    // Get WP REST API URL
     public function get_rest_url()
     {
         return str_replace('wp-admin', 'wp-json', admin_url());
     }
 
+    // Get WP Ajax URL
     public function get_ajax_url()
     {
         return admin_url('admin-ajax.php');
     }
 
+    // Get WP Admin URL
     public function get_admin_url()
     {
         return admin_url();
@@ -177,6 +186,7 @@ class MenuEditor
         }
     }
 
+    // Get posts
     private function get_posts($types)
     {
         $res = [];
@@ -224,6 +234,7 @@ class MenuEditor
         };
     }
 
+    // Save menu
     private function save_menu($menu_id, $menu_data)
     {
         try {

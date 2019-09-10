@@ -1,13 +1,16 @@
-### WP Headless Menu Editor - WordPress Plugin
+### WP Headless Menu Editor
 
-#### Menu editor for headless WordPress - undepended of Appearance
-#### Adds menus to wp-json API
+#### Menu editor for headless WordPress - independent of Appearance. Adds menus to WP REST API v2.
 
-![wp-headless-menu-editor](/assets/screenshot1.png)
+#### WP Headless Menu Editor endpoints:
+* /wp-json/hme/v1/menus/
+* /wp-json/hme/v1/menus/{id}
+
+![wp-headless-menu-editor](/assets/screenshot-1.png)
 
 ### Licence GPLv3
 
-### Technology Stack
+### Technology Stack:
 #### Front-end:
 * React/Redux
 * Semantic UI React
