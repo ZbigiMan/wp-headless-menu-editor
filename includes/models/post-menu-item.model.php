@@ -1,5 +1,5 @@
 <?php
-namespace HME_MODELS;
+namespace _MODELS;
 
 class PostMenuItem
 {
