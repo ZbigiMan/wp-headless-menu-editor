@@ -53,7 +53,7 @@ describe('Action: selectMenu', () => {
       and ${types.GET_MENU_DATA_STARTED} Action`,
   () => {
     const store = mockStore(initialState)
-    fetchMock.get(config.wp_ajax_url + '?action=get_menu_data&menu_id=2', {
+    fetchMock.get(config.wp_ajax_url + '?action=hme_get_menu_data&menu_id=2', {
       body: menuDataFromAPI,
       headers: { 'content-type': 'application/json' }
     })
@@ -92,7 +92,7 @@ describe('Action: getMenuData', () => {
       ${types.GET_MENU_DATA_SUCCESS} Action playload should be an Array of MenuItem models`,
   () => {
     const store = mockStore(initialState)
-    fetchMock.get(config.wp_ajax_url + '?action=get_menu_data&menu_id=2', {
+    fetchMock.get(config.wp_ajax_url + '?action=hme_get_menu_data&menu_id=2', {
       body: menuDataFromAPI,
       headers: { 'content-type': 'application/json' }
     })
@@ -130,7 +130,7 @@ describe('Action: saveMenuData', () => {
       body: menuDataFromAPI,
       headers: { 'content-type': 'application/json' }
     })
-    fetchMock.get(config.wp_ajax_url + '?action=get_menu_data&menu_id=2', {
+    fetchMock.get(config.wp_ajax_url + '?action=hme_get_menu_data&menu_id=2', {
       body: menuDataFromAPI,
       headers: { 'content-type': 'application/json' }
     })
@@ -241,7 +241,7 @@ describe('Action: createMenu', () => {
       },
       headers: { 'content-type': 'application/json' }
     })
-    fetchMock.get(config.wp_ajax_url + '?action=get_menu_data&menu_id=2', {
+    fetchMock.get(config.wp_ajax_url + '?action=hme_get_menu_data&menu_id=2', {
       body: menuDataFromAPI,
       headers: { 'content-type': 'application/json' }
     })

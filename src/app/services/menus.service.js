@@ -24,7 +24,7 @@ class MenusService {
     return this.$ajax.get({
       url: config.wp_ajax_url,
       data: {
-        action: 'get_menu_data',
+        action: 'hme_get_menu_data',
         params: `menu_id=${menuId}`
       }
     }).then(res => {
@@ -36,7 +36,7 @@ class MenusService {
     return this.$ajax.post({
       url: config.wp_ajax_url,
       data: {
-        action: 'save_menu',
+        action: 'hme_save_menu',
         menu_id: menuId,
         menu_data: JSON.stringify(menuData)
       }
@@ -49,7 +49,7 @@ class MenusService {
     return this.$ajax.post({
       url: config.wp_ajax_url,
       data: {
-        action: 'create_new_menu',
+        action: 'hme_create_new_menu',
         menu_name: menuName
       }
     }).then(res => {
@@ -61,7 +61,7 @@ class MenusService {
     return this.$ajax.post({
       url: config.wp_ajax_url,
       data: {
-        action: 'delete_menu',
+        action: 'hme_delete_menu',
         menu_id: menuId
       }
     }).then(res => {

@@ -7,8 +7,15 @@ import reducer from './_redux-reducers'
 
 /* global MODE */
 var middleware
+var mode
 
-if (MODE === 'development') {
+if (typeof MODE === 'undefined') {
+  mode = 'development'
+} else {
+  mode = MODE
+}
+
+if (mode === 'development') {
   const logger = createLogger()
   middleware = applyMiddleware(promise(), thunk, logger)
 } else {

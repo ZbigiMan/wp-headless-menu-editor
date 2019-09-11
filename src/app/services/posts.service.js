@@ -17,7 +17,7 @@ class PostsService {
     return this.$ajax.post({
       url: config.wp_ajax_url,
       data: {
-        action: 'get_posts',
+        action: 'hme_get_posts',
         types: JSON.stringify(types)
       }
     }).then(res => {

@@ -16,30 +16,30 @@ if (!defined('ABSPATH')) {
 }
 
 // Plugin constants
-define( 'PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ ) );
+define( 'HME_PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ ) );
 
-// Import MenuEditor Class
-require_once PLUGIN_DIR_PATH . '/includes/classes/menu_editor.class.php';
+// Import HMEMenuEditor Class
+require_once HME_PLUGIN_DIR_PATH . '/includes/classes/menu_editor.class.php';
 
 // Use namespace
-use _MENU_EDITOR as _menu_editor;
+use HME_MENU_EDITOR as hme_menu_editor;
 
 // Plugin Class
 class WPHeadlessMenuEditor
 {
     /**
-    * @param $menuEditor - MenuEditor Class instance
+    * @param $hme_menu_editor - HMEMenuEditor Class instance
     */
-    private $menuEditor;
+    private $hme_menu_editor;
 
     public function __construct()
     {
-        // Create MenuEditor Class instance
-        $this->$menuEditor = new _menu_editor\MenuEditor();
+        // Create HMEMenuEditor Class instance
+        $this->$hme_menu_editor = new hme_menu_editor\HMEMenuEditor();
 
         // Register initial actions
-        add_action('admin_menu', array($this, 'init_admin_menu'));
-        add_action('admin_init', array($this, 'init_assets'));
+        add_action('admin_menu', array($this, 'hme_init_admin_menu'));
+        add_action('admin_init', array($this, 'hme_init_assets'));
 
         //  Creating WP REST API v2 endpoints
         add_action('rest_api_init', function () {
@@ -47,18 +47,18 @@ class WPHeadlessMenuEditor
             // 'hme/v1/menus
             register_rest_route( 'hme/v1','/menus', array(
               'methods' => 'GET',
-              'callback' => 'get_menus_to_api',
+              'callback' => 'hme_hme_get_menus_to_api',
             ));
 
             // 'hme/v1/menus/{id}
             register_rest_route( 'hme/v1','/menus/(?P<id>\d+)', array(
                 'methods' => 'GET',
-                'callback' => 'get_menu_data_to_api',
+                'callback' => 'hme_hme_get_menu_data_to_api',
               ));
         });
 
         // Get menus endpoint action
-        function get_menus_to_api()
+        function hme_hme_get_menus_to_api()
         {
             return get_terms('nav_menu', array(
                 'hide_empty' => false,
@@ -66,19 +66,19 @@ class WPHeadlessMenuEditor
         }
 
         // Get menu data endpoint action
-        function get_menu_data_to_api($data)
+        function hme_hme_get_menu_data_to_api($data)
         {
             return wp_get_nav_menu_items($data['id']);
         }
 
-        // init MenuEditor ajax actions
-        $this->$menuEditor->init_ajax();
+        // init HMEMenuEditor ajax actions
+        $this->$hme_menu_editor->init_ajax();
     }
 
     // Plugin activate
     public function activate()
     {
-        $this->init_admin_menu();
+        $this->hme_init_admin_menu();
         flush_rewrite_rules();
     }
 
@@ -89,14 +89,14 @@ class WPHeadlessMenuEditor
     }
 
     // Add plugin to admin menu
-    public function init_admin_menu()
+    public function hme_init_admin_menu()
     {
         // Menu Editor
         add_menu_page('Menu Editor',
             'Menu Editor',
             'manage_options',
             'menus_editor',
-            array($this, 'init_menu_editor'),
+            array($this, 'inithme_menu_editor'),
             'dashicons-list-view',
             2);
 
@@ -111,11 +111,11 @@ class WPHeadlessMenuEditor
     }
 
     // Init assets: javascripts and styles
-    public function init_assets()
+    public function hme_init_assets()
     {
         wp_register_script('script_handle', plugin_dir_url(__FILE__) . '/scripts/menu_editor.js');
 
-        $data = $this->$menuEditor->get_initial_data();
+        $data = $this->$hme_menu_editor->hme_get_initial_data();
 
         wp_enqueue_script('script_handle');
         wp_localize_script('script_handle', 'data', $data);
@@ -123,17 +123,17 @@ class WPHeadlessMenuEditor
     }
 
     // Init Menu Editor
-    public function init_menu_editor()
+    public function inithme_menu_editor()
     {
-        $this->init_assets();
-        require_once PLUGIN_DIR_PATH. '/includes/templates/menu_editor.template.php';
+        $this->hme_init_assets();
+        require_once HME_PLUGIN_DIR_PATH. '/includes/templates/menu_editor.template.php';
     }
 
     // Init Menu API
     public function init_menu_api()
     {
-        $this->init_assets();
-        require_once PLUGIN_DIR_PATH. '/includes/templates/menu_api.template.php';
+        $this->hme_init_assets();
+        require_once HME_PLUGIN_DIR_PATH. '/includes/templates/menu_api.template.php';
     }
 }
 
