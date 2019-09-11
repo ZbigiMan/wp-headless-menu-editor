@@ -24,11 +24,11 @@ class MenuEditorContainer extends React.Component {
         <ConfirmRemoveMenu />
         <ModalCreateMenu />
         <Grid>
-          <Grid.Column width={6} className='main'>
+          <Grid.Column computer={8} tablet={16} mobile={16} className='main'>
             <PostsSelect />
             <PostsList />
           </Grid.Column>
-          <Grid.Column width={10} className='main'>
+          <Grid.Column computer={8} tablet={16} mobile={16} className='main'>
             <MenuEditor />
             <MenusSelect />
           </Grid.Column>
