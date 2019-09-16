@@ -35,7 +35,7 @@ class WPHeadlessMenuEditor
     public function __construct()
     {
         // Create HMEMenuEditor Class instance
-        $this->$hme_menu_editor = new hme_menu_editor\HMEMenuEditor();
+        $this->hme_menu_editor = new hme_menu_editor\HMEMenuEditor();
 
         // Register initial actions
         add_action('admin_menu', array($this, 'hme_init_admin_menu'));
@@ -72,7 +72,7 @@ class WPHeadlessMenuEditor
         }
 
         // init HMEMenuEditor ajax actions
-        $this->$hme_menu_editor->init_ajax();
+        $this->hme_menu_editor->init_ajax();
     }
 
     // Plugin activate
@@ -96,7 +96,7 @@ class WPHeadlessMenuEditor
             'Menu Editor',
             'manage_options',
             'menus_editor',
-            array($this, 'inithme_menu_editor'),
+            array($this, 'hme_init_menu_editor'),
             'dashicons-list-view',
             2);
 
@@ -115,7 +115,7 @@ class WPHeadlessMenuEditor
     {
         wp_register_script('script_handle', plugin_dir_url(__FILE__) . '/scripts/menu_editor.js');
 
-        $data = $this->$hme_menu_editor->hme_get_initial_data();
+        $data = $this->hme_menu_editor->hme_get_initial_data();
 
         wp_enqueue_script('script_handle');
         wp_localize_script('script_handle', 'data', $data);
@@ -123,7 +123,7 @@ class WPHeadlessMenuEditor
     }
 
     // Init Menu Editor
-    public function inithme_menu_editor()
+    public function hme_init_menu_editor()
     {
         $this->hme_init_assets();
         require_once HME_PLUGIN_DIR_PATH. '/includes/templates/menu_editor.template.php';

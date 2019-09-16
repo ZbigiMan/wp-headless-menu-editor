@@ -3,7 +3,7 @@ namespace HME_MODELS;
 
 class MenuItem
 {
-    public $model;
+    private $model;
 
     public function __construct($data)
     {
@@ -22,6 +22,11 @@ class MenuItem
             "menu-item-xfn" => $data["xfn"] || "",
             "menu-item-status" => "publish"
         );
+    }
+
+    public function get_model()
+    {
+        return $this->$model;
     }
 
 }

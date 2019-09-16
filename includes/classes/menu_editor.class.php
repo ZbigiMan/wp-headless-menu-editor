@@ -66,7 +66,7 @@ class HMEMenuEditor
     // Create new menu
     public function ajax_hme_create_new_menu()
     {
-        $menu_name = $_POST["menu_name"];
+        $menu_name = sanitize_text_field($_POST["menu_name"]);
         if (isset($menu_name)) {
             $new_menu_id = $this->hme_create_menu($menu_name, []);
             $res = array(
@@ -81,7 +81,7 @@ class HMEMenuEditor
     // Delete menu
     public function ajax_hme_delete_menu()
     {
-        $menu_id = $_POST['menu_id'];
+        $menu_id = $this->hme_sanitize_int($_POST['menu_id']);
         if (isset($menu_id) && intval($menu_id)) {
             wp_delete_nav_menu($menu_id);
             $res = array(
@@ -175,18 +175,14 @@ class HMEMenuEditor
     public function ajax_hme_get_posts()
     {
         $types = $_POST["types"];
-        if (isset($types)) {
+        $types = stripslashes($types);
+        $types = json_decode($types, true);
+        $types = $this->hme_sanitize_array_of_strings($types);
 
-            $types = $_POST["types"];
-            $types = stripslashes($types);
-            $types = json_decode($types, true);
-
-            if (is_array($types)) {
-                $posts = $this->hme_get_posts($types);
-
+        if (isset($types) && is_array($types)) {
+            $posts = $this->hme_get_posts($types);
             echo json_encode($posts);
             wp_die();
-            }
         }
     }
 
@@ -217,7 +213,7 @@ class HMEMenuEditor
             $post->description = $post_object->description;
 
             $post_menu_item = new hme_models\PostMenuItem($post);
-            array_push($res, $post_menu_item->$model);
+            array_push($res, $post_menu_item->get_model());
         }
         return $res;
     }
@@ -225,18 +221,14 @@ class HMEMenuEditor
     // AjaxService save menu
     public function ajax_hme_save_menu()
     {
-        $menu_id = $_POST["menu_id"];
-        $menu_data = $_POST["menu_data"];
+        $menu_id = $this->hme_sanitize_int($_POST["menu_id"]);
+        $menu_data = $this->hme_sanitize_menu_data($_POST["menu_data"]);
 
         if (isset($menu_id) && intval($menu_id) && isset($menu_data)) {
-            $menu_data = stripslashes($menu_data);
-            $menu_data = json_decode($menu_data, true);
+            $this->hme_save_menu($menu_id, $menu_data);
+            echo json_encode(wp_get_nav_menu_items($menu_id));
+            wp_die();
 
-            if (is_array($menu_data)) {
-                $this->hme_save_menu($menu_id, $menu_data);
-                echo json_encode(wp_get_nav_menu_items($menu_id));
-                wp_die();
-            }
         }
     }
 
@@ -249,15 +241,98 @@ class HMEMenuEditor
                 wp_update_nav_menu_item(
                     $menu_id,
                     $data["db_id"],
-                    $menu_item->$model
+                    $menu_item->get_model()
                 );
 
                 if ($data["__delete"] === true) {
                     wp_delete_post($data["db_id"]);
                 }
             };
-        } catch (Exception $e) {
+       } catch (Exception $e) {
             echo $e->getMessage();
+       }
+    }
+
+    // Sanitize int value
+    private function hme_sanitize_int($value)
+    {
+        return filter_var(strip_tags(trim($value)), FILTER_SANITIZE_NUMBER_INT);
+    }
+
+    // Sanitize array of strings
+    private function hme_sanitize_array_of_strings($array)
+    {
+        $filtered_array = array();
+        foreach($array as $value) {
+            array_push($filtered_array, sanitize_text_field($value));
         }
+        return $filtered_array;
+    }
+
+    // Sanitize date
+    private function hme_sanitize_date($date, $format = 'Y-m-d H:i:s')
+    {
+        $d = strtotime($date);
+        if (date($format, $d) === $date) {
+            return $date;
+        }
+        return null;
+    }
+
+    private function hme_sanitize_boolean($value)
+    {
+        return filter_var(strip_tags(trim($value)), FILTER_VALIDATE_BOOLEAN);
+    }
+
+    // Sanitize WP Menu data
+    private function hme_sanitize_menu_data($menu_data)
+    {
+        $menu_data = stripslashes($menu_data);
+        $menu_data = json_decode($menu_data, true);
+        $filtered_data = array();
+
+        foreach($menu_data as $value) {
+            array_push($filtered_data, array(
+                "ID" => $this->hme_sanitize_int($value["ID"]),
+                "post_author" => $this->hme_sanitize_int($value["post_author"]),
+                "post_date" => $this->hme_sanitize_date($value["post_date"]),
+                "post_date_gmt" => $this->hme_sanitize_date($value["post_date_gmt"]),
+                "post_content" => sanitize_text_field($value["post_content"]),
+                "post_title" => sanitize_title($value["post_title"]),
+                "post_excerpt" => sanitize_text_field($value["post_excerpt"]),
+                "post_status" => sanitize_text_field($value["post_status"]),
+                "comment_status" => sanitize_text_field($value["comment_status"]),
+                "ping_status" => sanitize_text_field($value["ping_status"]),
+                "post_password" => sanitize_text_field($value["post_password"]),
+                "post_name" => sanitize_text_field($value["post_name"]),
+                "to_ping" => sanitize_text_field($value["to_ping"]),
+                "pinged" => sanitize_text_field($value["pinged"]),
+                "post_modified" => $this->hme_sanitize_date($value["post_modified"]),
+                "post_modified_gmt" => $this->hme_sanitize_date($value["post_modified_gmt"]),
+                "post_content_filtered" => sanitize_text_field($value["post_content_filtered"]),
+                "post_parent" => $this->hme_sanitize_int($value["post_parent"]),
+                "guid" => esc_url_raw($value["guid"]),
+                "menu_order" => $this->hme_sanitize_int($value["menu_order"]),
+                "post_type" => sanitize_text_field($value["post_type"]),
+                "post_mime_type" => sanitize_text_field($value["post_mime_type"]),
+                "comment_count" => $this->hme_sanitize_int($value["comment_count"]),
+                "filter" => sanitize_text_field($value["filter"]),
+                "db_id" => $this->hme_sanitize_int($value["db_id"]),
+                "menu_item_parent" => $this->hme_sanitize_int($value["menu_item_parent"]),
+                "object_id" => $this->hme_sanitize_int($value["object_id"]),
+                "object" => sanitize_text_field($value["object"]),
+                "type" => sanitize_text_field($value["type"]),
+                "type_label" => sanitize_text_field($value["type_label"]),
+                "title" => sanitize_title($value["title"]),
+                "url" => esc_url_raw($value["url"]),
+                "target" => sanitize_text_field($value["target"]),
+                "attr_title" => sanitize_title($value["attr_title"]),
+                "description" => sanitize_text_field($value["description"]),
+                "classes" => $this->hme_sanitize_array_of_strings($value["classes"]),
+                "xfn" => sanitize_text_field($value["xfn"]),
+                "__delete" => $this->hme_sanitize_boolean($value["__delete"])
+            ));
+        }
+        return $filtered_data;
     }
 }

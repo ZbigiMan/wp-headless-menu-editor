@@ -3,11 +3,11 @@ namespace HME_MODELS;
 
 class PostMenuItem
 {
-    public $model;
+    private $model;
 
     public function __construct($data)
     {
-        $this-> $model = array(
+        $this->$model = array(
             "attr_title" => "",
             "classes" => [""],
             "description" => "",
@@ -25,5 +25,10 @@ class PostMenuItem
             "post_date" => $data->post_date,
             "post_modified" => $data->post_modified
         );
+    }
+
+    public function get_model()
+    {
+        return $this->$model;
     }
 }
