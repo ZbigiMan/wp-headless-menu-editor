@@ -56,7 +56,8 @@ class HMEMenuEditor
             "urls" => array(
                 "rest" => $this->hme_get_rest_url() . 'hme/v1/',
                 "wpajax" => $this->hme_get_ajax_url(),
-                "admin" => $this->hme_get_admin_url()
+                "admin" => $this->hme_get_admin_url(),
+                "routerBase" => $this->hme_get_router_base()
             ),
             "menus" => $menus,
             "posts_types" => $this->hme_get_posts_types()
@@ -109,6 +110,21 @@ class HMEMenuEditor
     public function hme_get_admin_url()
     {
         return admin_url();
+    }
+
+    // Get site URL
+    public function hme_get_site_domain()
+    {
+        return $_SERVER['REQUEST_SCHEME'] ."://". $_SERVER['SERVER_NAME'];
+    }
+
+    // Get router base
+    public function hme_get_router_base()
+    {
+      $admin_url = $this->hme_get_admin_url();
+      $domain = $this->hme_get_site_domain();
+      // return $domain;
+      return str_replace($domain, "", $admin_url);
     }
 
     // Create new menu

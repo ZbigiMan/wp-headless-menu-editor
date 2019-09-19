@@ -5,8 +5,6 @@ import { connect } from 'react-redux'
 import { selectMenu, setMenus } from './_redux-actions/menus.actions'
 import { setPostTypes } from './_redux-actions/posts.actions'
 
-import config from './config'
-
 import MenuEditorContainer from './components/menu-editor-container'
 import MenuApiContainer from './components/menu-api-container'
 
@@ -26,10 +24,6 @@ class App extends React.Component {
       menus_editor: false,
       menus_api: false
     }
-    config.locale = data.locale
-    config.wp_ajax_url = data.urls.wpajax
-    config.adminUrl = data.urls.admin
-    config.restUrl = data.urls.rest
 
     const i18n = new I18n()
     i18n.init()

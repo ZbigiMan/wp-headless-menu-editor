@@ -45,6 +45,7 @@ module.exports = env => {
         {
           test: /\.js/,
           type: 'javascript/auto',
+          exclude: /node_modules/,
           use: [
             'eslint-loader', 'babel-loader'
           ]
