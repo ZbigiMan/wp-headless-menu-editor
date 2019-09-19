@@ -113,7 +113,7 @@ class HMEMenuEditor
     }
 
     // Get site URL
-    public function hme_get_site_domain()
+    public function hme_get_site_base_url()
     {
         return $_SERVER['REQUEST_SCHEME'] ."://". $_SERVER['SERVER_NAME'];
     }
@@ -121,10 +121,9 @@ class HMEMenuEditor
     // Get router base
     public function hme_get_router_base()
     {
-      $admin_url = $this->hme_get_admin_url();
-      $domain = $this->hme_get_site_domain();
-      // return $domain;
-      return str_replace($domain, "", $admin_url);
+        $admin_url = str_replace(":".$_SERVER['SERVER_PORT'] , '' , $this->hme_get_admin_url());
+        $site_base_url = $this->hme_get_site_base_url();
+        return str_replace($site_base_url, "", $admin_url);
     }
 
     // Create new menu
