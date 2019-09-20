@@ -10,6 +10,7 @@
  * Copyright:   2019 Zbigi Man
  */
 
+
 // exit if accessed directly
 if (!defined('ABSPATH')) {
     exit;
