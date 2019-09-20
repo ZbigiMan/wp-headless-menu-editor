@@ -5,7 +5,7 @@
  * Description: Menu editor for headless WordPress  - independent of Appearance. Adds menus to WP REST API v2.
  * Version:     1.0.0.
  * Author:      Zbigi Man
- * Author URI:  https://zbigiman.com
+ * Author URI:  http://zbigiman.com
  * License:     GPL-2.0+
  * Copyright:   2019 Zbigi Man
  */
