@@ -3,7 +3,7 @@ Contributors: zbigiman
 Tags: Headless, Menu, Editor
 Donate link: http://zbigiman.com
 Requires at least: 4.0
-Tested up to: 4.8
+Tested up to: 5.2
 Requires PHP: 5.6
 Stable tag: 0.0.2
 License: GPLv2 or later
@@ -12,9 +12,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Menu editor for headless WordPress  - independent of Appearance. Adds menus to WP REST API v2.
 
 == Description ==
-Modern Menu Editor with live saveing makes creating site tree easy. All independent of Appearance. Adds Menus API viewer to admin menu.
+What this plugin does.
+* Adds independent of Appearance Menu Editor to WordPress Admin Panel
+* Adds menus to WP REST API v2.
+* Adds menus API viewer to WordPress Admin Panel
 
-WP Headless Menu Editor endpoints:
+WP Headless Menu Editor REST API endpoints:
 
 * /wp-json/hme/v1/menus/
 * /wp-json/hme/v1/menus/{id}
@@ -22,10 +25,6 @@ WP Headless Menu Editor endpoints:
 == Installation ==
 1. Upload "test-plugin.php" to the "/wp-content/plugins/" directory.
 2. Activate the plugin through the "Plugins" menu in WordPress.
-
-== Frequently Asked Questions ==
-= Is it awesome plugin? =
-Yes, it is!
 
 == Screenshots ==
 1. Menu Editor

@@ -1,7 +1,7 @@
 ### WP Headless Menu Editor source code
 
 ### Download plugin from here:
-# [https://wordpress.org/plugins/wp-headless-menu-editor/](https://wordpress.org/plugins/wp-headless-menu-editor/)
+### [https://wordpress.org/plugins/wp-headless-menu-editor/](https://wordpress.org/plugins/wp-headless-menu-editor/)
 
 #### Menu editor for headless WordPress - independent of Appearance. Adds menus to WP REST API v2.
 
@@ -22,5 +22,3 @@
 #### Backend:
 * PHP7
 * WordPress Plugin API
-
-
