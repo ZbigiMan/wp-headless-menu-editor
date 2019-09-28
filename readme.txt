@@ -12,7 +12,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Menu editor for headless WordPress  - independent of Appearance. Adds menus to WP REST API v2.
 
 == Description ==
-What this plugin does.
+What this plugin does:
+
 * Adds independent of Appearance Menu Editor to WordPress Admin Panel
 * Adds menus to WP REST API v2.
 * Adds menus API viewer to WordPress Admin Panel
