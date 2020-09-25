@@ -155,6 +155,11 @@ class HMEMenuEditor
         $menu_id = $_GET["menu_id"];
         if (isset($menu_id) && intval($menu_id)) {
             $menu_items = wp_get_nav_menu_items($menu_id);
+            foreach ($menu_items as $item) {
+                $title = get_the_title($item->object_id);
+                $item->title = $title;
+                $item->post_title = $title;
+            }
             echo json_encode($menu_items);
             wp_die();
         };
